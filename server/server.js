@@ -120,44 +120,8 @@ const sendLeadNotificationAsync = async (lead) => {
     } catch (mailErr) {
       console.error('[EMAIL ERROR] Failed to send email via SMTP:', mailErr.message);
     }
-  }
-
-  // Fallback to FormSubmit if SMTP failed or not configured
-  if (!emailSent && typeof fetch !== 'undefined') {
-    try {
-      const fsRes = await fetch(`https://formsubmit.co/ajax/${adminEmail}`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json',
-          'Origin': 'https://tsoor-hartov.vercel.app',
-          'Referer': 'https://tsoor-hartov.vercel.app/'
-        },
-        body: JSON.stringify({
-          _subject: subject,
-          _captcha: 'false',
-          _template: 'table',
-          _replyto: validEmail || undefined,
-          name,
-          phone,
-          email: validEmail || 'לא צוין',
-          businessType: businessType || 'כללי',
-          currentWebsite: currentWebsite || 'אין',
-          needs: Array.isArray(needs) ? needs.join(', ') : needs,
-          message: message || 'אין הודעה נוספת',
-          submittedAt: new Date().toLocaleString('he-IL', { timeZone: 'Asia/Jerusalem' })
-        })
-      });
-      const fsData = await fsRes.json();
-      if (fsData.success === 'true' || fsData.success === true) {
-        emailSent = true;
-        console.log('[EMAIL DISPATCH] Lead email sent to FormSubmit from server.');
-      } else {
-        console.warn('[EMAIL WARNING] Server FormSubmit returned:', fsData.message);
-      }
-    } catch (fsErr) {
-      console.warn('[EMAIL WARNING] Server FormSubmit request failed:', fsErr.message);
-    }
+  } else {
+    console.log('[LEAD NOTIFICATION] SMTP not configured on server; client-side FormSubmit delivers email directly to inbox.');
   }
 
   return emailSent;

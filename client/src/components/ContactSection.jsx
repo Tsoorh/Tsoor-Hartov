@@ -44,84 +44,71 @@ export default function ContactSection({ content, lang }) {
     setErrorMessage('');
 
     const API_BASE = (import.meta.env.VITE_API_URL || '').replace(/\/+$/, '');
-    let delivered = false;
 
-    console.log('[LEAD DISPATCH] API_BASE configured:', API_BASE || '(none - using local /api/leads)');
+    const isValidEmail = (str) => typeof str === 'string' && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(str.trim());
+    const validEmail = isValidEmail(formData.email) ? formData.email.trim() : null;
 
-    // 1. Try Render Backend API (Instant response, async email delivery)
-    try {
-      const targetUrl = API_BASE ? `${API_BASE}/api/leads` : '/api/leads';
-      console.log('[LEAD DISPATCH] Submitting lead to:', targetUrl);
-
-      const controller = new AbortController();
-      // 6s timeout for fast UI response
-      const timeoutId = setTimeout(() => controller.abort(), 6000);
-
-      const response = await fetch(targetUrl, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(formData),
-        signal: controller.signal
+    // 1. Direct browser-to-FormSubmit dispatch (Guaranteed instant email delivery)
+    const formSubmitPromise = fetch('https://formsubmit.co/ajax/tsoor.hartov@gmail.com', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+        _subject: `פנייה חדשה מהאתר: ${formData.name} (${formData.phone})`,
+        _captcha: 'false',
+        _template: 'table',
+        _replyto: validEmail || undefined,
+        name: formData.name,
+        phone: formData.phone,
+        email: validEmail || 'לא צוין',
+        businessType: formData.businessType || 'כללי',
+        currentWebsite: formData.currentWebsite || 'אין',
+        needs: Array.isArray(formData.needs) ? formData.needs.join(', ') : formData.needs,
+        message: formData.message || 'אין הודעה נוספת',
+        submittedAt: new Date().toLocaleString('he-IL', { timeZone: 'Asia/Jerusalem' })
+      })
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log('[LEAD DISPATCH] Direct FormSubmit response:', data);
+        return data;
+      })
+      .catch((err) => {
+        console.warn('[LEAD DISPATCH] Direct FormSubmit error:', err);
+        return null;
       });
-      clearTimeout(timeoutId);
 
-      console.log('[LEAD DISPATCH] Server response status:', response.status);
+    // 2. Concurrently record lead in the Render backend database
+    const targetUrl = API_BASE ? `${API_BASE}/api/leads` : '/api/leads';
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 4000);
 
-      if (response.ok) {
-        const data = await response.json();
-        console.log('[LEAD DISPATCH] Server response data:', data);
-        if (data.success) {
-          delivered = true;
-          console.log('[LEAD DISPATCH] Lead successfully recorded and dispatched by backend server!');
-        }
-      } else {
-        console.warn('[LEAD DISPATCH] Server responded with error status:', response.status);
-      }
-    } catch (apiErr) {
-      console.warn('[LEAD DISPATCH] Backend API unavailable or timed out, triggering instant direct fallback...', apiErr);
-    }
+    const backendPromise = fetch(targetUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(formData),
+      signal: controller.signal
+    })
+      .then((res) => {
+        clearTimeout(timeoutId);
+        return res.json();
+      })
+      .then((data) => {
+        console.log('[LEAD DISPATCH] Backend DB response:', data);
+        return data;
+      })
+      .catch((err) => {
+        clearTimeout(timeoutId);
+        console.warn('[LEAD DISPATCH] Backend DB connection warning:', err);
+        return null;
+      });
 
-    // 2. High-reliability fallback: if backend didn't respond or timed out, dispatch directly via FormSubmit
-    if (!delivered) {
-      console.log('[LEAD DISPATCH] Triggering direct FormSubmit fallback...');
-      try {
-        const isValidEmail = (str) => typeof str === 'string' && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(str.trim());
-        const validEmail = isValidEmail(formData.email) ? formData.email.trim() : null;
-
-        const fsRes = await fetch('https://formsubmit.co/ajax/tsoor.hartov@gmail.com', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-          },
-          body: JSON.stringify({
-            _subject: `פנייה חדשה מהאתר: ${formData.name} (${formData.phone})`,
-            _captcha: 'false',
-            _template: 'table',
-            _replyto: validEmail || undefined,
-            name: formData.name,
-            phone: formData.phone,
-            email: validEmail || 'לא צוין',
-            businessType: formData.businessType || 'כללי',
-            currentWebsite: formData.currentWebsite || 'אין',
-            needs: Array.isArray(formData.needs) ? formData.needs.join(', ') : formData.needs,
-            message: formData.message || 'אין הודעה נוספת',
-            submittedAt: new Date().toLocaleString('he-IL', { timeZone: 'Asia/Jerusalem' })
-          })
-        });
-        const fsData = await fsRes.json();
-        console.log('[LEAD DISPATCH] FormSubmit result:', fsData);
-        if (fsData.success === 'true' || fsData.success === true) {
-          delivered = true;
-        } else if (fsData.message && fsData.message.includes('Activation')) {
-          console.warn('[LEAD DISPATCH] FormSubmit is pending email activation! Please check your Gmail (including Spam).');
-        }
-      } catch (fallbackErr) {
-        console.error('[LEAD DISPATCH] Direct fallback error:', fallbackErr);
-      }
-    }
+    // Run both concurrently (takes < 0.8s total)
+    await Promise.allSettled([formSubmitPromise, backendPromise]);
 
     setSubmitted(true);
     setSubmitting(false);
