@@ -46,11 +46,16 @@ export default function ContactSection({ content, lang }) {
     const API_BASE = (import.meta.env.VITE_API_URL || '').replace(/\/+$/, '');
     let delivered = false;
 
+    console.log('[LEAD DISPATCH] API_BASE configured:', API_BASE || '(none - using local /api/leads)');
+
     // 1. Try Render Backend API (if VITE_API_URL is configured or relative proxy)
     try {
       const targetUrl = API_BASE ? `${API_BASE}/api/leads` : '/api/leads';
+      console.log('[LEAD DISPATCH] Submitting lead to:', targetUrl);
+
       const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 7000); // 7s timeout safeguard against free-tier cold starts
+      // 35s timeout to allow Render free-tier cold start if sleeping
+      const timeoutId = setTimeout(() => controller.abort(), 35000);
 
       const response = await fetch(targetUrl, {
         method: 'POST',
@@ -62,18 +67,27 @@ export default function ContactSection({ content, lang }) {
       });
       clearTimeout(timeoutId);
 
+      console.log('[LEAD DISPATCH] Server response status:', response.status);
+
       if (response.ok) {
         const data = await response.json();
+        console.log('[LEAD DISPATCH] Server response data:', data);
         if (data.emailSent) {
           delivered = true;
+          console.log('[LEAD DISPATCH] Email successfully sent via backend server!');
+        } else {
+          console.warn('[LEAD DISPATCH] Server received lead, but emailSent is false:', data.emailMethod);
         }
+      } else {
+        console.warn('[LEAD DISPATCH] Server responded with error status:', response.status);
       }
     } catch (apiErr) {
-      console.warn('Backend API unavailable or timed out, triggering instant direct email fallback...', apiErr);
+      console.warn('[LEAD DISPATCH] Backend API unavailable or timed out, triggering instant direct fallback...', apiErr);
     }
 
     // 2. High-reliability fallback: if backend didn't send email or is sleeping, dispatch directly via FormSubmit
     if (!delivered) {
+      console.log('[LEAD DISPATCH] Triggering direct FormSubmit fallback...');
       try {
         const fsRes = await fetch('https://formsubmit.co/ajax/tsoor.hartov@gmail.com', {
           method: 'POST',
@@ -96,11 +110,14 @@ export default function ContactSection({ content, lang }) {
           })
         });
         const fsData = await fsRes.json();
+        console.log('[LEAD DISPATCH] FormSubmit result:', fsData);
         if (fsData.success === 'true' || fsData.success === true) {
           delivered = true;
+        } else if (fsData.message && fsData.message.includes('Activation')) {
+          console.warn('[LEAD DISPATCH] FormSubmit is pending email activation! Please check your Gmail (including Spam).');
         }
       } catch (fallbackErr) {
-        console.error('Direct fallback error:', fallbackErr);
+        console.error('[LEAD DISPATCH] Direct fallback error:', fallbackErr);
       }
     }
 
