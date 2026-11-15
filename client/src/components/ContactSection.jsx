@@ -48,14 +48,14 @@ export default function ContactSection({ content, lang }) {
 
     console.log('[LEAD DISPATCH] API_BASE configured:', API_BASE || '(none - using local /api/leads)');
 
-    // 1. Try Render Backend API (if VITE_API_URL is configured or relative proxy)
+    // 1. Try Render Backend API (Instant response, async email delivery)
     try {
       const targetUrl = API_BASE ? `${API_BASE}/api/leads` : '/api/leads';
       console.log('[LEAD DISPATCH] Submitting lead to:', targetUrl);
 
       const controller = new AbortController();
-      // 35s timeout to allow Render free-tier cold start if sleeping
-      const timeoutId = setTimeout(() => controller.abort(), 35000);
+      // 6s timeout for fast UI response
+      const timeoutId = setTimeout(() => controller.abort(), 6000);
 
       const response = await fetch(targetUrl, {
         method: 'POST',
@@ -72,11 +72,9 @@ export default function ContactSection({ content, lang }) {
       if (response.ok) {
         const data = await response.json();
         console.log('[LEAD DISPATCH] Server response data:', data);
-        if (data.emailSent) {
+        if (data.success) {
           delivered = true;
-          console.log('[LEAD DISPATCH] Email successfully sent via backend server!');
-        } else {
-          console.warn('[LEAD DISPATCH] Server received lead, but emailSent is false:', data.emailMethod);
+          console.log('[LEAD DISPATCH] Lead successfully recorded and dispatched by backend server!');
         }
       } else {
         console.warn('[LEAD DISPATCH] Server responded with error status:', response.status);
@@ -85,10 +83,13 @@ export default function ContactSection({ content, lang }) {
       console.warn('[LEAD DISPATCH] Backend API unavailable or timed out, triggering instant direct fallback...', apiErr);
     }
 
-    // 2. High-reliability fallback: if backend didn't send email or is sleeping, dispatch directly via FormSubmit
+    // 2. High-reliability fallback: if backend didn't respond or timed out, dispatch directly via FormSubmit
     if (!delivered) {
       console.log('[LEAD DISPATCH] Triggering direct FormSubmit fallback...');
       try {
+        const isValidEmail = (str) => typeof str === 'string' && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(str.trim());
+        const validEmail = isValidEmail(formData.email) ? formData.email.trim() : null;
+
         const fsRes = await fetch('https://formsubmit.co/ajax/tsoor.hartov@gmail.com', {
           method: 'POST',
           headers: {
@@ -96,12 +97,13 @@ export default function ContactSection({ content, lang }) {
             'Accept': 'application/json'
           },
           body: JSON.stringify({
-            _subject: `🔥 ליד חדש מהאתר: ${formData.name} (${formData.phone})`,
+            _subject: `פנייה חדשה מהאתר: ${formData.name} (${formData.phone})`,
             _captcha: 'false',
             _template: 'table',
+            _replyto: validEmail || undefined,
             name: formData.name,
             phone: formData.phone,
-            email: formData.email || 'לא צוין',
+            email: validEmail || 'לא צוין',
             businessType: formData.businessType || 'כללי',
             currentWebsite: formData.currentWebsite || 'אין',
             needs: Array.isArray(formData.needs) ? formData.needs.join(', ') : formData.needs,

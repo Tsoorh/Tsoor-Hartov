@@ -28,12 +28,139 @@ const createTransporter = () => {
   }
 
   return nodemailer.createTransport({
-    service: 'gmail',
+    host: 'smtp.gmail.com',
+    port: 465,
+    secure: true,
+    family: 4, // Force IPv4 to prevent cloud IPv6 DNS/connection hangs
+    connectionTimeout: 8000,
+    greetingTimeout: 8000,
+    socketTimeout: 10000,
     auth: {
       user,
       pass
     }
   });
+};
+
+// Email validation helper
+const isValidEmail = (emailStr) => {
+  return typeof emailStr === 'string' && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailStr.trim());
+};
+
+// Async non-blocking lead email notification
+const sendLeadNotificationAsync = async (lead) => {
+  const { name, phone, email, businessType, currentWebsite, needs, message } = lead;
+  const adminEmail = process.env.ADMIN_EMAIL || 'tsoor.hartov@gmail.com';
+  const transporter = createTransporter();
+  let emailSent = false;
+
+  const rawDigits = (phone || '').replace(/[^0-9]/g, '');
+  const waDigits = rawDigits.startsWith('972') ? rawDigits : rawDigits.replace(/^0/, '972');
+  const waLink = `https://wa.me/${waDigits}?text=${encodeURIComponent(`היי ${name}, צור הרטוב כאן בקשר לפנייתך באתר!`)}`;
+  const validEmail = isValidEmail(email) ? email.trim() : null;
+
+  const subject = `פנייה חדשה מהאתר: ${name} (${phone}) - ${businessType || 'עסק'}`;
+
+  const plainText = [
+    `פנייה חדשה התקבלה באתר:`,
+    `----------------------------------------`,
+    `שם הלקוח: ${name}`,
+    `טלפון: ${phone}`,
+    validEmail ? `אימייל: ${validEmail}` : `אימייל: לא צוין`,
+    `תחום עיסוק: ${businessType || 'לא צוין'}`,
+    currentWebsite ? `אתר קיים: ${currentWebsite}` : null,
+    `מעוניין ב: ${Array.isArray(needs) ? needs.join(', ') : needs}`,
+    message ? `הודעה:\n${message}` : null,
+    `----------------------------------------`,
+    `מענה מהיר ב-WhatsApp: ${waLink}`,
+    `תאריך ושעה: ${new Date().toLocaleString('he-IL', { timeZone: 'Asia/Jerusalem' })}`
+  ].filter(Boolean).join('\n');
+
+  if (transporter) {
+    const mailOptions = {
+      from: `"צור הרטוב - אתר" <${process.env.SMTP_USER || adminEmail}>`,
+      to: adminEmail,
+      replyTo: validEmail || undefined,
+      subject,
+      text: plainText,
+      html: `
+        <div dir="rtl" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background: #0f172a; color: #f8fafc; padding: 25px; border-radius: 12px; max-width: 600px; margin: 0 auto;">
+          <div style="border-bottom: 2px solid #14b8a6; padding-bottom: 12px; margin-bottom: 18px;">
+            <h2 style="color: #14b8a6; margin: 0 0 6px 0; font-size: 22px;">פנייה חדשה מהאתר</h2>
+            <p style="color: #94a3b8; margin: 0; font-size: 13px;">התקבל בתאריך: ${new Date().toLocaleString('he-IL', { timeZone: 'Asia/Jerusalem' })}</p>
+          </div>
+
+          <div style="background: #1e293b; padding: 18px; border-radius: 8px; margin-bottom: 18px; border: 1px solid #334155;">
+            <h3 style="color: #f1f5f9; margin-top: 0; font-size: 16px; border-bottom: 1px solid #334155; padding-bottom: 6px;">פרטי הפנייה</h3>
+            <p style="margin: 8px 0; font-size: 14px;"><strong>שם הלקוח:</strong> ${name}</p>
+            <p style="margin: 8px 0; font-size: 14px;"><strong>טלפון:</strong> <a href="tel:${phone}" style="color: #38bdf8; text-decoration: none;">${phone}</a></p>
+            ${validEmail ? `<p style="margin: 8px 0; font-size: 14px;"><strong>אימייל:</strong> <a href="mailto:${validEmail}" style="color: #38bdf8; text-decoration: none;">${validEmail}</a></p>` : ''}
+            <p style="margin: 8px 0; font-size: 14px;"><strong>תחום עיסוק:</strong> ${businessType || 'לא צוין'}</p>
+            ${currentWebsite ? `<p style="margin: 8px 0; font-size: 14px;"><strong>אתר קיים:</strong> <a href="${currentWebsite}" target="_blank" style="color: #38bdf8;">${currentWebsite}</a></p>` : ''}
+            <p style="margin: 8px 0; font-size: 14px;"><strong>מעוניין ב:</strong> ${Array.isArray(needs) ? needs.join(', ') : needs}</p>
+            ${message ? `<div style="margin-top: 12px; padding: 10px; background: #0f172a; border-radius: 6px; border-right: 3px solid #14b8a6; font-size: 13px;"><strong>הודעה:</strong><br/>${message.replace(/\n/g, '<br/>')}</div>` : ''}
+          </div>
+
+          <div style="text-align: center; margin-top: 20px;">
+            <a href="${waLink}" target="_blank" style="background: #25D366; color: white; padding: 10px 20px; border-radius: 8px; text-decoration: none; font-weight: bold; display: inline-block; margin-left: 8px; font-size: 14px;">
+              מענה מהיר ב-WhatsApp
+            </a>
+            <a href="tel:${phone}" style="background: #0284c7; color: white; padding: 10px 20px; border-radius: 8px; text-decoration: none; font-weight: bold; display: inline-block; font-size: 14px;">
+              חייג ללקוח
+            </a>
+          </div>
+        </div>
+      `
+    };
+
+    try {
+      await transporter.sendMail(mailOptions);
+      emailSent = true;
+      console.log(`[EMAIL DISPATCH] Lead email sent to ${adminEmail} via SMTP successfully.`);
+    } catch (mailErr) {
+      console.error('[EMAIL ERROR] Failed to send email via SMTP:', mailErr.message);
+    }
+  }
+
+  // Fallback to FormSubmit if SMTP failed or not configured
+  if (!emailSent && typeof fetch !== 'undefined') {
+    try {
+      const fsRes = await fetch(`https://formsubmit.co/ajax/${adminEmail}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+          'Origin': 'https://tsoor-hartov.vercel.app',
+          'Referer': 'https://tsoor-hartov.vercel.app/'
+        },
+        body: JSON.stringify({
+          _subject: subject,
+          _captcha: 'false',
+          _template: 'table',
+          _replyto: validEmail || undefined,
+          name,
+          phone,
+          email: validEmail || 'לא צוין',
+          businessType: businessType || 'כללי',
+          currentWebsite: currentWebsite || 'אין',
+          needs: Array.isArray(needs) ? needs.join(', ') : needs,
+          message: message || 'אין הודעה נוספת',
+          submittedAt: new Date().toLocaleString('he-IL', { timeZone: 'Asia/Jerusalem' })
+        })
+      });
+      const fsData = await fsRes.json();
+      if (fsData.success === 'true' || fsData.success === true) {
+        emailSent = true;
+        console.log('[EMAIL DISPATCH] Lead email sent to FormSubmit from server.');
+      } else {
+        console.warn('[EMAIL WARNING] Server FormSubmit returned:', fsData.message);
+      }
+    } catch (fsErr) {
+      console.warn('[EMAIL WARNING] Server FormSubmit request failed:', fsErr.message);
+    }
+  }
+
+  return emailSent;
 };
 
 // Path to store leads locally
@@ -251,8 +378,8 @@ app.post('/api/estimate', (req, res) => {
   });
 });
 
-// 5. Submit Lead / Contact Form
-app.post('/api/leads', async (req, res) => {
+// 5. Submit Lead / Contact Form (Instant <50ms response, async background dispatch)
+app.post('/api/leads', (req, res) => {
   try {
     const { name, phone, email, businessType, currentWebsite, needs, budget, message, referralSource } = req.body;
 
@@ -296,110 +423,20 @@ app.post('/api/leads', async (req, res) => {
 
     console.log(`[AUTOMATION TRIGGER] New Lead Received: ${name} (${phone}) - Business: ${businessType}`);
 
-    // Send email notification to Tsoor
-    const adminEmail = process.env.ADMIN_EMAIL || 'tsoor.hartov@gmail.com';
-    const transporter = createTransporter();
-    let emailSent = false;
-    let emailMethod = 'none';
+    // Asynchronously dispatch email notification in the background (Non-blocking)
+    sendLeadNotificationAsync(newLead).catch((dispatchErr) => {
+      console.error('[BG NOTIFICATION ERROR]', dispatchErr.message);
+    });
 
-    if (transporter) {
-      const rawDigits = phone.replace(/[^0-9]/g, '');
-      const waDigits = rawDigits.startsWith('972') ? rawDigits : rawDigits.replace(/^0/, '972');
-      const waLink = `https://wa.me/${waDigits}?text=${encodeURIComponent(`היי ${name}, צור הרטוב כאן בקשר לפנייתך באתר!`)}`;
-
-      const mailOptions = {
-        from: `"צור הרטוב - ליד חדש" <${process.env.SMTP_USER || adminEmail}>`,
-        to: adminEmail,
-        replyTo: email || undefined,
-        subject: `🔥 ליד חדש מהאתר: ${name} (${phone}) - ${businessType || 'עסק'}`,
-        html: `
-          <div dir="rtl" style="font-family: Arial, sans-serif; background: #0f172a; color: #f8fafc; padding: 25px; border-radius: 12px; max-width: 600px; margin: 0 auto;">
-            <div style="border-bottom: 2px solid #14b8a6; padding-bottom: 12px; margin-bottom: 18px;">
-              <h2 style="color: #14b8a6; margin: 0 0 6px 0; font-size: 22px;">🚀 ליד חדש נכנס מהאתר!</h2>
-              <p style="color: #94a3b8; margin: 0; font-size: 13px;">התקבל בתאריך: ${new Date().toLocaleString('he-IL', { timeZone: 'Asia/Jerusalem' })}</p>
-            </div>
-
-            <div style="background: #1e293b; padding: 18px; border-radius: 8px; margin-bottom: 18px; border: 1px solid #334155;">
-              <h3 style="color: #f1f5f9; margin-top: 0; font-size: 16px; border-bottom: 1px solid #334155; padding-bottom: 6px;">פרטי הפנייה</h3>
-              <p style="margin: 8px 0; font-size: 14px;"><strong>שם הלקוח:</strong> ${name}</p>
-              <p style="margin: 8px 0; font-size: 14px;"><strong>טלפון:</strong> <a href="tel:${phone}" style="color: #38bdf8; text-decoration: none;">${phone}</a></p>
-              ${email ? `<p style="margin: 8px 0; font-size: 14px;"><strong>אימייל:</strong> <a href="mailto:${email}" style="color: #38bdf8; text-decoration: none;">${email}</a></p>` : ''}
-              <p style="margin: 8px 0; font-size: 14px;"><strong>תחום עיסוק:</strong> ${businessType || 'לא צוין'}</p>
-              ${currentWebsite ? `<p style="margin: 8px 0; font-size: 14px;"><strong>אתר קיים:</strong> <a href="${currentWebsite}" target="_blank" style="color: #38bdf8;">${currentWebsite}</a></p>` : ''}
-              <p style="margin: 8px 0; font-size: 14px;"><strong>מעוניין ב:</strong> ${Array.isArray(needs) ? needs.join(', ') : needs}</p>
-              ${message ? `<div style="margin-top: 12px; padding: 10px; background: #0f172a; border-radius: 6px; border-right: 3px solid #14b8a6; font-size: 13px;"><strong>הודעה:</strong><br/>${message.replace(/\n/g, '<br/>')}</div>` : ''}
-            </div>
-
-            <div style="text-align: center; margin-top: 20px;">
-              <a href="${waLink}" target="_blank" style="background: #25D366; color: white; padding: 10px 20px; border-radius: 8px; text-decoration: none; font-weight: bold; display: inline-block; margin-left: 8px; font-size: 14px;">
-                💬 מענה מהיר ב-WhatsApp
-              </a>
-              <a href="tel:${phone}" style="background: #0284c7; color: white; padding: 10px 20px; border-radius: 8px; text-decoration: none; font-weight: bold; display: inline-block; font-size: 14px;">
-                📞 חייג ללקוח
-              </a>
-            </div>
-          </div>
-        `
-      };
-
-      try {
-        await transporter.sendMail(mailOptions);
-        emailSent = true;
-        emailMethod = 'smtp';
-        console.log(`[EMAIL DISPATCH] Lead email sent to ${adminEmail} via SMTP`);
-      } catch (mailErr) {
-        console.error('[EMAIL ERROR] Failed to send email via SMTP:', mailErr.message);
-      }
-    } else {
-      console.log('ℹ️ Tip: Set SMTP_USER and SMTP_PASS in Render environment variables for direct Gmail delivery.');
-    }
-
-    // Server-side fallback: if SMTP is not configured or failed, dispatch via FormSubmit webhook
-    if (!emailSent && typeof fetch !== 'undefined') {
-      try {
-        const fsRes = await fetch(`https://formsubmit.co/ajax/${adminEmail}`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-          },
-          body: JSON.stringify({
-            _subject: `🔥 ליד חדש מהאתר: ${name} (${phone}) - ${businessType || 'עסק'}`,
-            _captcha: 'false',
-            _template: 'table',
-            name,
-            phone,
-            email: email || 'לא צוין',
-            businessType: businessType || 'כללי',
-            currentWebsite: currentWebsite || 'אין',
-            needs: Array.isArray(needs) ? needs.join(', ') : needs,
-            message: message || 'אין הודעה נוספת',
-            submittedAt: new Date().toLocaleString('he-IL', { timeZone: 'Asia/Jerusalem' })
-          })
-        });
-        const fsData = await fsRes.json();
-        if (fsData.success === 'true' || fsData.success === true) {
-          emailSent = true;
-          emailMethod = 'formsubmit_server';
-          console.log('[EMAIL DISPATCH] Lead email sent to FormSubmit from server.');
-        } else {
-          console.warn('[EMAIL WARNING] Server FormSubmit returned:', fsData.message);
-        }
-      } catch (fsErr) {
-        console.warn('[EMAIL WARNING] Server FormSubmit request failed:', fsErr.message);
-      }
-    }
-
-    res.status(201).json({
+    // Respond immediately to the client (< 50ms)
+    return res.status(201).json({
       success: true,
-      emailSent,
-      emailMethod,
-      message: 'הפנייה התקבלה בהצלחה! צור הרטוב יחזור אליך בהקדם.',
+      message: 'הפנייה התקבלה בהצלחה! צור יחזור אליך בהקדם.',
       leadId: newLead.id
     });
   } catch (err) {
     console.error('Error saving lead:', err);
-    res.status(500).json({
+    return res.status(500).json({
       success: false,
       error: 'אירעה שגיאה בשמירת הפנייה. נסה שוב או פנה ישירות בוואטסאפ.'
     });
