@@ -1,1 +1,19 @@
-[]
+[
+  {
+    "id": "lead_1794746317556",
+    "createdAt": "2026-11-15T12:38:37.556Z",
+    "name": "צור הרטוב",
+    "phone": "0505935609",
+    "email": "tsoor.hartov@gmail.com",
+    "businessType": "yxyxyxy",
+    "currentWebsite": "",
+    "needs": [
+      "אתר Custom יוקרתי חדש (מובייל + מחשב)",
+      "דומיין מותאם ותיבות דוא״ל עסקיות יוקרתיות"
+    ],
+    "budget": "סטנדרטי (10,000 ₪ + תחזוקה)",
+    "message": "test! \n",
+    "referralSource": "אתר ראשי / רשתות חברתיות",
+    "status": "new"
+  }
+]

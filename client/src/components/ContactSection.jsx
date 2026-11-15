@@ -63,16 +63,19 @@ export default function ContactSection({ content, lang }) {
       clearTimeout(timeoutId);
 
       if (response.ok) {
-        delivered = true;
+        const data = await response.json();
+        if (data.emailSent) {
+          delivered = true;
+        }
       }
     } catch (apiErr) {
       console.warn('Backend API unavailable or timed out, triggering instant direct email fallback...', apiErr);
     }
 
-    // 2. High-reliability fallback: if backend is sleeping or VITE_API_URL is not set yet, send directly to Tsoor's Gmail
+    // 2. High-reliability fallback: if backend didn't send email or is sleeping, dispatch directly via FormSubmit
     if (!delivered) {
       try {
-        await fetch('https://formsubmit.co/ajax/tsoor.hartov@gmail.com', {
+        const fsRes = await fetch('https://formsubmit.co/ajax/tsoor.hartov@gmail.com', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -81,6 +84,7 @@ export default function ContactSection({ content, lang }) {
           body: JSON.stringify({
             _subject: `🔥 ליד חדש מהאתר: ${formData.name} (${formData.phone})`,
             _captcha: 'false',
+            _template: 'table',
             name: formData.name,
             phone: formData.phone,
             email: formData.email || 'לא צוין',
@@ -91,7 +95,10 @@ export default function ContactSection({ content, lang }) {
             submittedAt: new Date().toLocaleString('he-IL', { timeZone: 'Asia/Jerusalem' })
           })
         });
-        delivered = true;
+        const fsData = await fsRes.json();
+        if (fsData.success === 'true' || fsData.success === true) {
+          delivered = true;
+        }
       } catch (fallbackErr) {
         console.error('Direct fallback error:', fallbackErr);
       }
@@ -108,6 +115,12 @@ export default function ContactSection({ content, lang }) {
   );
 
   const directWhatsappUrl = `https://wa.me/972505935609?text=${whatsappMessage}`;
+
+  const submittedWhatsappUrl = `https://wa.me/972505935609?text=${encodeURIComponent(
+    isRtl
+      ? `היי צור, השארתי כרגע פרטים באתר:\nשם: ${formData.name}\nטלפון: ${formData.phone}${formData.businessType ? `\nתחום: ${formData.businessType}` : ''}\nאשמח שנדבר!`
+      : `Hi Tsoor, I just submitted an inquiry on your site:\nName: ${formData.name}\nPhone: ${formData.phone}\nLooking forward to speaking!`
+  )}`;
 
   return (
     <section id="contact" className="py-24 bg-[#0b0f19] relative">
@@ -153,7 +166,7 @@ export default function ContactSection({ content, lang }) {
                   </div>
                   <div className="flex items-center gap-2">
                     <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-                    <span>{isRtl ? 'התאמת תבניות, אתרים מאפס ואוטומציות' : 'Templates, bespoke builds & automations'}</span>
+                    <span>{isRtl ? 'אתרי קאסטום פרימיום, כלים דיגיטליים ואוטומציות' : 'Custom Web Platforms, Business Tools & Automations'}</span>
                   </div>
                 </div>
               </div>
@@ -193,7 +206,7 @@ export default function ContactSection({ content, lang }) {
                 </p>
                 <div className="pt-4">
                   <a
-                    href={directWhatsappUrl}
+                    href={submittedWhatsappUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-teal-500 text-white font-semibold text-xs sm:text-sm hover:bg-teal-400 transition-colors"

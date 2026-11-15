@@ -177,7 +177,7 @@ export default function SocialMarketingPreview({ content, lang }) {
                       צור הרטוב | אתרי פרימיום ואוטומציות לעסקים
                     </div>
                     <p className={`text-xs text-slate-300 mt-1 line-clamp-2 ${isRtl ? 'text-right' : 'text-left'}`}>
-                      בניית אתרים יוקרתיים לעסקים קטנים ובינוניים, התאמת תבניות, וחיבור לוואטסאפ ולמערכות ניהול.
+                      בניית אתרי קאסטום פרימיום לעסקים, כלים דיגיטליים, וחיבור ישיר לוואטסאפ ולמערכות ניהול.
                     </p>
                   </div>
                 </div>
@@ -196,7 +196,7 @@ export default function SocialMarketingPreview({ content, lang }) {
                   </div>
                 </div>
                 <div className={`text-xs text-slate-200 mb-2 ${isRtl ? 'text-right' : 'text-left'}`}>
-                  עסקים קטנים ובינוניים: הגיע הזמן להפסיק להפסיד לקוחות על תבניות כבדות. אתר מהיר ב-0.8 שניות שמחובר ישירות לוואטסאפ שלכם.
+                  עסקים קטנים ובינוניים: הגיע הזמן לעבור את תקרת הזכוכית של אתרים כבדים. אתר קאסטום מהיר ב-0.8 שניות שמחובר ישירות לוואטסאפ שלכם.
                 </div>
                 <div className="rounded-xl overflow-hidden border border-slate-700/60 bg-[#242526]">
                   <img

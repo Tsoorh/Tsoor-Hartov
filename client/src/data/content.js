@@ -13,57 +13,57 @@ export const siteContent = {
       whatsappCta: 'וואטסאפ'
     },
     hero: {
-      badge: 'פיתוח קאסטום מלא • כלי AI מתקדמים לעיצוב וכלים • מובייל ומחשב',
-      headlineStart: 'אתרי פרימיום וכלים מבוססי AI',
-      headlineAccent: 'שמייצרים לקוחות ומייעלים את העסק',
+      badge: 'אתרי פרימיום ומערכות מותאמות אישית לעסקים בצמיחה',
+      headlineStart: 'אתרי קאסטום ומערכות דיגיטליות',
+      headlineAccent: 'שמייצרים לקוחות ומזניקים את העסק',
       headlineEnd: 'למובייל ולמחשב.',
-      subheadline: 'שלום, אני צור הרטוב - בעל תואר B.Sc, מומחה מערכות מידע ומנהל פרויקטים, מפתח ווב מוסמך Coding Academy. איתי אתם מקבלים פיתוח קאסטום מלא יחד עם כלי AI מתקדמים לעיצוב האתר, בניית כלים ייעודיים לעסק והטמעת AI בתפעול השוטף - עם דגש קפדני על מובייל ומחשב, ויכולת להתרחב בכל שלב. בנוסף, אתם מקבלים ליווי אישי שוטף והצעות יזומות לשדרוג הנראות לאורך זמן.',
+      subheadline: 'שלום, אני צור הרטוב - מומחה מערכות מידע ומנהל פרויקטים (בעל תואר B.Sc), מפתח Full-Stack מוסמך Coding Academy. איתי אתם מקבלים פיתוח React & Node.js קאסטום מאפס, שוברים את תקרת הזכוכית של מערכות סגורות, ומקבלים שותף טכנולוגי שמלווה את העסק לאורך זמן בראש שקט.',
       ctaPrimary: 'בואו נדבר על האתר שלכם',
       ctaSecondary: 'צפו בפרויקט לדוגמה (tiranlasry.com)',
       ctaEstimate: 'מחשבון פרויקט ותוספות',
       stats: [
-        { value: '100% Custom', label: 'פיתוח קאסטום מלא ללא תבניות מדף' },
-        { value: 'AI Tools', label: 'כלי AI מתקדמים לעיצוב ובניית כלים' },
-        { value: 'Mobile & PC', label: 'דגש קפדני על התאמה מושלמת לכל מסך' },
-        { value: 'קשר מתמיד', label: 'הצעות שוטפות לשיפור הנראות והעיצוב' }
+        { value: '0.8s', label: 'טעינת שיא במובייל וברשתות' },
+        { value: '100%', label: 'בעלות מלאה על הקוד והנתונים' },
+        { value: 'Custom', label: 'ארכיטקטורה שצומחת ללא הגבלה' },
+        { value: '1:1', label: 'ליווי טכנולוגי ישיר ומענה בוואטסאפ' }
       ]
     },
     credentialsBar: [
-      { label: 'תואר ראשון במדעים', detail: 'B.Sc Degree' },
-      { label: 'מוסמך פיתוח Full-Stack', detail: 'Coding Academy Certified' },
-      { label: 'מומחה מערכות מידע', detail: 'Information Systems Expert' },
-      { label: 'ניהול פרויקטים', detail: 'Certified Project Manager' },
-      { label: 'לוגיסטיקה ושרשרת אספקה', detail: 'Logistics & Supply Chain' }
+      { label: 'תואר ראשון במדעים', detail: 'B.Sc' },
+      { label: 'מוסמך פיתוח Full-Stack', detail: 'Coding Academy' },
+      { label: 'מומחה מערכות מידע', detail: 'ארכיטקטורת תוכנה' },
+      { label: 'ניהול פרויקטים', detail: 'אפיון וביצוע מדויק' },
+      { label: 'לוגיסטיקה ושרשרת אספקה', detail: 'אופטימיזציית תהליכים' }
     ],
     problemSolution: {
-      title: 'למה אתרי תבניות מדף תוקעים את העסק שלך?',
-      subtitle: 'והיתרון האדיר של אתר Custom מלא שמתפתח וצומח ביחד עם העסק',
+      title: 'איך שוברים את תקרת הזכוכית של Wix ו-WordPress?',
+      subtitle: 'ההבדל בין אתר שנבנה במערכת סגורה ונתקע בעוד שנה, לבין ארכיטקטורת Custom שצומחת עם העסק',
       problems: [
         {
-          title: 'נעילה בתבנית נוקשה שלא מאפשרת שינויים',
-          desc: 'אתרי וורדפרס/וויקס מבוססי תבנית נתקעים ברגע שרוצים להוסיף פיצ׳ר חדש, מודול ייחודי או עיצוב שלא קיים בתבנית המקורית.'
+          title: 'תקרת הזכוכית של מערכות סגורות',
+          desc: 'אתרי תבניות ב-Wix/WordPress נראים סביר בהתחלה, אך הופכים למלכודת ברגע שהעסק רוצה לגדול: מחשבון הצעת מחיר אישי, פורטל B2B לאדריכלים או סנכרון CRM פשוט לא נתמכים או נשברים.'
         },
         {
-          title: 'תצוגת מובייל שבורה וטעינה איטית',
-          desc: 'תבניות רבות נראות סביר במחשב אך מתפרקות בסמארטפון - המקום שבו נמצאים מעל 80% מהלקוחות שמגיעים מהרשתות החברתיות.'
+          title: 'טעינה איטית ומובייל מסורבל שמבריח קמפיינים',
+          desc: 'עשרות תוספים כבדים מאטים את האתר, גורמים לזמני טעינה של 4-6 שניות בסמארטפון ומבריחים מעל 70% מהלקוחות הפוטנציאליים שמגיעים מאינסטגרם ומפייסבוק.'
         },
         {
-          title: 'בונה האתרים נעלם דקה אחרי ההשקה',
-          desc: 'אחרי שהאתר עולה לאוויר אין עם מי לדבר. אף אחד לא יוזם שיפורים, לא מציע שדרוגי עיצוב, והאתר הופך במהירות למיושן ולא רלוונטי.'
+          title: 'תחזוקה מתסכלת וחוסר בכתובת מקצועית',
+          desc: 'תוספים שקורסים בכל עדכון גרסה, פריצות אבטחה חוזרות, ובכל פעם שצריך שינוי קטן בקטלוג או במחיר אין מי שיתפוס פיקוד בזמן אמת.'
         }
       ],
       solutions: [
         {
-          title: 'פיתוח Custom מלא - גמישות אינסופית לצמיחת העסק',
-          desc: 'האתר נבנה בקוד נקי ב-React. ניתן להוסיף לו בכל שלב דפים חדשים, מערכות פנימיות, קטלוגים או אוטומציות לפי דרישתך ועם גדילת העסק.'
+          title: 'ארכיטקטורת React & Node.js ללא גבולות',
+          desc: 'אתם מתחילים היום מאתר תדמית וקטלוג מהיר וממיר, ומלבישים עליו בהמשך מחשבוני מחיר, פורטלים B2B, אוטומציות ואינטגרציות ERP/CRM - בלי לבנות מאפס מחדש לעולם.'
         },
         {
-          title: 'דגש פיתוח קפדני על מובייל ודסקטופ',
-          desc: 'אפס פשרות: התאמה פיקסל-פרפקט לסמארטפונים, טאבלטים ומסכי מחשב רחבים, עם זמני טעינה שוברי שיאים (0.8s).'
+          title: 'מהירות שיא (0.8s) שממקסמת כל שקל בפרסום',
+          desc: 'קוד נקי ללא תוספים מיותרים. הדפים נטענים מיידית בתוך הדפדפן של אינסטגרם ופייסבוק, עם ממשק מלוטש ומעבר חלק לוואטסאפ שלכם.'
         },
         {
-          title: 'שותף עיצובי וטכנולוגי שנשאר איתכם בקשר מתמיד',
-          desc: 'אתם מקבלים שותף שממשיך ללוות אתכם גם אחרי העלייה לאוויר. כחלק מהליווי החודשי אתם מקבלים הצעות שוטפות ויוזמות לשיפור הנראות, ריענון העיצוב והתאמה למוצרים חדשים.'
+          title: 'שקט נפשי מלא ועדכונים ישירים בוואטסאפ',
+          desc: 'שרתי ענן מנוהלים, גיבויים יומיים, תעודת SSL מאובטחת, ומענה ישיר מצור לעדכוני תוכן והעלאת מוצרים חדשים לקטלוג.'
         }
       ]
     },
@@ -72,13 +72,13 @@ export const siteContent = {
       clientName: 'טירן לסרי - Tiran Lasry',
       domain: 'tiranlasry.com',
       url: 'https://tiranlasry.com',
-      industry: 'עיצוב וייצור גופי תאורה אדריכליים בעבודת יד (Custom Made)',
-      headline: 'איך הפכנו מלאכת יד יוקרתית לחלון ראווה דיגיטלי שמביא אדריכלים ומעצבי פנים',
-      overview: 'טירן לסרי מעצב ומייצר גופי תאורה על-זמניים בהתאמה אישית בנס ציונה. האתר נבנה בקאסטום מלא כאתר תצוגה, השראה ואיסוף פניות ברמת גימור מלוטשת שמביאה לקוחות פרימיום ומאפשרת לבקש הצעת מחיר מדויקת לכל פריט - הן במובייל והן במחשב.',
+      industry: 'סטודיו לייצור גופי תאורה אדריכליים בעבודת יד',
+      headline: 'הפיכת מלאכת יד יוקרתית לחלון ראווה דיגיטלי שמביא אדריכלים ומעצבי פנים',
+      overview: 'טירן לסרי מעצב ומייצר גופי תאורה על-זמניים בהתאמה אישית בנס ציונה. האתר נבנה בקאסטום מלא כחלון ראווה וקטלוג אינטראקטיבי המציג את חומרי הגלם (עץ, פליז, מתכת מושחרת) ומאפשר לאדריכלים לבקש הצעת מחיר מדויקת לכל פריט ישירות בוואטסאפ.',
       highlights: [
-        'פיתוח קאסטום מלא המאפשר הרחבת קטלוג ופונקציות בכל עת',
-        'התאמה רספונסיבית מוקפדת למובייל ולמחשב (80% מהתנועה מאינסטגרם)',
-        'עיצוב נקי ויוקרתי המציג את חומרי הגלם (עץ, פליז, מתכת)',
+        'ארכיטקטורת Custom מלאה המאפשרת הרחבת קטלוג ומערכות בכל עת',
+        'התאמה רספונסיבית מוקפדת למובייל ולמחשב (מעל 80% מהתנועה מאינסטגרם)',
+        'נראות פרימיום נקייה המשקפת עבודת יד ודיוק בלתי מתפשר',
         'טופס פנייה מודולרי להצעת מחיר אישית ללא סרבול ישירות ל-WhatsApp'
       ],
       quote: 'האתר משדר בדיוק את מה שאנחנו מייצרים: יוקרה, עבודת יד ודיוק בלתי מתפשר. לקוחות ואדריכלים מגיעים כשהם כבר מוכנים לעבוד.',
@@ -86,102 +86,125 @@ export const siteContent = {
     },
     services: {
       title: 'מה אתם מקבלים לעסק שלכם',
-      subtitle: 'פיתוח קאסטום מלא, דגש מובייל ומחשב, וליווי עיצובי שיוזם שיפורים לאורך כל הדרך',
+      subtitle: 'מעטפת דיגיטלית מלאה: פיתוח קאסטום, כלים אינטראקטיביים ואוטומציות שחוסכות זמן',
       list: [
         {
           id: 'custom-web',
           icon: 'Laptop',
-          title: 'אתרי פרימיום בקאסטום מלא (Custom Code)',
-          desc: 'בנייה מאפס ללא תבניות מדף מוגבלות. אתרים גמישים לחלוטין שמאפשרים להוסיף כל עמוד, פיצ׳ר או מערכת עתידית עם צמיחת העסק שלך.'
+          title: 'אתרי פרימיום בקאסטום מלא (React & Node.js)',
+          desc: 'פיתוח עצמאי מאפס ללא תבניות מגבילות. אתר סופר-מהיר, מותאם אישית ומודולרי שמוכן להרחבה לכל עמוד, שירות או מערכת בעתיד.'
         },
         {
-          id: 'mobile-desktop',
-          icon: 'Smartphone',
-          title: 'דגש פיתוח עמוק על מובייל ודסקטופ',
-          desc: 'חוויית משתמש חלקה ומהירה בטירוף בכל מכשיר. אופטימיזציה לסמארטפונים (מענה מושלם לקמפיינים ברשתות) לצד חוויית דסקטופ עשירה ומרהיבה.'
-        },
-        {
-          id: 'automations-systems',
+          id: 'business-tools',
           icon: 'Zap',
-          title: 'כלי AI מתקדמים, בניית כלים ואוטומציות',
-          desc: 'שימוש בכלי AI מובילים לעיצוב האתר, בניית כלים דיגיטליים ומחשבונים ייעודיים לעסק שלך, והטמעת AI בעסק (מענה אוטומטי, סנכרון CRM, סליקה וייעול שרשרת אספקה).'
+          title: 'כלים דיגיטליים ומחשבוני הצעות מחיר אינטראקטיביים',
+          desc: 'בניית מחשבונים ייעודיים לעסק שלכם (מחשבון עלויות, אפיון פרויקט, שאלון סינון חכם) שמאפשרים ללקוח לקבל אומדן מיידי ומזרימים לכם לידים בשלים.'
         },
         {
           id: 'domain-emails',
           icon: 'Globe',
           title: 'דומיין מותאם ותיבות דוא״ל עסקיות יוקרתיות',
-          desc: 'בחירת כתובת דומיין ייחודית (.co.il / .com), חיבור DNS ו-SSL, והגדרת תיבות מייל ממותגות (כגון info@yourbusiness.co.il ב-Google Workspace / 365) עם אבטחת SPF/DKIM/DMARC וחתימות מעוצבות לחוויה מקצועית ויוקרתית מול לקוחות.'
+          desc: 'חיבור דומיין ייחודי (.co.il / .com), הגדרת SSL ו-DNS, והקמת תיבות מייל ממותגות ב-Google Workspace / 365 עם אבטחת SPF/DKIM/DMARC וחתימה מעוצבת.'
         },
         {
-          id: 'maintenance-retainer',
-          icon: 'ShieldCheck',
-          title: 'ליווי עיצובי מתמיד, תחזוקה ושקט נפשי',
-          desc: 'אתם מקבלים שותף צמוד שנשאר איתכם בקשר הדוק גם לאחר ההשקה! אתם מקבלים הצעות יזומות לשיפור הנראות, שדרוגי עיצוב, התאמות למוצרים חדשים ותחזוקת שרתים שקטה ומאובטחת.'
+          id: 'automations-systems',
+          icon: 'Sliders',
+          title: 'אוטומציות לידים, WhatsApp וסנכרון CRM',
+          desc: 'התראת WhatsApp מיידית לנייד שלכם תוך 5 שניות מכל פנייה, ניתוב שיחות מהיר, וסנכרון נתונים אוטומטי למערכות ניהול (Monday, Airtable) וסליקה.'
         }
       ]
     },
     automationsFlow: {
-      title: 'מערכת האוטומציה שחוסכת לכם עשרות שעות בחודש',
-      subtitle: 'איך כל מבקר באתר הופך לליד חם ומטופל בתוך 10 שניות:',
+      title: 'מערכת האוטומציה שחוסכת לכם שעות ומבטיחה שאף ליד לא יאבד',
+      subtitle: 'איך כל מבקר באתר הופך לליד חם ומטופל בתוך 10 שניות בלבד:',
       steps: [
         {
           step: '1',
-          title: 'גולש נכנס מהרשתות במובייל',
-          desc: 'המבקר נחשף למודעה באינסטגרם/פייסבוק/טיקטוק ומגיע לדף נחיתה מהיר שנטען מיד בכל מסך.'
+          title: 'גולש נכנס מקמפיין במובייל',
+          desc: 'המבקר נחשף למודעה באינסטגרם/פייסבוק/טיקטוק ונוחת בדף מהיר ב-0.8 שניות ללא המתנה.'
         },
         {
           step: '2',
-          title: 'השארת פרטים חכמה',
-          desc: 'הגולש ממלא שאלון קצר וממוקד או לוחץ על שיחה ישירה בוואטסאפ.'
+          title: 'השארת פרטים או וואטסאפ בקליק',
+          desc: 'הגולש מקבל מענה מדויק לשירות שחיפש, ממלא שאלון קצר או לוחץ על שיחת WhatsApp ישירה.'
         },
         {
           step: '3',
-          title: 'התראה מיידית לנייד שלך',
-          desc: 'מערכת התראות מיידית שולחת לך הודעת WhatsApp עם כל פרטי הליד והצרכים שלו תוך 5 שניות.'
+          title: 'התראה מיידית לנייד שלכם',
+          desc: 'אתם מקבלים הודעת WhatsApp ומייל עם שם הלקוח, הטלפון והצרכים המדויקים שלו תוך שניות.'
         },
         {
           step: '4',
-          title: 'סנכרון CRM ולוגיסטיקה',
-          desc: 'הליד נשמר אוטומטית במערכת הניהול שלך, נשלח מייל תודה, ואתם סוגרים עסקה.'
+          title: 'סנכרון CRM וסגירת עסקה',
+          desc: 'הליד מתועד אוטומטית במערכת הניהול שלכם, ואתם חוזרים ללקוח חם כשהוא הכי בשל לסגירה.'
         }
       ]
     },
     pricing: {
-      title: 'השקעה ברורה ושקופה - ללא הפתעות',
-      subtitle: 'חבילת ערך כוללת לבניית נכס דיגיטלי מניב בקאסטום מלא וליווי עיצובי מתמיד',
-      packageHeader: 'חבילת הדגל: אתר Custom מלא + שותף עיצובי וטכנולוגי',
-      oneTimePrice: '10,000 ₪',
-      oneTimeSub: 'תשלום חד פעמי להקמה ואפיון קאסטום',
-      monthlyPrice: '800 ₪',
-      monthlySub: 'לחודש עבור תחזוקה, ליווי שוטף והצעות לשיפור הנראות',
-      note: 'האתר גמיש ב-100%: ניתן להוסיף מודולים ומערכות בכל שלב לפי צרכי העסק. כל שינוי נוסף יתומחר בשקיפות מלאה.',
-      features: [
-        'פיתוח Custom מלא בקוד עצמאי (React / Node.js) - ללא תבניות סגורות',
-        'שימוש בכלי AI מתקדמים לעיצוב האתר, בניית כלים ייעודיים וייעול העסק',
-        'דגש פיתוח קפדני על התאמה מושלמת למובייל ולמחשב',
-        'יכולת הרחבה בלתי מוגבלת: הוספת עמודים, מערכות ופיצ׳רים בעתיד',
-        'שותפות מתמשכת: הצעות שוטפות יזומות מצור לשיפור הנראות והעיצוב',
-        'אפיון מערכות מידע ומחקר מתחרים מעמיק ע״י מנהל פרויקטים (B.Sc)',
+      title: 'השקעה שקופה ומסלולי שירות ברורים',
+      subtitle: 'הקמת נכס דיגיטלי ב-100% קאסטום לצד שני מסלולי ריטיינר חודשיים לבחירתכם, ללא כבילה',
+      setupHeader: 'הקמת האתר (תשלום חד-פעמי)',
+      setupPrice: '10,000 ₪',
+      setupSub: 'תשלום חד-פעמי לאפיון ופיתוח קאסטום מלא',
+      setupFeatures: [
+        'פיתוח Custom מלא בקוד עצמאי (React / Node.js) ללא מערכות סגורות',
+        'התאמה רספונסיבית מוקפדת למובייל ולמחשב (טעינה ב-0.8 שניות)',
+        'הזרמת תמונות ומדיה מהירה בענן (CDN מנוהל)',
         'חיבור מהיר ל-WhatsApp וכפתורי יצירת קשר ממוקדי המרה',
-        'אופטימיזציה מלאה לקמפיינים ברשתות חברתיות (Meta Ads, Google)',
-        'בחירת כתובת דומיין מותאמת אישית (.co.il / .com) + חיבור SSL מאובטח והגדרות DNS מלאות',
-        'אפשרות שדרוג למערך תיבות דוא״ל עסקיות יוקרתיות (Google Workspace) המקרין אמינות ויוקרה מול לקוחות',
-        'אחסון ענן מהיר ומאובטח + תעודת SSL וגיבויים שוטפים',
-        'תחזוקה ואבטחה שוטפת: שקט נפשי מלא לאורך כל השנה'
+        'חיבור דומיין אישי, תעודת SSL ואבטחת DNS מלאה',
+        'מקצה שיפורים ממוקד לאחר העלייה לאוויר (Fine-Tuning)'
       ],
+      retainerTitle: 'בחרו את מסלול הריטיינר החודשי המתאים לעסק שלכם:',
+      tier1: {
+        id: 'essential',
+        name: 'מסלול תשתית ושקט טכני',
+        nameEn: 'Essential Ops',
+        price: '450 ₪',
+        sub: '/ חודש',
+        desc: 'מיועד לעסקים שרוצים שהאתר יעבוד בצורה מושלמת, מאובטחת ומהירה, ומעדכנים תכנים רק לעיתים רחוקות.',
+        features: [
+          'אחסון ענן מהיר וייעודי + רשת CDN גלובלית',
+          'תעודת אבטחה SSL וגיבויים יומיים אוטומטיים',
+          'ניטור זמינות 24/7 ותיקון תקלות תשתית ובאגים',
+          'התראות לידים ישירות למייל ולוואטסאפ',
+          '* עדכוני תוכן וקטלוג בנפרד לפי דרישה (250 ₪ לשעה)'
+        ],
+        btnText: 'בחירה במסלול תשתית'
+      },
+      tier2: {
+        id: 'managed',
+        name: 'מסלול ניהול מלא בראש שקט',
+        nameEn: 'All-Inclusive Managed',
+        badge: 'הבחירה המשתלמת והמומלצת',
+        price: '800 ₪',
+        sub: '/ חודש',
+        desc: 'המעטפת השלמה: שותף טכנולוגי צמוד שמבצע עבורכם עדכוני קטלוג ותוכן שוטפים ישירות דרך הודעת וואטסאפ.',
+        features: [
+          'כולל את כל מרכיבי מסלול התשתית (450 ₪)',
+          'עד שעתיים חודשיות של עדכוני תוכן וקטלוג ישירות דרך WhatsApp (העלאת מוצרים, אופטימיזציית תמונות, עדכון מחירים, החלפת באנרים - שווי של 500 ₪ בחודש בפני עצמו!)',
+          'מענה ותמיכה בוואטסאפ בעדיפות גבוהה (בתוך יום עסקים אחד)',
+          'דוח ביצועים ותנועת גולשים חודשי מרוכז',
+          'שקט נפשי מלא: שולחים הודעה בוואטסאפ - וזה מתבצע'
+        ],
+        btnText: 'בחירה במסלול ניהול מלא'
+      },
+      antiLockIn: {
+        title: 'מדיניות בעלות מלאה (ללא כבילה וחתונה קתולית):',
+        text: 'הדומיין, התמונות, הטקסטים וכל נתוני הלקוחות שייכים לכם ב-100%. ניתן לעבור בין מסלולים או לסיים התקשרות בכל עת בהתראה של 30 יום מראש ולקבל ייצוא מלא של כל הנכסים והנתונים שלכם ללא שום קנסות.'
+      },
       toggleLabel: 'איך תרצה לראות את התמחור?',
-      viewTransparent: 'חבילת הדגל המלאה (10,000 ₪ + 800 ₪/חודש)',
-      viewCustom: 'התאמה אישית ומחשבון תוספות',
+      viewTransparent: 'מסלולי שירות ותמחור שקוף',
+      viewCustom: 'מחשבון תוספות ומערכות מתקדמות',
       calculatorTitle: 'מחשבון שדרוגים ומערכות נוספות',
-      calculatorSubtitle: 'בחר את המערכות והאוטומציות הנוספות שתרצה לשלב בפרויקט:',
+      calculatorSubtitle: 'בחרו רכיבים ומערכות מתקדמות לשילוב בפרויקט שלכם:',
       baseSetupText: 'הקמת בסיס האתר:',
-      baseMonthlyText: 'תחזוקה וליווי שוטף:',
+      baseMonthlyText: 'ריטיינר ניהול מומלץ (800 ₪):',
       totalEstimatedSetup: 'סה״כ הקמה מוערכת:',
       totalEstimatedMonthly: 'סה״כ חודשי מוערך:'
     },
     socialMarketing: {
       title: 'מוכן לקמפיינים ופרסום ברשתות החברתיות',
-      subtitle: 'האתר שלך מתוכנן מראש כדי להפוך טראפיק מאינסטגרם, פייסבוק, לינקדאין וטיקטוק ללקוחות משלמים',
+      subtitle: 'האתר שלכם מתוכנן מראש כדי להפוך טראפיק מאינסטגרם, פייסבוק, לינקדאין וטיקטוק ללקוחות משלמים',
       channels: [
         {
           name: 'אינסטגרם / טיקטוק',
@@ -204,37 +227,36 @@ export const siteContent = {
           desc: 'תצוגת OpenGraph עשירה כשמשתפים את הקישור בפוסטים או בהודעות פרטיות, עם תמונה וכותרת מושכת.'
         }
       ],
-      previewTitle: 'תצוגה מקדימה: איך הקישור שלך נראה כשמשתפים אותו ברשתות',
+      previewTitle: 'תצוגה מקדימה: איך הקישור שלכם נראה כשמשתפים אותו ברשתות',
       demoUrl: 'tsoorhartov.com',
-      demoCardTitle: 'צור הרטוב | אתרי קאסטום פרימיום, מובייל ומערכות לעסקים',
-      demoCardDesc: 'האתר שמשדרג את העסק שלך: מהיר, בנוי קאסטום, מותאם למובייל ומחשב, ומלווה בהצעות שוטפות לשיפור הנראות.'
+      demoCardTitle: 'צור הרטוב | אתרי קאסטום פרימיום ומערכות דיגיטליות לעסקים',
+      demoCardDesc: 'האתר שמשדרג את העסק שלך: מהיר ב-0.8 שניות, בנוי קאסטום מאפס ומחובר ישירות לוואטסאפ ולמערכות הניהול.'
     },
     about: {
       title: 'נעים להכיר, אני צור הרטוב',
-      badge: 'תואר B.Sc | מומחה מערכות מידע ומנהל פרויקטים | בוגר Coding Academy',
-      tagline: 'איש מקצוע שנשאר איתך בקשר אישי, יוזם שיפורים בעיצוב, ומפתח אתרי Custom שצומחים ביחד עם העסק.',
+      badge: 'מומחה מערכות מידע ומנהל פרויקטים (B.Sc) | בוגר Coding Academy',
+      tagline: 'איש מקצוע שמביא שילוב נדיר בין הנדסה, הבנה עסקית עמוקה ופיתוח Custom ברמה הגבוהה ביותר.',
       badgesList: [
         { title: 'תואר ראשון במדעים (B.Sc)', subtitle: 'חשיבה אנליטית, ארכיטקטורת מערכות ופתרון בעיות מורכבות' },
         { title: 'בוגר Coding Academy', subtitle: 'הסמכת פיתוח Full-Stack מתקדמת בסטנדרטים התעשייתיים הגבוהים' },
-        { title: 'מומחה מערכות מידע וניהול פרויקטים', subtitle: 'ניהול מדויק של זמנים, אפיון דרישות, תקציב ומשאבים' },
+        { title: 'ניהול פרויקטים ומערכות מידע', subtitle: 'אפיון דרישות עסקיות, עמידה קפדנית בזמנים ובקרת תקציב' },
         { title: 'מומחיות בלוגיסטיקה ושרשרת אספקה', subtitle: 'הבנה עמוקה של זרימת מוצרים, ספקים, מלאי ואינטגרציות' }
       ],
       story: [
-        'אני בעל תואר B.Sc, מומחה למערכות מידע ומנהל פרויקטים עם התמחות ייחודית בלוגיסטיקה ובשרשרת אספקה, וכן מפתח Full-Stack מוסמך מבית Coding Academy.',
-        'הפילוסופיה שלי פשוטה: אתם לא מקבלים תבנית מדף גנרית שכולאת אתכם במבנה נוקשה, אלא פיתוח קאסטום מלא (Custom Code ב-React ו-Node.js). המשמעות עבורכם היא חופש פעולה מוחלט - האתר שלכם יכול לגדול, להשתדרג ולהוסיף כל מודול או מערכת בכל שלב, בדיוק לפי התפתחות העסק.',
-        'דגש מרכזי בפיתוח שלי מושם על התאמה מושלמת הן למובייל (שם נמצאת רוב תנועת הלקוחות מהרשתות) והן למחשב (שם מתבצעות עסקאות גדולות וקבלת החלטות מקצועיות).',
-        'והחשוב מכל - אתם מקבלים שותף שלא "נעלם" אחרי שהאתר עולה לאוויר. כחלק מהליווי החודשי, אתם מקבלים קשר אישי מתמיד, ניתוח שוטף של ביצועי האתר והצעות יזומות לשיפור הנראות, לרענון העיצוב ולהתאמה מדויקת לצרכים המשתנים של העסק שלכם.'
+        'אני מומחה למערכות מידע ומנהל פרויקטים בעל תואר B.Sc, עם ניסיון מעשי עשיר בהובלת תהליכים מורכבים בלוגיסטיקה ובשרשרת אספקה, וכן מפתח Full-Stack מוסמך מבית Coding Academy.',
+        'הפילוסופיה שלי פשוטה: אתם לא מקבלים מערכת סגורה שכולאת אתכם במבנה נוקשה, אלא פיתוח קאסטום מלא (React ו-Node.js). המשמעות עבורכם היא חופש פעולה מוחלט - האתר שלכם נטען במהירות שיא ויכול להתרחב לכל מודול או מערכת בכל שלב.',
+        'והחשוב מכל - אתם מקבלים שותף טכנולוגי שלא נעלם אחרי העלייה לאוויר. במסגרת הליווי החודשי אתם נהנים מראש שקט מלא, תחזוקת שרתים מאובטחת ומענה ישיר בוואטסאפ לכל עדכון תוכן או צורך חדש בעסק.'
       ],
       values: [
-        { label: 'קאסטום מלא שצומח עם העסק', desc: 'ללא תבניות מדף סגורות. אפשרות להוסיף כל עמוד, פיצ׳ר ומערכת בכל שלב עתידי.' },
-        { label: 'דגש קפדני על מובייל ומחשב', desc: 'חוויית משתמש ועיצוב מלוטש בכל מסך, זמני טעינה שוברי שיאים והמרות גבוהות.' },
-        { label: 'שותף עיצובי שנשאר בקשר מתמיד', desc: 'ליווי שוטף לאחר העלייה לאוויר, כולל הצעות יזומות מצור לשדרוג הנראות.' },
-        { label: 'הבנה עסקית, הנדסית ולוגיסטית', desc: 'שילוב של B.Sc, ניהול פרויקטים ו-Coding Academy שמבטיח איכות ללא פשרות.' }
+        { label: 'קאסטום מלא שצומח עם העסק', desc: 'ללא תקרת זכוכית. אפשרות להוסיף כל עמוד, מחשבון ומערכת בכל שלב עתידי.' },
+        { label: 'דגש קפדני על מובייל ומחשב', desc: 'חוויית משתמש מלוטשת בכל מסך, זמני טעינה של 0.8 שניות ואחוזי המרה גבוהים.' },
+        { label: 'ליווי טכנולוגי בראש שקט', desc: 'מענה ישיר מצור בוואטסאפ לביצוע עדכוני קטלוג ותוכן ללא התעסקות טכנית מצידכם.' },
+        { label: 'הבנה עסקית, הנדסית ולוגיסטית', desc: 'שילוב של B.Sc, ניהול פרויקטים ו-Coding Academy שמבטיח דיוק ואיכות ללא פשרות.' }
       ]
     },
     contact: {
       title: 'מוכנים להרים אתר Custom שמייצר לקוחות וצומח עם העסק?',
-      subtitle: 'השאירו פרטים או שלחו הודעה ישירה לוואטסאפ, ונאפיין יחד אתר מותאם אישית למובייל ולמחשב עם ליווי שוטף.',
+      subtitle: 'השאירו פרטים או שלחו הודעה ישירה לוואטסאפ, ונאפיין יחד אתר מותאם אישית למובייל ולמחשב עם שקט נפשי מלא.',
       nameLabel: 'שם מלא *',
       namePlaceholder: 'למשל: ישראל ישראלי',
       phoneLabel: 'טלפון נייד *',
@@ -242,16 +264,16 @@ export const siteContent = {
       emailLabel: 'דוא״ל',
       emailPlaceholder: 'you@business.co.il',
       businessTypeLabel: 'תחום העסק',
-      businessTypePlaceholder: 'למשל: סטודיו עיצוב, מסחר ולוגיסטיקה, משרד מקצועי, קליניקה...',
+      businessTypePlaceholder: 'למשל: סטודיו עיצוב, נגרות ותאורה, משרד מקצועי, קליניקה...',
       currentWebsiteLabel: 'אתר נוכחי (אם יש)',
       currentWebsitePlaceholder: 'www.mybusiness.co.il',
       needsLabel: 'מה העסק שלך צריך בעיקר?',
       needsOptions: [
         'אתר Custom יוקרתי חדש (מובייל + מחשב)',
-        'בחירת דומיין והקמת תיבות מייל עסקיות יוקרתיות',
-        'שדרוג נראות והרחבות לאתר קיים',
-        'כלי AI, מערכות מידע ואוטומציות',
-        'ליווי עיצובי מתמיד, תחזוקה ושקט נפשי'
+        'דומיין מותאם ותיבות דוא״ל עסקיות יוקרתיות',
+        'מחשבון הצעות מחיר וכלים דיגיטליים אינטראקטיביים',
+        'אוטומציות לידים, WhatsApp וסנכרון CRM',
+        'מסלול ריטיינר וניהול מלא בראש שקט'
       ],
       messageLabel: 'ספר בקצרה על הפרויקט או הדרישות המיוחדות',
       messagePlaceholder: 'אשמח לשמוע על היעדים והחזון שלך לעסק...',
@@ -263,8 +285,8 @@ export const siteContent = {
       directWhatsappBtn: 'פתיחת שיחה בוואטסאפ עכשיו'
     },
     footer: {
-      brandDesc: 'צור הרטוב - B.Sc, מומחה מערכות מידע, מנהל פרויקטים ומפתח מוסמך Coding Academy. פיתוח אתרי Custom יוקרתיים למובייל ולמחשב, אוטומציות וליווי עיצובי שוטף.',
-      copyright: '© כל הזכויות שמורות לצור הרטוב - פיתוח אתרים ואוטומציות לעסקים.',
+      brandDesc: 'צור הרטוב - מומחה מערכות מידע, מנהל פרויקטים ומפתח Full-Stack מוסמך Coding Academy (B.Sc). פיתוח אתרי Custom יוקרתיים למובייל ולמחשב, כלים דיגיטליים ואוטומציות.',
+      copyright: '© כל הזכויות שמורות לצור הרטוב - פיתוח אתרים ומערכות דיגיטליות לעסקים.',
       subnote: 'נבנה ב-React & Node.js בקאסטום מלא למובייל ולמחשב.'
     }
   },
@@ -282,57 +304,57 @@ export const siteContent = {
       whatsappCta: 'WhatsApp'
     },
     hero: {
-      badge: '100% Custom Built • Advanced AI for Design & Tools • Mobile & Desktop',
-      headlineStart: 'Bespoke Custom Websites & AI Tools',
+      badge: 'Bespoke Web Platforms & Custom Systems for Growing SMBs',
+      headlineStart: 'Bespoke Custom Websites & Systems',
       headlineAccent: 'Engineered to Scale with Your Business',
       headlineEnd: 'on Mobile & Desktop.',
-      subheadline: 'Hi, I’m Tsoor Hartov - B.Sc holder, Information Systems expert and Project Manager, certified Full-Stack Web Developer by Coding Academy. With me, you receive 100% custom web architecture combined with cutting-edge AI tools for website design, custom tool building, and operational business workflows - with deep mobile & desktop excellence and unlimited scalability. Plus, you get ongoing proactive design improvements and active personal contact post-launch.',
+      subheadline: 'Hi, I’m Tsoor Hartov - Information Systems & Project Manager (B.Sc), certified Full-Stack Web Developer by Coding Academy. With me, you receive 100% custom React & Node.js architecture built from scratch, escaping the glass ceiling of closed platforms, with ongoing hands-on technical partnership and total peace of mind.',
       ctaPrimary: 'Let’s Build Your Platform',
       ctaSecondary: 'View Featured Showcase (tiranlasry.com)',
       ctaEstimate: 'Project & Addons Calculator',
       stats: [
-        { value: '100% Custom', label: 'Bespoke code, zero rigid templates' },
-        { value: 'AI Tools', label: 'Advanced AI for design & custom tools' },
-        { value: 'Mobile & PC', label: 'Pixel-perfect on all screen sizes' },
-        { value: 'Active Partner', label: 'Proactive visual & design improvements' }
+        { value: '0.8s', label: 'Ultra-fast load on mobile ad traffic' },
+        { value: '100%', label: 'Full code & customer data ownership' },
+        { value: 'Custom', label: 'Infinite scalability, zero plugin bloat' },
+        { value: '1:1', label: 'Direct WhatsApp communication with Tsoor' }
       ]
     },
     credentialsBar: [
       { label: 'Bachelor of Science', detail: 'B.Sc Degree' },
       { label: 'Certified Full-Stack Developer', detail: 'Coding Academy' },
-      { label: 'Information Systems Expert', detail: 'IS Architecture' },
+      { label: 'Information Systems Expert', detail: 'Software Architecture' },
       { label: 'Certified Project Manager', detail: 'Agile & Execution' },
       { label: 'Logistics & Supply Chain', detail: 'Process Optimization' }
     ],
     problemSolution: {
-      title: 'Why Off-The-Shelf Templates Limit Your Growth',
-      subtitle: 'The huge advantage of 100% Custom Development that scales alongside your business',
+      title: 'How to Escape the Glass Ceiling of Wix & WordPress',
+      subtitle: 'The difference between building on a closed template platform that locks you down, and a custom architecture engineered to scale',
       problems: [
         {
-          title: 'Trapped in Rigid Template Constraints',
-          desc: 'Basic builder templates break the moment you need a custom feature, unique layout, or internal business integration.'
+          title: 'The Glass Ceiling of Closed Platforms',
+          desc: 'Basic builder templates in Wix/WordPress seem adequate at first, but hit a rigid wall when your business grows: custom quote calculators, B2B architect portals, or real-time CRM sync are unsupported or glitch.'
         },
         {
-          title: 'Broken Mobile Experience',
-          desc: 'Templates often look acceptable on desktops but glitch on mobile - where over 80% of social media ad traffic originates.'
+          title: 'Sluggish Load Times & Broken Mobile Traffic',
+          desc: 'Dozens of bloated plugins slow your site down to 4-6s mobile load times, bouncing over 70% of potential high-intent prospects clicking your Meta or TikTok ads.'
         },
         {
-          title: 'Developers Disappear After Launch',
-          desc: 'Once the site goes live, you are left alone. Nobody suggests design updates, and the site quickly becomes outdated.'
+          title: 'Maintenance Headaches & Zero Real Accountability',
+          desc: 'Plugins crash after updates, security vulnerabilities arise, and whenever you need a quick price or catalog change, you have no dedicated professional to contact.'
         }
       ],
       solutions: [
         {
-          title: '100% Custom Code - Infinite Scalability',
-          desc: 'Built in clean React & Node.js code. Add new pages, custom workflows, catalogs, or systems at any stage as your company expands.'
+          title: 'React & Node.js Architecture with Zero Limits',
+          desc: 'Start with an ultra-fast, high-converting showcase and seamlessly bolt on pricing calculators, B2B portals, WhatsApp bots, and ERP integrations later - without ever rebuilding from scratch.'
         },
         {
-          title: 'Deep Engineering Focus on Mobile & Desktop',
-          desc: 'Flawless responsive performance across smartphones, tablets, and high-res desktops with ultra-fast 0.8s load times.'
+          title: '0.8s Load Speed That Maximizes Every Ad Dollar',
+          desc: 'Clean code, zero unnecessary plugins. Pages load instantly inside Instagram and Facebook in-app browsers with fluid navigation straight to WhatsApp.'
         },
         {
-          title: 'Continuous Proactive Design Partner',
-          desc: 'I stay in close touch with you after deployment, proactively bringing ideas to refine your visual aesthetics and match new business offerings.'
+          title: 'Complete Peace of Mind & WhatsApp Updates',
+          desc: 'High-speed cloud servers, daily automated backups, SSL security, and direct WhatsApp support from Tsoor for hassle-free content and catalog updates.'
         }
       ]
     },
@@ -341,13 +363,13 @@ export const siteContent = {
       clientName: 'Tiran Lasry Studio',
       domain: 'tiranlasry.com',
       url: 'https://tiranlasry.com',
-      industry: 'Custom Handmade Architectural Lighting Fixtures',
+      industry: 'Handmade Architectural Lighting Fixtures Studio',
       headline: 'Transforming Bespoke Craftsmanship into a High-Converting Digital Showroom for Architects',
-      overview: 'Tiran Lasry creates timeless, custom lighting fixtures in Ness Ziona. Built 100% custom as an immersive showcase and catalog for architects and interior designers, with flawless mobile and desktop responsiveness.',
+      overview: 'Tiran Lasry creates timeless, custom lighting fixtures in Ness Ziona. Built 100% custom as an immersive showcase and catalog showcasing raw materials (brass, solid wood, blackened steel), enabling architects to request custom item quotes directly via WhatsApp.',
       highlights: [
-        '100% Custom build allowing modular catalog expansion anytime',
+        '100% Custom architecture allowing modular catalog expansion anytime',
         'Meticulous responsive optimization for mobile & desktop (80% traffic from Instagram)',
-        'Minimalist luxury aesthetic showcasing brass, solid wood and metal',
+        'Minimalist luxury aesthetic showcasing raw craftsmanship and precision',
         'Frictionless custom quote request funnel directly to WhatsApp'
       ],
       quote: 'The website truly reflects what we build: timeless luxury, handmade excellence, and uncompromising attention to detail.',
@@ -355,95 +377,119 @@ export const siteContent = {
     },
     services: {
       title: 'What You Get For Your Business',
-      subtitle: 'Where 100% Custom Engineering meets mobile perfection and ongoing design leadership',
+      subtitle: 'Complete digital platform: bespoke development, interactive tools, and time-saving automations',
       list: [
         {
           id: 'custom-web',
           icon: 'Laptop',
-          title: 'Bespoke 100% Custom Web Development',
-          desc: 'Engineered from the ground up without restrictive templates. Completely scalable to add any page, feature, or tool as your business expands.'
+          title: 'Bespoke Custom Web Development (React & Node.js)',
+          desc: 'Built from the ground up with zero restrictive templates. An ultra-fast, tailored, and modular site ready to scale with any future page, service, or tool.'
         },
         {
-          id: 'mobile-desktop',
-          icon: 'Smartphone',
-          title: 'Deep Focus on Mobile & Desktop Perfection',
-          desc: 'Ultra-fast, fluid experience on every device. Optimized for mobile social ad traffic alongside an expansive desktop presentation.'
-        },
-        {
-          id: 'automations-systems',
+          id: 'business-tools',
           icon: 'Zap',
-          title: 'Information Systems & Supply Chain Automations',
-          desc: 'Lead notifications to WhatsApp, CRM integration (Monday, Airtable, HubSpot), automated invoicing, and custom internal management tools.'
+          title: 'Interactive Business Tools & Custom Calculators',
+          desc: 'Custom-engineered digital calculators (cost estimator, project scoping, intake quizzes) that provide instant quotes and deliver pre-qualified leads.'
         },
         {
           id: 'domain-emails',
           icon: 'Globe',
           title: 'Custom Branded Domain & Executive Business Inboxes',
-          desc: 'Bespoke domain registration (.co.il / .com), DNS/SSL setup, and branded email suites (Google Workspace / Microsoft 365 with DKIM, SPF, DMARC deliverability) for a high-trust, luxury corporate presentation.'
+          desc: 'Bespoke domain registration (.co.il / .com), DNS/SSL setup, and branded email suites (Google Workspace / Microsoft 365) with SPF, DKIM, and DMARC security.'
         },
         {
-          id: 'maintenance-retainer',
-          icon: 'ShieldCheck',
-          title: 'Continuous Design Partnership & Maintenance',
-          desc: 'You receive a dedicated design & technology partner who stays in active contact post-launch, providing proactive suggestions for visual updates and rock-solid maintenance.'
+          id: 'automations-systems',
+          icon: 'Sliders',
+          title: 'Lead Automations, WhatsApp & CRM Synchronization',
+          desc: 'Instant WhatsApp notifications within 5 seconds of lead submission, fast routing, and automated sync into Monday, Airtable, or invoicing tools.'
         }
       ]
     },
     automationsFlow: {
-      title: 'Automations That Save You Hours Every Week',
+      title: 'Automations That Save You Hours and Ensure Zero Lost Leads',
       subtitle: 'How every website visitor becomes a qualified lead in your hands within 10 seconds:',
       steps: [
         {
           step: '1',
-          title: 'Mobile Traffic from Social Media',
-          desc: 'Prospects click your Instagram or Facebook ad and land on an instant-loading page optimized for phones.'
+          title: 'Mobile Traffic from Social Ad',
+          desc: 'Prospects click your Instagram or Facebook ad and land on an instant-loading page in 0.8s without delays.'
         },
         {
           step: '2',
-          title: 'Smart Inquiry Form',
-          desc: 'The visitor answers a quick targeted quiz or taps 1-click WhatsApp chat.'
+          title: 'Smart Inquiry or 1-Click WhatsApp',
+          desc: 'The visitor finds exactly what they sought, fills a concise questionnaire, or starts an instant WhatsApp chat.'
         },
         {
           step: '3',
           title: 'Instant Mobile Notification',
-          desc: 'You receive a formatted WhatsApp ping with all their details and requirements.'
+          desc: 'You receive a formatted WhatsApp ping and email with their contact info and requirements in seconds.'
         },
         {
           step: '4',
-          title: 'CRM & Supply Chain Sync',
-          desc: 'Lead details sync automatically to your management tool and a confirmation is sent.'
+          title: 'CRM Sync & Fast Deal Closing',
+          desc: 'Lead details log automatically into your management system, allowing you to follow up while they are hot.'
         }
       ]
     },
     pricing: {
-      title: 'Transparent, Straightforward Investment',
-      subtitle: 'A bespoke digital asset built for tangible ROI and ongoing design leadership',
-      packageHeader: 'Flagship Business Package: 100% Custom Build + Design Partner',
-      oneTimePrice: '₪10,000',
-      oneTimeSub: 'One-time investment for full custom bespoke build',
-      monthlyPrice: '₪800',
-      monthlySub: '/ month for hosting, security, support & proactive design ideas',
-      note: '100% Modular: New modules and custom systems can be added at any stage as your business scales.',
-      features: [
-        '100% Custom code (React / Node.js) - zero rigid template lock-ins',
-        'Deep engineering focus on mobile and desktop perfection',
-        'Unlimited future scalability: add features, pages, or systems anytime',
-        'Active design partnership: proactive suggestions from Tsoor to elevate aesthetics',
-        'Comprehensive discovery and competitive analysis by an IS Project Manager (B.Sc)',
-        'Direct WhatsApp integration and conversion triggers',
-        'Full setup for Meta & Google social ad campaigns',
-        'Custom domain setup (.co.il / .com) + full DNS & SSL secure configuration',
-        'Optional upgrade to branded business email suite (e.g. info@yourbusiness.co.il on Google Workspace)',
-        'Fast cloud hosting + SSL security and automated backups',
-        'Ongoing peace of mind, maintenance, and technical support'
+      title: 'Transparent Investment & Retainer Plans',
+      subtitle: '100% custom platform setup paired with two clear monthly retainer options, with zero lock-in',
+      setupHeader: 'Platform Setup (One-Time Investment)',
+      setupPrice: '₪10,000',
+      setupSub: 'One-time setup for bespoke architecture and full build',
+      setupFeatures: [
+        '100% Custom code (React / Node.js) with zero closed platform lock-ins',
+        'Meticulous responsive optimization for mobile & desktop (0.8s load speed)',
+        'High-speed cloud media delivery and managed CDN',
+        'Direct WhatsApp integration and high-conversion lead funnels',
+        'Custom domain setup, SSL security, and full DNS configuration',
+        'Structured post-launch refinement round (Fine-Tuning)'
       ],
+      retainerTitle: 'Choose the monthly retainer plan tailored to your business needs:',
+      tier1: {
+        id: 'essential',
+        name: 'Essential Ops Retainer',
+        nameEn: 'Essential Ops',
+        price: '₪450',
+        sub: '/ month',
+        desc: 'For businesses that want a fast, secure, and always-online site, updating content only occasionally.',
+        features: [
+          'High-speed cloud hosting & global CDN delivery',
+          'SSL security certificate & daily automated cloud backups',
+          '24/7 uptime monitoring and technical bug fixes',
+          'Direct lead alerts to WhatsApp and email',
+          '* Content and catalog updates billed separately per request (₪250/hr)'
+        ],
+        btnText: 'Select Essential Ops'
+      },
+      tier2: {
+        id: 'managed',
+        name: 'All-Inclusive Managed Retainer',
+        nameEn: 'All-Inclusive Managed',
+        badge: 'Recommended / Best Value',
+        price: '₪800',
+        sub: '/ month',
+        desc: 'The full suite: a dedicated technology partner handling ongoing catalog and content updates directly via WhatsApp.',
+        features: [
+          'Everything included in Essential Ops (₪450)',
+          'Up to 2 hours/month of hands-on catalog & content updates via WhatsApp (uploading products, image optimization, price changes, banner swaps - worth ₪500/mo on its own!)',
+          'Priority WhatsApp support (response within 1 business day)',
+          'Monthly consolidated traffic & performance snapshot',
+          'Total peace of mind: send a WhatsApp message - and it’s done'
+        ],
+        btnText: 'Select Managed Retainer'
+      },
+      antiLockIn: {
+        title: 'Complete Ownership Guarantee (No Lock-In):',
+        text: 'Your domain, imagery, copy, and all customer lead data belong to you 100%. You can switch between tiers or terminate our retainer at any time with 30 days notice and receive a full export of all your assets and data with zero penalties.'
+      },
       toggleLabel: 'How would you like to view pricing?',
-      viewTransparent: 'Flagship Package (₪10,000 + ₪800/mo)',
-      viewCustom: 'Custom Quote & Addons Estimator',
+      viewTransparent: 'Standard Plans & Transparent Pricing',
+      viewCustom: 'Custom Features & Addons Estimator',
       calculatorTitle: 'Custom Features & Addons Estimator',
       calculatorSubtitle: 'Select additional modules and automations to calculate your estimate:',
       baseSetupText: 'Base Platform Build:',
-      baseMonthlyText: 'Monthly Support & Retainer:',
+      baseMonthlyText: 'Recommended Managed Retainer (₪800):',
       totalEstimatedSetup: 'Estimated Setup Total:',
       totalEstimatedMonthly: 'Estimated Monthly Total:'
     },
@@ -475,29 +521,28 @@ export const siteContent = {
       previewTitle: 'Live Preview: How Your Link Looks When Shared on Social Media',
       demoUrl: 'tsoorhartov.com',
       demoCardTitle: 'Tsoor Hartov | Custom Bespoke Websites & Systems for Growing SMBs',
-      demoCardDesc: 'Engineered custom for mobile & desktop, scalable as you grow, with ongoing proactive design updates.'
+      demoCardDesc: 'Engineered custom for mobile & desktop, 0.8s load times, connected directly to WhatsApp and your CRM.'
     },
     about: {
       title: 'Nice to meet you, I’m Tsoor Hartov',
-      badge: 'B.Sc Degree | Information Systems Expert & PM | Certified by Coding Academy',
-      tagline: 'A technological partner who stays in active contact, proactively suggests visual improvements, and builds custom platforms that scale with your business.',
+      badge: 'Information Systems Expert & Project Manager (B.Sc) | Certified by Coding Academy',
+      tagline: 'An engineer who brings a rare synergy between systems architecture, operational business insight, and custom Full-Stack development.',
       badgesList: [
         { title: 'Bachelor of Science (B.Sc)', subtitle: 'Analytical rigor, systems architecture, and complex problem solving' },
-        { title: 'Certified by Coding Academy', subtitle: 'Advanced Full-Stack engineering standards in React, Node.js and modern web' },
-        { title: 'Information Systems Expert & Project Manager', subtitle: 'Strict timeline control, business requirement scoping, and resource management' },
+        { title: 'Certified by Coding Academy', subtitle: 'Advanced Full-Stack engineering standards in modern web' },
+        { title: 'Information Systems & Project Management', subtitle: 'Strict timeline control, business requirement scoping, and resource management' },
         { title: 'Logistics & Supply Chain Specialist', subtitle: 'Deep operational insight into inventory, vendor flows, and process automation' }
       ],
       story: [
-        'I hold a B.Sc degree and operate as an Information Systems expert and Project Manager with deep specialized expertise in logistics and supply chain management, alongside being a certified Full-Stack Web Developer graduated from Coding Academy.',
-        'My philosophy is simple: you never receive a generic off-the-shelf template that traps you in rigid constraints. Every platform is engineered 100% custom in React and Node.js. For you, this means complete freedom - your site can expand, evolve, and accommodate any feature, page, or system at any stage as your business scales.',
-        'A core focus during development is dedicated to responsive excellence on both mobile (where the majority of social media traffic arrives) and desktop (where high-ticket deals and professional reviews occur).',
-        'Most importantly - you receive a dedicated partner who never disappears after deployment. As part of our monthly partnership, you get continuous performance analysis, proactive visual suggestions, and tailored updates that keep your digital presence ahead of the curve.'
+        'I am an Information Systems expert and Project Manager holding a B.Sc degree, with rich hands-on experience leading complex operations in logistics and supply chain management, alongside being a certified Full-Stack Web Developer graduated from Coding Academy.',
+        'My philosophy is simple: you never receive a closed platform that traps you in rigid constraints, but rather full custom architecture in React and Node.js. For you, this means complete freedom - your site loads ultra-fast and can scale with any feature, page, or system at any stage.',
+        'Most importantly - you receive a technology partner who never disappears after deployment. As part of our monthly partnership, you get peace of mind, secure server maintenance, and direct WhatsApp support for any catalog updates or new business needs.'
       ],
       values: [
-        { label: '100% Custom Code (Scales with You)', desc: 'Zero rigid template limits. Freely add any page, feature, or integration as you grow.' },
-        { label: 'Mobile & Desktop Perfection', desc: 'Flawless responsive design, lightning speed, and high-conversion UX on every screen.' },
-        { label: 'Active Proactive Design Partner', desc: 'Continuous touchpoints with fresh ideas to refine aesthetics and visual polish.' },
-        { label: 'Engineering & Business Mindset', desc: 'Synergy of B.Sc, Project Management, and Coding Academy standards.' }
+        { label: '100% Custom Code (Scales with You)', desc: 'Zero glass ceiling. Freely add any page, feature, or integration as you grow.' },
+        { label: 'Mobile & Desktop Perfection', desc: 'Flawless responsive design, 0.8s lightning speed, and high-conversion UX on every screen.' },
+        { label: 'Hassle-Free Technology Partnership', desc: 'Direct WhatsApp communication with Tsoor for hands-on catalog updates without technical friction.' },
+        { label: 'Engineering & Business Mindset', desc: 'Synergy of B.Sc, Project Management, and Coding Academy standards ensuring uncompromising quality.' }
       ]
     },
     contact: {
@@ -510,16 +555,16 @@ export const siteContent = {
       emailLabel: 'Email Address',
       emailPlaceholder: 'you@business.com',
       businessTypeLabel: 'Business Category',
-      businessTypePlaceholder: 'e.g. Design Studio, Logistics & Commerce, Professional Firm...',
+      businessTypePlaceholder: 'e.g. Design Studio, Custom Manufacturing, Professional Firm, Clinic...',
       currentWebsiteLabel: 'Current Website (if any)',
       currentWebsitePlaceholder: 'www.mybusiness.com',
       needsLabel: 'What does your business need?',
       needsOptions: [
         'New Bespoke Custom Website (Mobile + Desktop)',
         'Custom Domain & Branded Business Email Suite (Google Workspace)',
-        'Visual Redesign & Scalable Feature Additions',
-        'AI Tools, Information Systems & Automations',
-        'Ongoing Monthly Maintenance & Proactive Design Partnership'
+        'Interactive Quote Calculators & Digital Business Tools',
+        'Lead Automations, WhatsApp & CRM Synchronization',
+        'All-Inclusive Managed Retainer & Peace of Mind'
       ],
       messageLabel: 'Tell me briefly about your project and goals',
       messagePlaceholder: 'Share what you are looking to achieve...',
@@ -531,8 +576,8 @@ export const siteContent = {
       directWhatsappBtn: 'Open WhatsApp Chat Now'
     },
     footer: {
-      brandDesc: 'Tsoor Hartov - B.Sc, Information Systems Expert, Project Manager, Logistics Specialist, and Coding Academy Certified Developer. Bespoke Custom Web Development for Mobile & Desktop.',
-      copyright: '© All rights reserved to Tsoor Hartov - Bespoke Web Development & Automations.',
+      brandDesc: 'Tsoor Hartov - Information Systems Expert, Project Manager, and Coding Academy Certified Full-Stack Developer (B.Sc). Bespoke Custom Web Development for Mobile & Desktop.',
+      copyright: '© All rights reserved to Tsoor Hartov - Bespoke Web Development & Digital Systems.',
       subnote: 'Crafted with React & Node.js in 100% Custom Architecture.'
     }
   }

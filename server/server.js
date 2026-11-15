@@ -135,33 +135,54 @@ const servicesData = {
     whatsappMessage: 'היי צור, ראיתי את האתר שלך ואשמח לשמוע פרטים על בניית אתר/אוטומציות לעסק שלי.'
   },
   pricingModel: {
-    showExactPricing: true, // Toggleable by Tsoor
-    basePackage: {
-      name: 'חבילת הדגל: אתר Custom מלא + שותף עיצובי וטכנולוגי',
-      nameEn: 'The Flagship Business Package: 100% Custom Build & Design Partner',
+    showExactPricing: true,
+    setupPackage: {
+      name: 'הקמת האתר: ארכיטקטורת Custom מלאה ב-React ו-Node.js',
+      nameEn: 'Platform Setup: 100% Custom React & Node.js Architecture',
       oneTimeSetupILS: 10000,
-      monthlyMaintenanceILS: 800,
-      setupNote: 'תשלום חד-פעמי להקמת ארכיטקטורת Custom מלאה למובייל ולמחשב (ללא תבניות מדף מוגבלות)',
-      maintenanceNote: 'ליווי שוטף, אבטחה, אחסון פרימיום, והצעות שוטפות יזומות לשדרוג הנראות והתאמה לעסק',
+      setupNote: 'תשלום חד-פעמי להקמת נכס דיגיטלי עצמאי, מהיר ומאובטח ללא מערכות סגורות',
       included: [
-        'פיתוח Custom מלא בקוד עצמאי (React / Node.js) - ללא נעילה בתבניות סגורות',
-        'דגש פיתוח קפדני על התאמה מושלמת למובייל ולמחשב (0.8s מהירות)',
-        'יכולת הרחבה בלתי מוגבלת: הוספת עמודים, מערכות ופונקציות בכל שלב עם גדילת העסק',
-        'קשר שוטף לאחר העלייה לאוויר והצעות יזומות מצור לשדרוג ורענון העיצוב',
-        'אפיון מערכות מידע ומחקר מתחרים מעמיק ע״י מנהל פרויקטים (B.Sc)',
+        'פיתוח Custom מלא בקוד עצמאי (React / Node.js) ללא נעילה במערכות סגורות',
+        'התאמה רספונסיבית מוקפדת למובייל ולמחשב (0.8s מהירות טעינה)',
+        'הזרמת תמונות ומדיה מהירה בענן (CDN מנוהל)',
         'חיבור מהיר ל-WhatsApp וכפתורי יצירת קשר ממוקדי המרה',
-        'אופטימיזציה מלאה לפרסום ממומן ברשתות חברתיות (Facebook, Instagram, TikTok)',
-        'תשתית SEO מתקדמת לדירוג בגוגל',
-        'בחירת כתובת דומיין מותאמת אישית (.co.il / .com) + חיבור DNS ותעודת SSL',
-        'אפשרות שדרוג למערך תיבות דוא״ל עסקיות יוקרתיות (Google Workspace / 365)',
-        'תחזוקה חודשית: גיבויים שוטפים, עדכוני אבטחה ושקט נפשי מתמיד'
+        'חיבור דומיין אישי, תעודת SSL ואבטחת DNS מלאה',
+        'מקצה שיפורים ממוקד לאחר העלייה לאוויר (Fine-Tuning)'
       ]
     },
-    customChangesPolicy: 'האתר נבנה בקאסטום ומאפשר הוספת פיצ׳רים ומודולים בכל עת. שינויים והרחבות מורכבות מעבר לאפיון הבסיס (כגון מערכות ייעודיות נוספות או אוטומציות מורכבות) יתומחרו בנפרד בשקיפות מלאה.',
+    retainerTiers: [
+      {
+        id: 'essential',
+        name: 'מסלול תשתית ושקט טכני',
+        nameEn: 'Essential Ops',
+        monthlyILS: 450,
+        features: [
+          'אחסון ענן מהיר וייעודי + רשת CDN גלובלית',
+          'תעודת אבטחה SSL וגיבויים יומיים אוטומטיים',
+          'ניטור זמינות 24/7 ותיקון תקלות תשתית ובאגים',
+          'התראות לידים ישירות למייל ולוואטסאפ'
+        ],
+        extraHoursRateILS: 250
+      },
+      {
+        id: 'managed',
+        name: 'מסלול ניהול מלא בראש שקט',
+        nameEn: 'All-Inclusive Managed',
+        badge: 'הבחירה המשתלמת והמומלצת',
+        monthlyILS: 800,
+        features: [
+          'כולל את כל מרכיבי מסלול התשתית (450 ₪)',
+          'עד שעתיים חודשיות של עדכוני תוכן וקטלוג ישירות דרך WhatsApp (שווי 500 ₪)',
+          'מענה ותמיכה בוואטסאפ בעדיפות גבוהה (תוך יום עסקים אחד)',
+          'דוח ביצועים ותנועת גולשים חודשי מרוכז'
+        ]
+      }
+    ],
+    antiLockInGuarantee: 'הדומיין, התמונות, הטקסטים וכל נתוני הלקוחות שייכים לכם ב-100%. ניתן לעבור בין מסלולים או לסיים התקשרות בכל עת בהתראה של 30 יום מראש ולקבל ייצוא מלא של כל הנכסים והנתונים ללא שום קנסות.',
     addons: [
-      { id: 'ai-tools', name: 'כלי AI מתקדמים (עיצוב ומחשבונים אינטראקטיביים לעסק)', priceILS: 2500, recurringILS: 150, desc: 'שילוב כלי AI מובילים לעיצוב נכסים דיגיטליים, מחשבונים חכמים וכלים ייעודיים לעסק' },
+      { id: 'business-tools', name: 'מחשבוני הצעות מחיר וכלים דיגיטליים אינטראקטיביים', priceILS: 2500, recurringILS: 150, desc: 'מחשבונים חכמים ושאלוני סינון ייעודיים לעסק שמזרימים לידים בשלים' },
       { id: 'domain-emails', name: 'דומיין מותאם אישית ותיבות דוא״ל עסקיות יוקרתיות', priceILS: 1200, recurringILS: 80, desc: 'רישום דומיין, הגדרת תיבות מייל ב-Google Workspace / 365, חתימות מעוצבות ואבטחת SPF/DKIM' },
-      { id: 'lead-alerts', name: 'התראות לידים מיידיות לוואטסאפ (050-593-5609)', priceILS: 1500, recurringILS: 100, desc: 'קבלת הודעת WhatsApp מיידית לנייד עם כל פרטי הליד והצרכים שלו' },
+      { id: 'lead-alerts', name: 'התראות לידים מיידיות לוואטסאפ (050-593-5609)', priceILS: 1500, recurringILS: 100, desc: 'קבלת הודעת WhatsApp מיידית לנייד עם כל פרטי הליד והצרכים שלו תוך 5 שניות' },
       { id: 'crm-sync', name: 'חיבור למערכת CRM (Monday, Airtable, HubSpot)', priceILS: 2000, recurringILS: 150, desc: 'סנכרון מלא של כל הלידים והלקוחות ישירות למערכת הניהול שלך' },
       { id: 'invoicing', name: 'הפקת חשבוניות אוטומטית (סליקה וחשבונית ירוקה/מורנינג)', priceILS: 2200, recurringILS: 100, desc: 'הלקוח משלם והחשבונית נשלחת אליו מיידית למייל ללא מגע יד אדם' },
       { id: 'multilingual', name: 'אתר דו-לשוני מלא (עברית ואנגלית)', priceILS: 2800, recurringILS: 100, desc: 'ממשק RTL ו-LTR מלא עם מתג שפות מהיר' }
@@ -198,8 +219,8 @@ app.get('/api/services', (req, res) => {
 // 4. Interactive Estimate Calculator
 app.post('/api/estimate', (req, res) => {
   const { selectedAddons = [], customNeeds = '', maintenanceMonths = 12 } = req.body;
-  const baseSetup = servicesData.pricingModel.basePackage.oneTimeSetupILS;
-  const baseMonthly = servicesData.pricingModel.basePackage.monthlyMaintenanceILS;
+  const baseSetup = servicesData.pricingModel.setupPackage.oneTimeSetupILS;
+  const baseMonthly = servicesData.pricingModel.retainerTiers[1].monthlyILS;
 
   let addonSetupTotal = 0;
   let addonMonthlyTotal = 0;
@@ -278,6 +299,8 @@ app.post('/api/leads', async (req, res) => {
     // Send email notification to Tsoor
     const adminEmail = process.env.ADMIN_EMAIL || 'tsoor.hartov@gmail.com';
     const transporter = createTransporter();
+    let emailSent = false;
+    let emailMethod = 'none';
 
     if (transporter) {
       const rawDigits = phone.replace(/[^0-9]/g, '');
@@ -321,16 +344,56 @@ app.post('/api/leads', async (req, res) => {
 
       try {
         await transporter.sendMail(mailOptions);
-        console.log(`[EMAIL DISPATCH] Lead email sent to ${adminEmail}`);
+        emailSent = true;
+        emailMethod = 'smtp';
+        console.log(`[EMAIL DISPATCH] Lead email sent to ${adminEmail} via SMTP`);
       } catch (mailErr) {
         console.error('[EMAIL ERROR] Failed to send email via SMTP:', mailErr.message);
       }
     } else {
-      console.log('ℹ️ Tip: Set SMTP_USER and SMTP_PASS in Render environment variables to receive live emails.');
+      console.log('ℹ️ Tip: Set SMTP_USER and SMTP_PASS in Render environment variables for direct Gmail delivery.');
+    }
+
+    // Server-side fallback: if SMTP is not configured or failed, dispatch via FormSubmit webhook
+    if (!emailSent && typeof fetch !== 'undefined') {
+      try {
+        const fsRes = await fetch(`https://formsubmit.co/ajax/${adminEmail}`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify({
+            _subject: `🔥 ליד חדש מהאתר: ${name} (${phone}) - ${businessType || 'עסק'}`,
+            _captcha: 'false',
+            _template: 'table',
+            name,
+            phone,
+            email: email || 'לא צוין',
+            businessType: businessType || 'כללי',
+            currentWebsite: currentWebsite || 'אין',
+            needs: Array.isArray(needs) ? needs.join(', ') : needs,
+            message: message || 'אין הודעה נוספת',
+            submittedAt: new Date().toLocaleString('he-IL', { timeZone: 'Asia/Jerusalem' })
+          })
+        });
+        const fsData = await fsRes.json();
+        if (fsData.success === 'true' || fsData.success === true) {
+          emailSent = true;
+          emailMethod = 'formsubmit_server';
+          console.log('[EMAIL DISPATCH] Lead email sent to FormSubmit from server.');
+        } else {
+          console.warn('[EMAIL WARNING] Server FormSubmit returned:', fsData.message);
+        }
+      } catch (fsErr) {
+        console.warn('[EMAIL WARNING] Server FormSubmit request failed:', fsErr.message);
+      }
     }
 
     res.status(201).json({
       success: true,
+      emailSent,
+      emailMethod,
       message: 'הפנייה התקבלה בהצלחה! צור הרטוב יחזור אליך בהקדם.',
       leadId: newLead.id
     });

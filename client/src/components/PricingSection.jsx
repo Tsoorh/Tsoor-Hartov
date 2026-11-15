@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Check, ShieldCheck, Sparkles, Plus, Calculator, ArrowRight, ArrowLeft, HelpCircle } from 'lucide-react';
+import { Check, ShieldCheck, Sparkles, Plus, Calculator, ArrowRight, ArrowLeft, Clock, Zap, FileCode, CheckCircle2 } from 'lucide-react';
 
 export default function PricingSection({ content, lang, onSelectPackage }) {
   const { pricing } = content;
@@ -12,9 +12,9 @@ export default function PricingSection({ content, lang, onSelectPackage }) {
   // Interactive Add-ons Calculator state
   const addons = [
     {
-      id: 'ai-tools',
-      name: isRtl ? 'כלי AI מתקדמים (עיצוב ומחשבונים אינטראקטיביים לעסק)' : 'Advanced AI Tools (Design & Custom Business Calculators)',
-      desc: isRtl ? 'בניית כלים דיגיטליים ומחשבונים ייעודיים לעסק שלך, ושימוש בכלי AI מובילים' : 'Building interactive digital tools, calculators and AI workflow automation',
+      id: 'business-tools',
+      name: isRtl ? 'מחשבוני הצעות מחיר וכלים דיגיטליים אינטראקטיביים' : 'Interactive Quote Calculators & Digital Business Tools',
+      desc: isRtl ? 'בניית מחשבונים ייעודיים לעסק שלך (עלויות, אפיון פרויקט, שאלון סינון חכם) המזרימים לידים בשלים' : 'Custom quote engines and interactive project scoping quizzes',
       setupILS: 2500,
       monthlyILS: 150
     },
@@ -88,7 +88,7 @@ export default function PricingSection({ content, lang, onSelectPackage }) {
         <div className="text-center max-w-3xl mx-auto mb-12">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-teal-500/10 border border-teal-500/30 text-teal-300 text-xs font-semibold mb-3">
             <Sparkles className="w-3.5 h-3.5" />
-            <span>{isRtl ? 'שקיפות ואמינות מלאה' : '100% Transparency'}</span>
+            <span>{isRtl ? 'שקיפות מלאה ללא כבילה' : '100% Transparency & No Lock-In'}</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-4">
             {pricing.title}
@@ -97,7 +97,7 @@ export default function PricingSection({ content, lang, onSelectPackage }) {
             {pricing.subtitle}
           </p>
 
-          {/* Toggle between Transparent and Custom Estimator */}
+          {/* Toggle between Transparent Plans and Custom Estimator */}
           <div className="mt-8 inline-flex items-center p-1 bg-slate-900 border border-slate-800 rounded-2xl shadow-inner">
             <button
               onClick={() => setViewMode('transparent')}
@@ -123,55 +123,44 @@ export default function PricingSection({ content, lang, onSelectPackage }) {
           </div>
         </div>
 
-        {/* View 1: Transparent Flagship Package */}
+        {/* View 1: Standard Transparent Plans (10K Setup + 450 vs 800 Retainer) */}
         {viewMode === 'transparent' && (
-          <div className="max-w-4xl mx-auto">
-            <div className="relative rounded-3xl bg-slate-900/70 border-2 border-teal-500/40 p-8 sm:p-12 shadow-2xl backdrop-blur-xl glow-teal overflow-hidden">
-              <div className="absolute top-0 right-0 w-64 h-64 bg-teal-500/10 rounded-full blur-3xl pointer-events-none" />
+          <div className="max-w-5xl mx-auto space-y-10">
+            {/* 1. Setup Card */}
+            <div className="relative rounded-3xl bg-slate-900/80 border border-slate-800 p-8 sm:p-10 shadow-2xl backdrop-blur-xl overflow-hidden">
+              <div className="absolute top-0 right-0 w-72 h-72 bg-teal-500/10 rounded-full blur-3xl pointer-events-none" />
 
-              <div className="flex flex-col md:flex-row md:items-center justify-between pb-8 border-b border-slate-800 gap-6">
+              <div className="flex flex-col md:flex-row md:items-center justify-between pb-6 border-b border-slate-800 gap-6">
                 <div>
-                  <div className="inline-flex items-center gap-1 text-[11px] font-bold uppercase tracking-wider text-teal-400 bg-teal-500/10 px-2.5 py-1 rounded-md mb-2">
-                    {isRtl ? 'החבילה המובילה לעסקים קטנים ובינוניים' : 'Most Popular for SMBs'}
+                  <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-teal-400 bg-teal-500/10 px-3 py-1 rounded-md mb-2">
+                    <FileCode className="w-3.5 h-3.5" />
+                    <span>{pricing.setupHeader}</span>
                   </div>
                   <h3 className="text-2xl sm:text-3xl font-extrabold text-white">
-                    {pricing.packageHeader}
+                    {isRtl ? 'פיתוח אתר קאסטום מלא מאפס' : '100% Custom Platform Architecture'}
                   </h3>
-                  <p className="text-xs sm:text-sm text-slate-400 mt-1 max-w-md">
+                  <p className="text-xs sm:text-sm text-slate-400 mt-1 max-w-xl">
                     {isRtl
-                      ? 'הקמת נכס דיגיטלי בקאסטום מלא (למובייל ומחשב), ללא תבניות מוגבלות, כולל שותפות עיצובית והצעות שוטפות לשדרוג הנראות.'
-                      : '100% custom platform (mobile & desktop), zero rigid templates, with continuous proactive design partnership.'}
+                      ? 'הקמת נכס דיגיטלי ב-React & Node.js, ללא מערכות סגורות ותוספים כבדים, עם מהירות שיא של 0.8s והתאמה מושלמת למובייל ולמחשב.'
+                      : 'Bespoke React & Node.js engineering, zero closed platform limits, 0.8s speed, and pixel-perfect mobile responsiveness.'}
                   </p>
                 </div>
 
-                <div className="text-start md:text-end shrink-0 bg-slate-950/60 p-4 sm:p-6 rounded-2xl border border-slate-800">
-                  <div className="flex items-baseline gap-2">
-                    <span className="text-3xl sm:text-4xl font-extrabold text-white font-mono">
-                      {pricing.oneTimePrice}
-                    </span>
-                    <span className="text-xs text-slate-400">
-                      {pricing.oneTimeSub}
-                    </span>
+                <div className="text-start md:text-end shrink-0 bg-slate-950/70 p-4 sm:p-6 rounded-2xl border border-slate-800">
+                  <div className="text-3xl sm:text-4xl font-extrabold text-white font-mono">
+                    {pricing.setupPrice}
                   </div>
-                  <div className="flex items-baseline gap-2 mt-2 pt-2 border-t border-slate-800">
-                    <span className="text-xl sm:text-2xl font-bold text-teal-400 font-mono">
-                      + {pricing.monthlyPrice}
-                    </span>
-                    <span className="text-xs text-slate-400">
-                      {pricing.monthlySub}
-                    </span>
+                  <div className="text-xs text-slate-400 mt-1">
+                    {pricing.setupSub}
                   </div>
                 </div>
               </div>
 
-              {/* Feature Checklist */}
-              <div className="py-8">
-                <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-6">
-                  {isRtl ? 'מה אתם מקבלים בחבילה:' : 'What you receive in this package:'}
-                </h4>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  {pricing.features.map((feat, i) => (
-                    <div key={i} className="flex items-start gap-3">
+              {/* Setup Deliverables List */}
+              <div className="pt-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5">
+                  {pricing.setupFeatures.map((feat, i) => (
+                    <div key={i} className="flex items-start gap-2.5">
                       <div className="w-5 h-5 rounded-full bg-teal-500/20 text-teal-400 flex items-center justify-center shrink-0 mt-0.5">
                         <Check className="w-3.5 h-3.5" />
                       </div>
@@ -182,20 +171,129 @@ export default function PricingSection({ content, lang, onSelectPackage }) {
                   ))}
                 </div>
               </div>
+            </div>
 
-              {/* Scope note & CTA */}
-              <div className="pt-6 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4">
-                <div className="text-xs text-slate-400 max-w-lg text-center sm:text-start">
-                  <span className="text-teal-400 font-semibold">* מדיניות שינויים: </span>
-                  {pricing.note}
+            {/* 2. Monthly Retainer Options (Side-by-Side Anchoring) */}
+            <div>
+              <div className="text-center max-w-2xl mx-auto mb-6">
+                <h3 className="text-lg sm:text-xl font-bold text-white">
+                  {pricing.retainerTitle}
+                </h3>
+              </div>
+
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-stretch">
+                {/* Tier 1: Essential Ops (450 ILS) */}
+                <div className="p-7 sm:p-8 rounded-3xl bg-slate-900/60 border border-slate-800 flex flex-col justify-between hover:border-slate-700 transition-colors">
+                  <div>
+                    <div className="flex items-center justify-between gap-2 mb-2">
+                      <span className="text-xs font-mono text-slate-400 uppercase tracking-wider">
+                        {pricing.tier1.nameEn}
+                      </span>
+                    </div>
+
+                    <h4 className="text-xl sm:text-2xl font-bold text-white mb-2">
+                      {pricing.tier1.name}
+                    </h4>
+
+                    <p className="text-xs text-slate-400 leading-relaxed mb-6">
+                      {pricing.tier1.desc}
+                    </p>
+
+                    <div className="flex items-baseline gap-1.5 mb-6 pb-6 border-b border-slate-800">
+                      <span className="text-3xl sm:text-4xl font-extrabold text-white font-mono">
+                        {pricing.tier1.price}
+                      </span>
+                      <span className="text-xs text-slate-400">
+                        {pricing.tier1.sub}
+                      </span>
+                    </div>
+
+                    <div className="space-y-3 mb-8">
+                      {pricing.tier1.features.map((item, idx) => (
+                        <div key={idx} className="flex items-start gap-2.5 text-xs text-slate-300">
+                          <Check className="w-4 h-4 text-slate-400 shrink-0 mt-0.5" />
+                          <span className={item.startsWith('*') ? 'text-amber-300/80 italic' : ''}>{item}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <a
+                    href="#contact"
+                    className="w-full inline-flex items-center justify-center gap-2 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-semibold text-xs sm:text-sm border border-slate-700 transition-all"
+                  >
+                    <span>{pricing.tier1.btnText}</span>
+                    <ArrowIcon className="w-4 h-4" />
+                  </a>
                 </div>
-                <a
-                  href="#contact"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-xl bg-gradient-to-r from-teal-500 to-sky-600 hover:from-teal-400 hover:to-sky-500 text-white font-bold text-sm shadow-xl shadow-teal-500/25 transition-all hover:scale-105 active:scale-95 shrink-0"
-                >
-                  <span>{isRtl ? 'שריין פרויקט עם צור' : 'Book Project with Tsoor'}</span>
-                  <ArrowIcon className="w-4 h-4" />
-                </a>
+
+                {/* Tier 2: All-Inclusive Managed (800 ILS - Recommended) */}
+                <div className="p-7 sm:p-8 rounded-3xl bg-slate-900/90 border-2 border-teal-500/60 flex flex-col justify-between relative shadow-2xl shadow-teal-950/50 glow-teal">
+                  <div className="absolute top-0 right-0 w-48 h-48 bg-teal-500/15 rounded-full blur-2xl pointer-events-none" />
+
+                  <div>
+                    <div className="flex items-center justify-between gap-2 mb-2">
+                      <span className="text-xs font-mono text-teal-400 uppercase tracking-wider">
+                        {pricing.tier2.nameEn}
+                      </span>
+                      <span className="text-[11px] font-bold text-teal-300 bg-teal-500/20 px-2.5 py-0.5 rounded-full border border-teal-500/40">
+                        {pricing.tier2.badge}
+                      </span>
+                    </div>
+
+                    <h4 className="text-xl sm:text-2xl font-bold text-white mb-2">
+                      {pricing.tier2.name}
+                    </h4>
+
+                    <p className="text-xs text-slate-300 leading-relaxed mb-6">
+                      {pricing.tier2.desc}
+                    </p>
+
+                    <div className="flex items-baseline gap-1.5 mb-6 pb-6 border-b border-slate-800">
+                      <span className="text-3xl sm:text-4xl font-extrabold text-teal-400 font-mono">
+                        {pricing.tier2.price}
+                      </span>
+                      <span className="text-xs text-slate-400">
+                        {pricing.tier2.sub}
+                      </span>
+                      <span className="mr-3 text-[11px] text-teal-300/90 font-medium bg-teal-950/60 px-2 py-0.5 rounded border border-teal-500/30">
+                        {isRtl ? 'תוספת 350 ₪ בלבד לחודש' : 'Only +₪350 difference'}
+                      </span>
+                    </div>
+
+                    <div className="space-y-3 mb-8">
+                      {pricing.tier2.features.map((item, idx) => (
+                        <div key={idx} className="flex items-start gap-2.5 text-xs text-slate-200">
+                          <CheckCircle2 className="w-4 h-4 text-teal-400 shrink-0 mt-0.5" />
+                          <span className={idx === 1 ? 'font-semibold text-teal-200' : ''}>{item}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <a
+                    href="#contact"
+                    className="w-full inline-flex items-center justify-center gap-2 py-3.5 rounded-xl bg-gradient-to-r from-teal-500 to-sky-600 hover:from-teal-400 hover:to-sky-500 text-white font-bold text-xs sm:text-sm shadow-xl shadow-teal-500/25 transition-all hover:scale-[1.02] active:scale-95"
+                  >
+                    <span>{pricing.tier2.btnText}</span>
+                    <ArrowIcon className="w-4 h-4" />
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            {/* 3. Anti-Lock-In Guarantee Box */}
+            <div className="p-6 rounded-2xl bg-slate-950/80 border border-slate-800 flex items-start gap-4">
+              <div className="w-10 h-10 rounded-xl bg-teal-500/10 border border-teal-500/30 flex items-center justify-center text-teal-400 shrink-0 mt-0.5">
+                <ShieldCheck className="w-5 h-5" />
+              </div>
+              <div className="text-xs sm:text-sm">
+                <div className="font-bold text-white mb-1">
+                  {pricing.antiLockIn.title}
+                </div>
+                <p className="text-slate-300 leading-relaxed">
+                  {pricing.antiLockIn.text}
+                </p>
               </div>
             </div>
           </div>
@@ -264,7 +362,7 @@ export default function PricingSection({ content, lang, onSelectPackage }) {
             <div className="p-6 rounded-2xl bg-slate-950 border border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-6">
               <div className="space-y-1 text-center sm:text-start">
                 <div className="text-xs text-slate-400">
-                  {isRtl ? 'הערכת השקעה כוללת (בסיס + תוספות שנבחרו):' : 'Estimated Total (Base + Selected Addons):'}
+                  {isRtl ? 'הערכת השקעה כוללת (הקמה 10,000 ₪ + ריטיינר ניהול 800 ₪ + תוספות שנבחרו):' : 'Estimated Total (Setup ₪10,000 + Managed ₪800 + Selected Addons):'}
                 </div>
                 <div className="flex items-baseline gap-3">
                   <span className="text-2xl sm:text-3xl font-extrabold text-white font-mono">
