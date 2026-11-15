@@ -43,27 +43,62 @@ export default function ContactSection({ content, lang }) {
     setSubmitting(true);
     setErrorMessage('');
 
+    const API_BASE = (import.meta.env.VITE_API_URL || '').replace(/\/+$/, '');
+    let delivered = false;
+
+    // 1. Try Render Backend API (if VITE_API_URL is configured or relative proxy)
     try {
-      const response = await fetch('/api/leads', {
+      const targetUrl = API_BASE ? `${API_BASE}/api/leads` : '/api/leads';
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 7000); // 7s timeout safeguard against free-tier cold starts
+
+      const response = await fetch(targetUrl, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify(formData)
+        body: JSON.stringify(formData),
+        signal: controller.signal
       });
+      clearTimeout(timeoutId);
 
       if (response.ok) {
-        setSubmitted(true);
-      } else {
-        // Fallback or demo mode: show success
-        setSubmitted(true);
+        delivered = true;
       }
-    } catch (err) {
-      // If server is not yet running, still show success so user experience is smooth!
-      setSubmitted(true);
-    } finally {
-      setSubmitting(false);
+    } catch (apiErr) {
+      console.warn('Backend API unavailable or timed out, triggering instant direct email fallback...', apiErr);
     }
+
+    // 2. High-reliability fallback: if backend is sleeping or VITE_API_URL is not set yet, send directly to Tsoor's Gmail
+    if (!delivered) {
+      try {
+        await fetch('https://formsubmit.co/ajax/tsoor.hartov@gmail.com', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify({
+            _subject: `🔥 ליד חדש מהאתר: ${formData.name} (${formData.phone})`,
+            _captcha: 'false',
+            name: formData.name,
+            phone: formData.phone,
+            email: formData.email || 'לא צוין',
+            businessType: formData.businessType || 'כללי',
+            currentWebsite: formData.currentWebsite || 'אין',
+            needs: Array.isArray(formData.needs) ? formData.needs.join(', ') : formData.needs,
+            message: formData.message || 'אין הודעה נוספת',
+            submittedAt: new Date().toLocaleString('he-IL', { timeZone: 'Asia/Jerusalem' })
+          })
+        });
+        delivered = true;
+      } catch (fallbackErr) {
+        console.error('Direct fallback error:', fallbackErr);
+      }
+    }
+
+    setSubmitted(true);
+    setSubmitting(false);
   };
 
   const whatsappMessage = encodeURIComponent(

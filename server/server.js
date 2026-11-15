@@ -1,7 +1,14 @@
+require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const fs = require('fs');
 const path = require('path');
+let nodemailer;
+try {
+  nodemailer = require('nodemailer');
+} catch (e) {
+  nodemailer = null;
+}
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -9,6 +16,25 @@ const PORT = process.env.PORT || 5000;
 // Middleware
 app.use(cors());
 app.use(express.json());
+
+// Transporter helper for email notifications
+const createTransporter = () => {
+  if (!nodemailer) return null;
+  const user = process.env.SMTP_USER || process.env.ADMIN_EMAIL;
+  const pass = process.env.SMTP_PASS;
+
+  if (!user || !pass) {
+    return null;
+  }
+
+  return nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user,
+      pass
+    }
+  });
+};
 
 // Path to store leads locally
 const leadsFilePath = path.join(__dirname, 'data', 'leads.json');
@@ -98,7 +124,6 @@ const servicesData = {
   profile: {
     name: 'צור הרטוב',
     nameEn: 'Tsoor Hartov',
-    age: 30,
     academic: 'B.Sc',
     certifications: ['Coding Academy Full-Stack Certified', 'Information Systems Expert', 'Project Manager', 'Logistics & Supply Chain Specialist'],
     title: 'מומחה מערכות מידע, מנהל פרויקטים ומפתח Full-Stack מוסמך Coding Academy (בעל תואר B.Sc)',
@@ -119,7 +144,7 @@ const servicesData = {
       setupNote: 'תשלום חד-פעמי להקמת ארכיטקטורת Custom מלאה למובייל ולמחשב (ללא תבניות מדף מוגבלות)',
       maintenanceNote: 'ליווי שוטף, אבטחה, אחסון פרימיום, והצעות שוטפות יזומות לשדרוג הנראות והתאמה לעסק',
       included: [
-        'פיתוח Custom מלא בקוד עצמאי (React / Node.js) — ללא נעילה בתבניות סגורות',
+        'פיתוח Custom מלא בקוד עצמאי (React / Node.js) - ללא נעילה בתבניות סגורות',
         'דגש פיתוח קפדני על התאמה מושלמת למובייל ולמחשב (0.8s מהירות)',
         'יכולת הרחבה בלתי מוגבלת: הוספת עמודים, מערכות ופונקציות בכל שלב עם גדילת העסק',
         'קשר שוטף לאחר העלייה לאוויר והצעות יזומות מצור לשדרוג ורענון העיצוב',
@@ -206,7 +231,7 @@ app.post('/api/estimate', (req, res) => {
 });
 
 // 5. Submit Lead / Contact Form
-app.post('/api/leads', (req, res) => {
+app.post('/api/leads', async (req, res) => {
   try {
     const { name, phone, email, businessType, currentWebsite, needs, budget, message, referralSource } = req.body;
 
@@ -242,10 +267,67 @@ app.post('/api/leads', (req, res) => {
     }
 
     leads.unshift(newLead);
-    fs.writeFileSync(leadsFilePath, JSON.stringify(leads, null, 2), 'utf-8');
+    try {
+      fs.writeFileSync(leadsFilePath, JSON.stringify(leads, null, 2), 'utf-8');
+    } catch (writeErr) {
+      console.warn('Could not write leads file (read-only environment):', writeErr.message);
+    }
 
-    // Simulate automation trigger: In production, this triggers WhatsApp API, Telegram bot, or Webhook to CRM
     console.log(`[AUTOMATION TRIGGER] New Lead Received: ${name} (${phone}) - Business: ${businessType}`);
+
+    // Send email notification to Tsoor
+    const adminEmail = process.env.ADMIN_EMAIL || 'tsoor.hartov@gmail.com';
+    const transporter = createTransporter();
+
+    if (transporter) {
+      const rawDigits = phone.replace(/[^0-9]/g, '');
+      const waDigits = rawDigits.startsWith('972') ? rawDigits : rawDigits.replace(/^0/, '972');
+      const waLink = `https://wa.me/${waDigits}?text=${encodeURIComponent(`היי ${name}, צור הרטוב כאן בקשר לפנייתך באתר!`)}`;
+
+      const mailOptions = {
+        from: `"צור הרטוב - ליד חדש" <${process.env.SMTP_USER || adminEmail}>`,
+        to: adminEmail,
+        replyTo: email || undefined,
+        subject: `🔥 ליד חדש מהאתר: ${name} (${phone}) - ${businessType || 'עסק'}`,
+        html: `
+          <div dir="rtl" style="font-family: Arial, sans-serif; background: #0f172a; color: #f8fafc; padding: 25px; border-radius: 12px; max-width: 600px; margin: 0 auto;">
+            <div style="border-bottom: 2px solid #14b8a6; padding-bottom: 12px; margin-bottom: 18px;">
+              <h2 style="color: #14b8a6; margin: 0 0 6px 0; font-size: 22px;">🚀 ליד חדש נכנס מהאתר!</h2>
+              <p style="color: #94a3b8; margin: 0; font-size: 13px;">התקבל בתאריך: ${new Date().toLocaleString('he-IL', { timeZone: 'Asia/Jerusalem' })}</p>
+            </div>
+
+            <div style="background: #1e293b; padding: 18px; border-radius: 8px; margin-bottom: 18px; border: 1px solid #334155;">
+              <h3 style="color: #f1f5f9; margin-top: 0; font-size: 16px; border-bottom: 1px solid #334155; padding-bottom: 6px;">פרטי הפנייה</h3>
+              <p style="margin: 8px 0; font-size: 14px;"><strong>שם הלקוח:</strong> ${name}</p>
+              <p style="margin: 8px 0; font-size: 14px;"><strong>טלפון:</strong> <a href="tel:${phone}" style="color: #38bdf8; text-decoration: none;">${phone}</a></p>
+              ${email ? `<p style="margin: 8px 0; font-size: 14px;"><strong>אימייל:</strong> <a href="mailto:${email}" style="color: #38bdf8; text-decoration: none;">${email}</a></p>` : ''}
+              <p style="margin: 8px 0; font-size: 14px;"><strong>תחום עיסוק:</strong> ${businessType || 'לא צוין'}</p>
+              ${currentWebsite ? `<p style="margin: 8px 0; font-size: 14px;"><strong>אתר קיים:</strong> <a href="${currentWebsite}" target="_blank" style="color: #38bdf8;">${currentWebsite}</a></p>` : ''}
+              <p style="margin: 8px 0; font-size: 14px;"><strong>מעוניין ב:</strong> ${Array.isArray(needs) ? needs.join(', ') : needs}</p>
+              ${message ? `<div style="margin-top: 12px; padding: 10px; background: #0f172a; border-radius: 6px; border-right: 3px solid #14b8a6; font-size: 13px;"><strong>הודעה:</strong><br/>${message.replace(/\n/g, '<br/>')}</div>` : ''}
+            </div>
+
+            <div style="text-align: center; margin-top: 20px;">
+              <a href="${waLink}" target="_blank" style="background: #25D366; color: white; padding: 10px 20px; border-radius: 8px; text-decoration: none; font-weight: bold; display: inline-block; margin-left: 8px; font-size: 14px;">
+                💬 מענה מהיר ב-WhatsApp
+              </a>
+              <a href="tel:${phone}" style="background: #0284c7; color: white; padding: 10px 20px; border-radius: 8px; text-decoration: none; font-weight: bold; display: inline-block; font-size: 14px;">
+                📞 חייג ללקוח
+              </a>
+            </div>
+          </div>
+        `
+      };
+
+      try {
+        await transporter.sendMail(mailOptions);
+        console.log(`[EMAIL DISPATCH] Lead email sent to ${adminEmail}`);
+      } catch (mailErr) {
+        console.error('[EMAIL ERROR] Failed to send email via SMTP:', mailErr.message);
+      }
+    } else {
+      console.log('ℹ️ Tip: Set SMTP_USER and SMTP_PASS in Render environment variables to receive live emails.');
+    }
 
     res.status(201).json({
       success: true,

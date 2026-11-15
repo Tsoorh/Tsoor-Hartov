@@ -60,13 +60,13 @@ export default function TemplatesShowcase({ lang }) {
           </div>
           <h2 className="text-2xl sm:text-4xl font-extrabold text-white mb-4">
             {isRtl
-              ? 'לא תבנית מדף נוקשה — אלא ארכיטקטורת Custom שמתרחבת בכל שלב'
-              : 'Zero Rigid Templates — 100% Custom Built to Scale'}
+              ? 'לא תבנית מדף נוקשה - אלא ארכיטקטורת Custom שמתרחבת בכל שלב'
+              : 'Zero Rigid Templates - 100% Custom Built to Scale'}
           </h2>
           <p className="text-slate-400 text-sm sm:text-base leading-relaxed">
             {isRtl
-              ? 'היתרון המרכזי של האתרים שלי: הם לא נבנים מתבניות מדף מוגבלות. כל אתר נבנה בקאסטום מלא, מותאם בקפדנות למובייל ולמחשב, ומאפשר להוסיף בכל שלב עמודים, מערכות ואוטומציות נוספות — בדיוק בקצב שהעסק שלך מתרחב וגדל.'
-              : 'The core advantage: you are never locked into a generic off-the-shelf template. Every site is built 100% custom, optimized for mobile & desktop, and can be expanded with new features, pages, and systems at any stage as your business scales.'}
+              ? 'היתרון המרכזי: אתם לא מקבלים תבנית מדף מוגבלת, אלא אתר שנבנה עבורכם בקאסטום מלא, מותאם בקפדנות למובייל ולמחשב, ומאפשר לכם להוסיף בכל שלב עמודים, מערכות ואוטומציות נוספות - בדיוק בקצב שהעסק שלכם מתרחב וגדל.'
+              : 'The core advantage: you never receive a generic template, but a platform engineered 100% custom for you, optimized for mobile & desktop, and ready to scale with new features at any stage.'}
           </p>
         </div>
 

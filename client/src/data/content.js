@@ -17,7 +17,7 @@ export const siteContent = {
       headlineStart: 'אתרי פרימיום וכלים מבוססי AI',
       headlineAccent: 'שמייצרים לקוחות ומייעלים את העסק',
       headlineEnd: 'למובייל ולמחשב.',
-      subheadline: 'שלום, אני צור הרטוב (בן 30) — בעל תואר B.Sc, מומחה מערכות מידע ומנהל פרויקטים, מפתח ווב מוסמך Coding Academy. אני משלב פיתוח קאסטום מלא יחד עם כלי AI מתקדמים לעיצוב האתר, בניית כלים ייעודיים לעסק והטמעת AI בתפעול השוטף — עם דגש קפדני על מובייל ומחשב, ויכולת להתרחב בכל שלב. בנוסף, אני נשאר בקשר אישי שוטף ומספק הצעות יזומות לשדרוג הנראות.',
+      subheadline: 'שלום, אני צור הרטוב - בעל תואר B.Sc, מומחה מערכות מידע ומנהל פרויקטים, מפתח ווב מוסמך Coding Academy. איתי אתם מקבלים פיתוח קאסטום מלא יחד עם כלי AI מתקדמים לעיצוב האתר, בניית כלים ייעודיים לעסק והטמעת AI בתפעול השוטף - עם דגש קפדני על מובייל ומחשב, ויכולת להתרחב בכל שלב. בנוסף, אתם מקבלים ליווי אישי שוטף והצעות יזומות לשדרוג הנראות לאורך זמן.',
       ctaPrimary: 'בואו נדבר על האתר שלכם',
       ctaSecondary: 'צפו בפרויקט לדוגמה (tiranlasry.com)',
       ctaEstimate: 'מחשבון פרויקט ותוספות',
@@ -45,7 +45,7 @@ export const siteContent = {
         },
         {
           title: 'תצוגת מובייל שבורה וטעינה איטית',
-          desc: 'תבניות רבות נראות סביר במחשב אך מתפרקות בסמארטפון — המקום שבו נמצאים מעל 80% מהלקוחות שמגיעים מהרשתות החברתיות.'
+          desc: 'תבניות רבות נראות סביר במחשב אך מתפרקות בסמארטפון - המקום שבו נמצאים מעל 80% מהלקוחות שמגיעים מהרשתות החברתיות.'
         },
         {
           title: 'בונה האתרים נעלם דקה אחרי ההשקה',
@@ -54,7 +54,7 @@ export const siteContent = {
       ],
       solutions: [
         {
-          title: 'פיתוח Custom מלא — גמישות אינסופית לצמיחת העסק',
+          title: 'פיתוח Custom מלא - גמישות אינסופית לצמיחת העסק',
           desc: 'האתר נבנה בקוד נקי ב-React. ניתן להוסיף לו בכל שלב דפים חדשים, מערכות פנימיות, קטלוגים או אוטומציות לפי דרישתך ועם גדילת העסק.'
         },
         {
@@ -62,8 +62,8 @@ export const siteContent = {
           desc: 'אפס פשרות: התאמה פיקסל-פרפקט לסמארטפונים, טאבלטים ומסכי מחשב רחבים, עם זמני טעינה שוברי שיאים (0.8s).'
         },
         {
-          title: 'שותף עיצובי וטכנולוגי שנשאר איתך בקשר מתמיד',
-          desc: 'אני לא נעלם אחרי העלייה לאוויר. כחלק מהליווי החודשי אני יוזם הצעות שוטפות לשיפור הנראות, ריענון העיצוב והתאמה למוצרים חדשים.'
+          title: 'שותף עיצובי וטכנולוגי שנשאר איתכם בקשר מתמיד',
+          desc: 'אתם מקבלים שותף שממשיך ללוות אתכם גם אחרי העלייה לאוויר. כחלק מהליווי החודשי אתם מקבלים הצעות שוטפות ויוזמות לשיפור הנראות, ריענון העיצוב והתאמה למוצרים חדשים.'
         }
       ]
     },
@@ -74,7 +74,7 @@ export const siteContent = {
       url: 'https://tiranlasry.com',
       industry: 'עיצוב וייצור גופי תאורה אדריכליים בעבודת יד (Custom Made)',
       headline: 'איך הפכנו מלאכת יד יוקרתית לחלון ראווה דיגיטלי שמביא אדריכלים ומעצבי פנים',
-      overview: 'טירן לסרי מעצב ומייצר גופי תאורה על-זמניים בהתאמה אישית בנס ציונה. האתר נבנה בקאסטום מלא כאתר תצוגה, השראה ואיסוף פניות ברמת גימור מלוטשת שמביאה לקוחות פרימיום ומאפשרת לבקש הצעת מחיר מדויקת לכל פריט — הן במובייל והן במחשב.',
+      overview: 'טירן לסרי מעצב ומייצר גופי תאורה על-זמניים בהתאמה אישית בנס ציונה. האתר נבנה בקאסטום מלא כאתר תצוגה, השראה ואיסוף פניות ברמת גימור מלוטשת שמביאה לקוחות פרימיום ומאפשרת לבקש הצעת מחיר מדויקת לכל פריט - הן במובייל והן במחשב.',
       highlights: [
         'פיתוח קאסטום מלא המאפשר הרחבת קטלוג ופונקציות בכל עת',
         'התאמה רספונסיבית מוקפדת למובייל ולמחשב (80% מהתנועה מאינסטגרם)',
@@ -85,7 +85,7 @@ export const siteContent = {
       cta: 'רוצים אתר קאסטום יוקרתי כזה לעסק שלכם?'
     },
     services: {
-      title: 'השירותים והיכולות שאני מביא לעסק שלך',
+      title: 'מה אתם מקבלים לעסק שלכם',
       subtitle: 'פיתוח קאסטום מלא, דגש מובייל ומחשב, וליווי עיצובי שיוזם שיפורים לאורך כל הדרך',
       list: [
         {
@@ -116,7 +116,7 @@ export const siteContent = {
           id: 'maintenance-retainer',
           icon: 'ShieldCheck',
           title: 'ליווי עיצובי מתמיד, תחזוקה ושקט נפשי',
-          desc: 'אני נשאר בקשר הדוק איתך גם לאחר ההשקה! אתה מקבל הצעות שוטפות לשיפור הנראות, שדרוגי עיצוב, התאמות למוצרים חדשים ותחזוקת שרתים מאובטחת.'
+          desc: 'אתם מקבלים שותף צמוד שנשאר איתכם בקשר הדוק גם לאחר ההשקה! אתם מקבלים הצעות יזומות לשיפור הנראות, שדרוגי עיצוב, התאמות למוצרים חדשים ותחזוקת שרתים שקטה ומאובטחת.'
         }
       ]
     },
@@ -147,7 +147,7 @@ export const siteContent = {
       ]
     },
     pricing: {
-      title: 'השקעה ברורה ושקופה — ללא הפתעות',
+      title: 'השקעה ברורה ושקופה - ללא הפתעות',
       subtitle: 'חבילת ערך כוללת לבניית נכס דיגיטלי מניב בקאסטום מלא וליווי עיצובי מתמיד',
       packageHeader: 'חבילת הדגל: אתר Custom מלא + שותף עיצובי וטכנולוגי',
       oneTimePrice: '10,000 ₪',
@@ -156,7 +156,7 @@ export const siteContent = {
       monthlySub: 'לחודש עבור תחזוקה, ליווי שוטף והצעות לשיפור הנראות',
       note: 'האתר גמיש ב-100%: ניתן להוסיף מודולים ומערכות בכל שלב לפי צרכי העסק. כל שינוי נוסף יתומחר בשקיפות מלאה.',
       features: [
-        'פיתוח Custom מלא בקוד עצמאי (React / Node.js) — ללא תבניות סגורות',
+        'פיתוח Custom מלא בקוד עצמאי (React / Node.js) - ללא תבניות סגורות',
         'שימוש בכלי AI מתקדמים לעיצוב האתר, בניית כלים ייעודיים וייעול העסק',
         'דגש פיתוח קפדני על התאמה מושלמת למובייל ולמחשב',
         'יכולת הרחבה בלתי מוגבלת: הוספת עמודים, מערכות ופיצ׳רים בעתיד',
@@ -211,7 +211,7 @@ export const siteContent = {
     },
     about: {
       title: 'נעים להכיר, אני צור הרטוב',
-      badge: 'בן 30 | B.Sc | מומחה מערכות מידע ומנהל פרויקטים | בוגר Coding Academy',
+      badge: 'תואר B.Sc | מומחה מערכות מידע ומנהל פרויקטים | בוגר Coding Academy',
       tagline: 'איש מקצוע שנשאר איתך בקשר אישי, יוזם שיפורים בעיצוב, ומפתח אתרי Custom שצומחים ביחד עם העסק.',
       badgesList: [
         { title: 'תואר ראשון במדעים (B.Sc)', subtitle: 'חשיבה אנליטית, ארכיטקטורת מערכות ופתרון בעיות מורכבות' },
@@ -220,10 +220,10 @@ export const siteContent = {
         { title: 'מומחיות בלוגיסטיקה ושרשרת אספקה', subtitle: 'הבנה עמוקה של זרימת מוצרים, ספקים, מלאי ואינטגרציות' }
       ],
       story: [
-        'אני בן 30, בעל תואר B.Sc, מומחה למערכות מידע ומנהל פרויקטים עם התמחות ייחודית בלוגיסטיקה ובשרשרת אספקה, וכן מפתח Full-Stack מוסמך מבית Coding Academy.',
-        'הפילוסופיה שלי פשוטה: אני לא בונה אתרים מתבניות מדף גנריות שכולאות אותך במבנה נוקשה, אלא מפתח בקאסטום מלא (Custom Code ב-React ו-Node.js). המשמעות עבורך היא חופש פעולה מוחלט — האתר יכול לגדול, להשתדרג ולהוסיף כל מודול או מערכת בכל שלב, בדיוק לפי התפתחות העסק שלך.',
+        'אני בעל תואר B.Sc, מומחה למערכות מידע ומנהל פרויקטים עם התמחות ייחודית בלוגיסטיקה ובשרשרת אספקה, וכן מפתח Full-Stack מוסמך מבית Coding Academy.',
+        'הפילוסופיה שלי פשוטה: אתם לא מקבלים תבנית מדף גנרית שכולאת אתכם במבנה נוקשה, אלא פיתוח קאסטום מלא (Custom Code ב-React ו-Node.js). המשמעות עבורכם היא חופש פעולה מוחלט - האתר שלכם יכול לגדול, להשתדרג ולהוסיף כל מודול או מערכת בכל שלב, בדיוק לפי התפתחות העסק.',
         'דגש מרכזי בפיתוח שלי מושם על התאמה מושלמת הן למובייל (שם נמצאת רוב תנועת הלקוחות מהרשתות) והן למחשב (שם מתבצעות עסקאות גדולות וקבלת החלטות מקצועיות).',
-        'והחשוב מכל — אני לא "נעלם" אחרי שהאתר עולה לאוויר. כחלק מהליווי החודשי, אני נשאר איתך בקשר מתמיד, בוחן את ביצועי האתר ותמיד מציע לך רעיונות והצעות יזומות לשיפור הנראות, לרענון העיצוב ולהתאמה מדויקת לצרכים המשתנים של העסק.'
+        'והחשוב מכל - אתם מקבלים שותף שלא "נעלם" אחרי שהאתר עולה לאוויר. כחלק מהליווי החודשי, אתם מקבלים קשר אישי מתמיד, ניתוח שוטף של ביצועי האתר והצעות יזומות לשיפור הנראות, לרענון העיצוב ולהתאמה מדויקת לצרכים המשתנים של העסק שלכם.'
       ],
       values: [
         { label: 'קאסטום מלא שצומח עם העסק', desc: 'ללא תבניות מדף סגורות. אפשרות להוסיף כל עמוד, פיצ׳ר ומערכת בכל שלב עתידי.' },
@@ -263,7 +263,7 @@ export const siteContent = {
       directWhatsappBtn: 'פתיחת שיחה בוואטסאפ עכשיו'
     },
     footer: {
-      brandDesc: 'צור הרטוב — B.Sc, מומחה מערכות מידע, מנהל פרויקטים ומפתח מוסמך Coding Academy. פיתוח אתרי Custom יוקרתיים למובייל ולמחשב, אוטומציות וליווי עיצובי שוטף.',
+      brandDesc: 'צור הרטוב - B.Sc, מומחה מערכות מידע, מנהל פרויקטים ומפתח מוסמך Coding Academy. פיתוח אתרי Custom יוקרתיים למובייל ולמחשב, אוטומציות וליווי עיצובי שוטף.',
       copyright: '© כל הזכויות שמורות לצור הרטוב - פיתוח אתרים ואוטומציות לעסקים.',
       subnote: 'נבנה ב-React & Node.js בקאסטום מלא למובייל ולמחשב.'
     }
@@ -286,7 +286,7 @@ export const siteContent = {
       headlineStart: 'Bespoke Custom Websites & AI Tools',
       headlineAccent: 'Engineered to Scale with Your Business',
       headlineEnd: 'on Mobile & Desktop.',
-      subheadline: 'Hi, I’m Tsoor Hartov (30) — B.Sc holder, Information Systems expert and Project Manager, certified Full-Stack Web Developer by Coding Academy. I combine 100% custom web architecture with cutting-edge AI tools for website design, custom tool building, and operational business workflows — with deep mobile & desktop excellence and unlimited scalability. Plus, I stay in close contact post-launch with ongoing proactive visual suggestions.',
+      subheadline: 'Hi, I’m Tsoor Hartov - B.Sc holder, Information Systems expert and Project Manager, certified Full-Stack Web Developer by Coding Academy. With me, you receive 100% custom web architecture combined with cutting-edge AI tools for website design, custom tool building, and operational business workflows - with deep mobile & desktop excellence and unlimited scalability. Plus, you get ongoing proactive design improvements and active personal contact post-launch.',
       ctaPrimary: 'Let’s Build Your Platform',
       ctaSecondary: 'View Featured Showcase (tiranlasry.com)',
       ctaEstimate: 'Project & Addons Calculator',
@@ -314,7 +314,7 @@ export const siteContent = {
         },
         {
           title: 'Broken Mobile Experience',
-          desc: 'Templates often look acceptable on desktops but glitch on mobile — where over 80% of social media ad traffic originates.'
+          desc: 'Templates often look acceptable on desktops but glitch on mobile - where over 80% of social media ad traffic originates.'
         },
         {
           title: 'Developers Disappear After Launch',
@@ -323,7 +323,7 @@ export const siteContent = {
       ],
       solutions: [
         {
-          title: '100% Custom Code — Infinite Scalability',
+          title: '100% Custom Code - Infinite Scalability',
           desc: 'Built in clean React & Node.js code. Add new pages, custom workflows, catalogs, or systems at any stage as your company expands.'
         },
         {
@@ -354,7 +354,7 @@ export const siteContent = {
       cta: 'Want a bespoke custom website for your business?'
     },
     services: {
-      title: 'Services & Capabilities I Deliver',
+      title: 'What You Get For Your Business',
       subtitle: 'Where 100% Custom Engineering meets mobile perfection and ongoing design leadership',
       list: [
         {
@@ -385,7 +385,7 @@ export const siteContent = {
           id: 'maintenance-retainer',
           icon: 'ShieldCheck',
           title: 'Continuous Design Partnership & Maintenance',
-          desc: 'I stay in active contact post-launch, providing proactive suggestions for aesthetic refinements, visual updates, and secure cloud hosting.'
+          desc: 'You receive a dedicated design & technology partner who stays in active contact post-launch, providing proactive suggestions for visual updates and rock-solid maintenance.'
         }
       ]
     },
@@ -425,7 +425,7 @@ export const siteContent = {
       monthlySub: '/ month for hosting, security, support & proactive design ideas',
       note: '100% Modular: New modules and custom systems can be added at any stage as your business scales.',
       features: [
-        '100% Custom code (React / Node.js) — zero rigid template lock-ins',
+        '100% Custom code (React / Node.js) - zero rigid template lock-ins',
         'Deep engineering focus on mobile and desktop perfection',
         'Unlimited future scalability: add features, pages, or systems anytime',
         'Active design partnership: proactive suggestions from Tsoor to elevate aesthetics',
@@ -479,7 +479,7 @@ export const siteContent = {
     },
     about: {
       title: 'Nice to meet you, I’m Tsoor Hartov',
-      badge: 'Age 30 | B.Sc | Information Systems Expert & PM | Certified by Coding Academy',
+      badge: 'B.Sc Degree | Information Systems Expert & PM | Certified by Coding Academy',
       tagline: 'A technological partner who stays in active contact, proactively suggests visual improvements, and builds custom platforms that scale with your business.',
       badgesList: [
         { title: 'Bachelor of Science (B.Sc)', subtitle: 'Analytical rigor, systems architecture, and complex problem solving' },
@@ -488,10 +488,10 @@ export const siteContent = {
         { title: 'Logistics & Supply Chain Specialist', subtitle: 'Deep operational insight into inventory, vendor flows, and process automation' }
       ],
       story: [
-        'I am 30 years old, hold a B.Sc degree, and operate as an Information Systems expert and Project Manager with deep specialized expertise in logistics and supply chain management, alongside being a certified Full-Stack Web Developer graduated from Coding Academy.',
-        'My philosophy is simple: I do not build websites from generic off-the-shelf templates that trap you in rigid constraints. Every platform is built 100% custom in React and Node.js. For you, this means complete freedom — your site can expand, evolve, and accommodate any feature, page, or system at any stage as your business scales.',
+        'I hold a B.Sc degree and operate as an Information Systems expert and Project Manager with deep specialized expertise in logistics and supply chain management, alongside being a certified Full-Stack Web Developer graduated from Coding Academy.',
+        'My philosophy is simple: you never receive a generic off-the-shelf template that traps you in rigid constraints. Every platform is engineered 100% custom in React and Node.js. For you, this means complete freedom - your site can expand, evolve, and accommodate any feature, page, or system at any stage as your business scales.',
         'A core focus during development is dedicated to responsive excellence on both mobile (where the majority of social media traffic arrives) and desktop (where high-ticket deals and professional reviews occur).',
-        'Most importantly — I never disappear after deployment. As part of my monthly partnership, I remain in active contact with you, continuously analyzing performance and bringing proactive suggestions to elevate your visual design and keep your digital presence ahead of the curve.'
+        'Most importantly - you receive a dedicated partner who never disappears after deployment. As part of our monthly partnership, you get continuous performance analysis, proactive visual suggestions, and tailored updates that keep your digital presence ahead of the curve.'
       ],
       values: [
         { label: '100% Custom Code (Scales with You)', desc: 'Zero rigid template limits. Freely add any page, feature, or integration as you grow.' },
@@ -531,7 +531,7 @@ export const siteContent = {
       directWhatsappBtn: 'Open WhatsApp Chat Now'
     },
     footer: {
-      brandDesc: 'Tsoor Hartov — B.Sc, Information Systems Expert, Project Manager, Logistics Specialist, and Coding Academy Certified Developer. Bespoke Custom Web Development for Mobile & Desktop.',
+      brandDesc: 'Tsoor Hartov - B.Sc, Information Systems Expert, Project Manager, Logistics Specialist, and Coding Academy Certified Developer. Bespoke Custom Web Development for Mobile & Desktop.',
       copyright: '© All rights reserved to Tsoor Hartov - Bespoke Web Development & Automations.',
       subnote: 'Crafted with React & Node.js in 100% Custom Architecture.'
     }

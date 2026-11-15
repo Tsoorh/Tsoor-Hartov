@@ -29,7 +29,7 @@ export default function WhatsAppFloat({ lang }) {
         <div className="w-2.5 h-2.5 rounded-full bg-[#25D366] animate-pulse"></div>
         <div>
           <div className="text-xs font-bold leading-tight">
-            {isRtl ? 'צור הרטוב — זמין בוואטסאפ' : 'Tsoor is available on WhatsApp'}
+            {isRtl ? 'צור הרטוב - זמין בוואטסאפ' : 'Tsoor is available on WhatsApp'}
           </div>
           <div className="text-[11px] text-teal-400 font-mono mt-0.5">050-593-5609</div>
         </div>

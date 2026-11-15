@@ -29,7 +29,7 @@ export default function AboutSection({ content, lang }) {
                 <div className="w-20 h-20 rounded-2xl bg-gradient-to-tr from-teal-500 via-sky-500 to-indigo-600 p-[2px] shadow-lg shadow-teal-500/20">
                   <div className="w-full h-full rounded-2xl bg-slate-950 flex flex-col items-center justify-center text-white">
                     <span className="text-2xl font-black tracking-tight">TS</span>
-                    <span className="text-[9px] font-mono text-teal-400 uppercase">30 YO</span>
+                    <span className="text-[9px] font-mono text-teal-400 uppercase">B.Sc</span>
                   </div>
                 </div>
 
@@ -38,7 +38,7 @@ export default function AboutSection({ content, lang }) {
                     {lang === 'he' ? 'צור הרטוב' : 'Tsoor Hartov'}
                   </h3>
                   <p className="text-xs font-semibold text-teal-400">
-                    {lang === 'he' ? 'בן 30 • תואר B.Sc • מפתח וארכיטקט מערכות' : 'Age 30 • B.Sc • Web & Systems Architect'}
+                    {lang === 'he' ? 'תואר B.Sc • מומחה מערכות מידע • מפתח וארכיטקט מערכות' : 'B.Sc Degree • Information Systems Expert • Web & Systems Architect'}
                   </p>
                   <div className="inline-flex items-center gap-1 mt-1 text-[11px] text-slate-400">
                     <span className="w-2 h-2 rounded-full bg-emerald-400 inline-block"></span>

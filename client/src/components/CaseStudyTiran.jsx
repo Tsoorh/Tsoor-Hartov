@@ -97,7 +97,7 @@ export default function CaseStudyTiran({ content, lang }) {
             <div className="p-4 rounded-2xl bg-slate-950/60 border border-slate-800/80 text-xs sm:text-sm text-slate-300 italic border-l-4 border-l-teal-500">
               "{caseStudy.quote}"
               <div className="mt-2 text-xs font-semibold text-teal-400 not-italic">
-                — {caseStudy.clientName}
+                - {caseStudy.clientName}
               </div>
             </div>
 

@@ -167,7 +167,7 @@ export default function PricingSection({ content, lang, onSelectPackage }) {
               {/* Feature Checklist */}
               <div className="py-8">
                 <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-6">
-                  {isRtl ? 'מה כלול בחבילה:' : 'What is included in this package:'}
+                  {isRtl ? 'מה אתם מקבלים בחבילה:' : 'What you receive in this package:'}
                 </h4>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {pricing.features.map((feat, i) => (
