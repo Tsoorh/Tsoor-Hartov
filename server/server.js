@@ -128,7 +128,7 @@ const servicesData = {
     certifications: ['Coding Academy Full-Stack Certified', 'Information Systems Expert', 'Project Manager', 'Logistics & Supply Chain Specialist'],
     title: 'מומחה מערכות מידע, מנהל פרויקטים ומפתח Full-Stack מוסמך Coding Academy (בעל תואר B.Sc)',
     titleEn: 'Information Systems Expert, Project Manager & Coding Academy Certified Full-Stack Developer (B.Sc)',
-    specialties: ['כלי AI מתקדמים לעיצוב ובניית כלים', 'לוגיסטיקה ושרשרת אספקה', 'בניית אתרי פרימיום לעסקים בקאסטום', 'אוטומציות WhatsApp ו-CRM', 'ניהול פרויקטים'],
+    specialties: ['כלי AI מתקדמים לעיצוב ובניית כלים', 'לוגיסטיקה ושרשרת אספקה', 'בניית אתרי פרימיום מותאמים אישית לעסקים', 'אוטומציות WhatsApp ו-CRM', 'ניהול פרויקטים'],
     location: 'ישראל (עבודה עם עסקים בכל הארץ)',
     phone: '050-593-5609',
     email: 'contact@tsoorhartov.com',

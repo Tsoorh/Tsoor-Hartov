@@ -66,7 +66,7 @@ export default function ValueProps({ content, lang }) {
                 </div>
                 <div>
                   <h3 className="text-lg font-bold text-teal-200">
-                    {lang === 'he' ? 'הפיתוח של צור הרטוב (Bespoke & Fast)' : 'Tsoor Hartov Bespoke Engineering'}
+                    {lang === 'he' ? 'הפיתוח' : 'Bespoke Engineering'}
                   </h3>
                   <p className="text-xs text-teal-300/80">
                     {lang === 'he' ? 'אתרים שנבנים במיוחד להמרת קמפיינים וסגירת עסקאות' : 'Engineered specifically for conversions & sales'}

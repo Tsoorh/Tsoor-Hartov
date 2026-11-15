@@ -9,7 +9,7 @@ export default function TemplatesShowcase({ lang }) {
     {
       id: 'luxury-studio',
       category: isRtl ? 'סטודיו לעיצוב, נגרות ואדריכלות' : 'Design Studio & Architecture',
-      title: isRtl ? 'פורמט סטודיו פרימיום (בהשראת פרויקט תירן לסרי)' : 'Luxury Studio Format (Inspired by Tiran Lasry)',
+      title: isRtl ? 'פורמט סטודיו פרימיום (בהשראת פרויקט טירן לסרי)' : 'Luxury Studio Format (Inspired by Tiran Lasry)',
       description: isRtl
         ? 'אתר קטלוג מרהיב לחברות יצרניות, מעצבי מוצר, נגרות עילית ותאורה. מיקוד ביוקרה, פרזנטציה ויזואלית מוקפדת ותיאום פניות מהיר עם אדריכלים.'
         : 'Showcase catalog tailored for manufacturers, artisanal creators, and high-end architects. Focus on visual luxury and custom quote requests.',
@@ -139,7 +139,7 @@ export default function TemplatesShowcase({ lang }) {
                 <div className="text-xs text-slate-300">
                   <span className="font-bold text-white">{currentFormat.category}</span>
                   <span className="mx-2">•</span>
-                  <span>{isRtl ? 'קוד קאסטום מלא ב-React' : '100% Custom React Code'}</span>
+                  <span>{isRtl ? 'קוד מותאם אישית מלא ב-React' : '100% Custom React Code'}</span>
                 </div>
               </div>
             </div>

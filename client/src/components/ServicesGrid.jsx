@@ -61,7 +61,7 @@ export default function ServicesGrid({ content, lang }) {
                   </a>
 
                   <span className="text-[11px] text-slate-400 font-mono">
-                    {srv.id === 'custom-web' && (isRtl ? '100% קאסטום React' : '100% Custom React')}
+                    {srv.id === 'custom-web' && (isRtl ? 'מותאם אישית ב-React' : '100% Custom React')}
                     {srv.id === 'business-tools' && (isRtl ? 'מחשבונים וכלים' : 'Calculators & Tools')}
                     {srv.id === 'domain-emails' && (isRtl ? 'Google Workspace' : 'Google Workspace')}
                     {srv.id === 'automations-systems' && (isRtl ? 'WhatsApp & CRM' : 'WhatsApp & CRM')}

@@ -137,7 +137,7 @@ export default function PricingSection({ content, lang, onSelectPackage }) {
                     <span>{pricing.setupHeader}</span>
                   </div>
                   <h3 className="text-2xl sm:text-3xl font-extrabold text-white">
-                    {isRtl ? 'פיתוח אתר קאסטום מלא מאפס' : '100% Custom Platform Architecture'}
+                    {isRtl ? 'פיתוח אתר מותאם אישית מאפס' : '100% Custom Platform Architecture'}
                   </h3>
                   <p className="text-xs sm:text-sm text-slate-400 mt-1 max-w-xl">
                     {isRtl

@@ -166,7 +166,7 @@ export default function ContactSection({ content, lang }) {
                   </div>
                   <div className="flex items-center gap-2">
                     <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-                    <span>{isRtl ? 'אתרי קאסטום פרימיום, כלים דיגיטליים ואוטומציות' : 'Custom Web Platforms, Business Tools & Automations'}</span>
+                    <span>{isRtl ? 'אתרים מותאמים אישית, כלים דיגיטליים ואוטומציות' : 'Custom Web Platforms, Business Tools & Automations'}</span>
                   </div>
                 </div>
               </div>
