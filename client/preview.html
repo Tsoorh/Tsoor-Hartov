@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>צור הרטוב | בניית אתרי פרימיום, מערכות מידע ואוטומציות לעסקים</title>
+  
+  <!-- SEO & Social OpenGraph -->
+  <meta name="description" content="צור הרטוב (בן 30) - B.Sc, מומחה מערכות מידע, ניהול פרויקטים, לוגיסטיקה ושרשרת אספקה, ומפתח מוסמך Coding Academy. בניית אתרים יוקרתיים ואוטומציות לעסקים." />
+  <meta property="og:title" content="צור הרטוב | בניית אתרי פרימיום ומערכות מידע לעסקים" />
+  <meta property="og:description" content="אתרים מרהיבים, מהירים ב-0.8s, מחוברים ל-WhatsApp, CRM ואוטומציות עסקיות. תשלום שקוף של 10,000 ₪ + 800 ₪/חודש או אפיון אישי." />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=1200&q=80" />
+
+  <!-- Google Fonts: Heebo & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700;800&family=Heebo:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              400: '#2dd4bf',
+              500: '#14b8a6',
+              600: '#0d9488',
+            }
+          },
+          fontFamily: {
+            hebrew: ['Heebo', 'Assistant', 'sans-serif'],
+            sans: ['Inter', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons (Vanilla script for standalone rendering) -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- React & Babel via CDN -->
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <style>
+    body {
+      background-color: #0b0f19;
+      color: #f1f5f9;
+      font-family: 'Heebo', sans-serif;
+      overflow-x: hidden;
+    }
+    .glow-teal {
+      box-shadow: 0 0 50px -10px rgba(20, 184, 166, 0.35);
+    }
+    .glow-card {
+      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5), inset 0 1px 0 0 rgba(255, 255, 255, 0.08);
+    }
+    .gradient-accent {
+      background: linear-gradient(135deg, #14b8a6 0%, #0284c7 100%);
+    }
+  </style>
+</head>
+<body class="selection:bg-teal-500 selection:text-white">
+  <div id="root"></div>
+
+  <!-- React Application Source -->
+  <script type="text/babel">
+    const { useState, useEffect } = React;
+
+    const contentData = {
+      he: {
+        nav: {
+          brand: 'צור הרטוב',
+          tagline: 'מערכות מידע • פיתוח אתרים',
+          caseStudies: 'פרויקטים נבחרים',
+          services: 'שירותים',
+          automations: 'אוטומציות',
+          pricing: 'מסלולים',
+          socialKit: 'שיווק ברשתות',
+          about: 'אודות',
+          contact: 'שיחת ייעוץ',
+          whatsappCta: 'וואטסאפ'
+        },
+        hero: {
+          badge: 'פיתוח קאסטום מלא • כלי AI מתקדמים לעיצוב וכלים • מובייל ומחשב',
+          headlineStart: 'אתרי פרימיום וכלים מבוססי AI',
+          headlineAccent: 'שמייצרים לקוחות ומייעלים את העסק',
+          headlineEnd: 'למובייל ולמחשב.',
+          subheadline: 'שלום, אני צור הרטוב (בן 30) — בעל תואר B.Sc, מומחה מערכות מידע ומנהל פרויקטים, מפתח ווב מוסמך Coding Academy. אני משלב פיתוח קאסטום מלא יחד עם כלי AI מתקדמים לעיצוב האתר, בניית כלים ייעודיים לעסק והטמעת AI בתפעול השוטף — עם דגש קפדני על מובייל ומחשב, ויכולת להתרחב בכל שלב. בנוסף, אני נשאר בקשר אישי שוטף ומספק הצעות יזומות לשדרוג הנראות.',
+          ctaPrimary: 'בואו נדבר על האתר שלכם',
+          ctaSecondary: 'צפו בפרויקט לדוגמה (tiranlasry.com)',
+          ctaEstimate: 'מחשבון פרויקט ותוספות',
+          stats: [
+            { value: '100% Custom', label: 'פיתוח קאסטום מלא ללא תבניות מדף' },
+            { value: 'AI Tools', label: 'כלי AI מתקדמים לעיצוב ובניית כלים' },
+            { value: 'Mobile & PC', label: 'דגש קפדני על התאמה מושלמת לכל מסך' },
+            { value: 'קשר מתמיד', label: 'הצעות שוטפות לשיפור הנראות והעיצוב' }
+          ]
+        },
+        credentialsBar: [
+          { label: 'תואר ראשון במדעים', detail: 'B.Sc Degree' },
+          { label: 'מוסמך פיתוח Full-Stack', detail: 'Coding Academy Certified' },
+          { label: 'מומחה מערכות מידע', detail: 'Information Systems Expert' },
+          { label: 'ניהול פרויקטים', detail: 'Certified Project Manager' },
+          { label: 'לוגיסטיקה ושרשרת אספקה', detail: 'Logistics & Supply Chain' }
+        ],
+        problemSolution: {
+          title: 'למה אתרי תבניות מדף תוקעים את העסק שלך?',
+          subtitle: 'והיתרון האדיר של אתר Custom מלא שמתפתח וצומח ביחד עם העסק',
+          problems: [
+            { title: 'נעילה בתבנית נוקשה שלא מאפשרת שינויים', desc: 'אתרי וורדפרס/וויקס מבוססי תבנית נתקעים ברגע שרוצים להוסיף פיצ׳ר חדש, מודול ייחודי או עיצוב שלא קיים בתבנית המקורית.' },
+            { title: 'תצוגת מובייל שבורה וטעינה איטית', desc: 'תבניות רבות נראות סביר במחשב אך מתפרקות בסמארטפון — המקום שבו נמצאים מעל 80% מהלקוחות שמגיעים מהרשתות החברתיות.' },
+            { title: 'בונה האתרים נעלם דקה אחרי ההשקה', desc: 'אחרי שהאתר עולה לאוויר אין עם מי לדבר. אף אחד לא יוזם שיפורים, לא מציע שדרוגי עיצוב, והאתר הופך במהירות למיושן.' }
+          ],
+          solutions: [
+            { title: 'פיתוח Custom מלא — גמישות אינסופית לצמיחת העסק', desc: 'האתר נבנה בקוד נקי ב-React. ניתן להוסיף לו בכל שלב דפים חדשים, מערכות פנימיות או קטלוגים לפי דרישתך.' },
+            { title: 'דגש פיתוח קפדני על מובייל ודסקטופ', desc: 'אפס פשרות: התאמה פיקסל-פרפקט לסמארטפונים, טאבלטים ומסכי מחשב רחבים, עם זמני טעינה שוברי שיאים (0.8s).' },
+            { title: 'שותף עיצובי וטכנולוגי שנשאר איתך בקשר מתמיד', desc: 'אני לא נעלם אחרי העלייה לאוויר. כחלק מהליווי החודשי אני יוזם הצעות שוטפות לשיפור הנראות וריענון העיצוב.' }
+          ]
+        },
+        caseStudy: {
+          badge: 'פרויקט דגל לדוגמה',
+          clientName: 'טירן לסרי - Tiran Lasry',
+          domain: 'tiranlasry.com',
+          url: 'https://tiranlasry.com',
+          industry: 'עיצוב וייצור גופי תאורה אדריכליים בעבודת יד (Custom Made)',
+          headline: 'איך הפכנו מלאכת יד יוקרתית לחלון ראווה דיגיטלי שמביא אדריכלים ומעצבי פנים',
+          overview: 'טירן לסרי מעצב ומייצר גופי תאורה על-זמניים בהתאמה אישית בנס ציונה. האתר נבנה בקאסטום מלא כאתר תצוגה, השראה ואיסוף פניות ברמת גימור מלוטשת שמביאה לקוחות פרימיום ומאפשרת לבקש הצעת מחיר מדויקת לכל פריט — הן במובייל והן במחשב.',
+          highlights: [
+            'פיתוח קאסטום מלא המאפשר הרחבת קטלוג ופונקציות בכל עת',
+            'התאמה רספונסיבית מוקפדת למובייל ולמחשב (80% מהתנועה מאינסטגרם)',
+            'עיצוב נקי ויוקרתי המציג את חומרי הגלם (עץ, פליז, מתכת)',
+            'טופס פנייה מודולרי להצעת מחיר אישית ללא סרבול ישירות ל-WhatsApp'
+          ],
+          quote: 'האתר משדר בדיוק את מה שאנחנו מייצרים: יוקרה, עבודת יד ודיוק בלתי מתפשר. לקוחות ואדריכלים מגיעים כשהם כבר מוכנים לעבוד.',
+          cta: 'רוצים אתר קאסטום יוקרתי כזה לעסק שלכם?'
+        },
+        pricing: {
+          title: 'השקעה ברורה ושקופה — ללא הפתעות',
+          subtitle: 'חבילת ערך כוללת לבניית נכס דיגיטלי מניב בקאסטום מלא וליווי עיצובי מתמיד',
+          packageHeader: 'חבילת הדגל: אתר Custom מלא + שותף עיצובי וטכנולוגי',
+          oneTimePrice: '10,000 ₪',
+          oneTimeSub: 'תשלום חד פעמי להקמה ואפיון קאסטום',
+          monthlyPrice: '800 ₪',
+          monthlySub: 'לחודש עבור תחזוקה, ליווי שוטף והצעות לשיפור הנראות',
+          note: 'האתר גמיש ב-100%: ניתן להוסיף מודולים ומערכות בכל שלב לפי צרכי העסק. כל שינוי נוסף יתומחר בשקיפות מלאה.',
+          features: [
+            'פיתוח Custom מלא בקוד עצמאי (React / Node.js) — ללא תבניות סגורות',
+            'דגש פיתוח קפדני על התאמה מושלמת למובייל ולמחשב',
+            'יכולת הרחבה בלתי מוגבלת: הוספת עמודים, מערכות ופיצ׳רים בעתיד',
+            'שותפות מתמשכת: הצעות שוטפות יזומות מצור לשיפור הנראות והעיצוב',
+            'אפיון מערכות מידע ומחקר מתחרים מעמיק ע״י מנהל פרויקטים (B.Sc)',
+            'חיבור מהיר ל-WhatsApp וכפתורי יצירת קשר ממוקדי המרה',
+            'אופטימיזציה מלאה לקמפיינים ברשתות חברתיות (Meta Ads, Google)',
+            'בחירת כתובת דומיין מותאמת אישית (.co.il / .com) + חיבור DNS ו-SSL מאובטח',
+            'שדרוג למערך תיבות דוא״ל עסקיות יוקרתיות (Google Workspace) המקרין אמינות מול לקוחות',
+            'אחסון ענן מהיר ומאובטח + תעודת SSL וגיבויים שוטפים',
+            'תחזוקה ואבטחה שוטפת: שקט נפשי מלא לאורך כל השנה'
+          ]
+        },
+        socialMarketing: {
+          title: 'מוכן לקמפיינים ופרסום ברשתות החברתיות',
+          subtitle: 'האתר שלך מתוכנן מראש כדי להפוך טראפיק מאינסטגרם, פייסבוק, לינקדאין וטיקטוק ללקוחות משלמים',
+          channels: [
+            {
+              name: 'אינסטגרם / טיקטוק',
+              badge: 'Bio Link & Story Ads',
+              desc: 'טעינה ב-0.8 שניות במובייל בתוך הדפדפן של אינסטגרם, בלי להיתקע. חוויה שמייצרת לחיצות מיידיות לוואטסאפ.'
+            },
+            {
+              name: 'פייסבוק ממומן',
+              badge: 'High ROAS Funnels',
+              desc: 'הטמעת Meta Pixel ו-Conversion API לאופטימיזציה מקסימלית של מודעות לידים ומכירה.'
+            },
+            {
+              name: 'WhatsApp Business',
+              badge: '1-Click Direct Chat',
+              desc: 'כל כפתור באתר פותח שיחת וואטסאפ ישירה עם הודעה מוכנה מראש המותאמת לשירות שהלקוח התעניין בו.'
+            },
+            {
+              name: 'לינקדאין ו-B2B',
+              badge: 'Executive Authority',
+              desc: 'תצוגת OpenGraph עשירה כשמשתפים את הקישור בפוסטים או בהודעות פרטיות, עם תמונה וכותרת מושכת.'
+            }
+          ],
+          previewTitle: 'תצוגה מקדימה: איך הקישור שלך נראה כשמשתפים אותו ברשתות',
+          demoUrl: 'tsoorhartov.com',
+          demoCardTitle: 'צור הרטוב | אתרי קאסטום פרימיום, מובייל ומערכות לעסקים',
+          demoCardDesc: 'האתר שמשדרג את העסק שלך: מהיר, בנוי קאסטום, מותאם למובייל ומחשב, ומלווה בהצעות שוטפות לשיפור הנראות.'
+        },
+        about: {
+          title: 'נעים להכיר, אני צור הרטוב',
+          badge: 'בן 30 | B.Sc | מומחה מערכות מידע ומנהל פרויקטים | בוגר Coding Academy',
+          tagline: 'איש מקצוע שנשאר איתך בקשר אישי, יוזם שיפורים בעיצוב, ומפתח אתרי Custom שצומחים ביחד עם העסק.',
+          badgesList: [
+            { title: 'תואר ראשון במדעים (B.Sc)', subtitle: 'חשיבה אנליטית, ארכיטקטורת מערכות ופתרון בעיות מורכבות' },
+            { title: 'בוגר Coding Academy', subtitle: 'הסמכת פיתוח Full-Stack מתקדמת בסטנדרטים התעשייתיים הגבוהים' },
+            { title: 'מומחה מערכות מידע וניהול פרויקטים', subtitle: 'ניהול מדויק של זמנים, אפיון דרישות, תקציב ומשאבים' },
+            { title: 'מומחיות בלוגיסטיקה ושרשרת אספקה', subtitle: 'הבנה עמוקה של זרימת מוצרים, ספקים, מלאי ואינטגרציות' }
+          ],
+          story: [
+            'אני בן 30, בעל תואר B.Sc, מומחה למערכות מידע ומנהל פרויקטים עם התמחות ייחודית בלוגיסטיקה ובשרשרת אספקה, וכן מפתח Full-Stack מוסמך מבית Coding Academy.',
+            'הפילוסופיה שלי פשוטה: אני לא בונה אתרים מתבניות מדף גנריות שכולאות אותך במבנה נוקשה, אלא מפתח בקאסטום מלא (Custom Code ב-React ו-Node.js). המשמעות עבורך היא חופש פעולה מוחלט — האתר יכול לגדול, להשתדרג ולהוסיף כל מודול או מערכת בכל שלב, בדיוק לפי התפתחות העסק שלך.',
+            'דגש מרכזי בפיתוח שלי מושם על התאמה מושלמת הן למובייל (שם נמצאת רוב תנועת הלקוחות מהרשתות) והן למחשב (שם מתבצעות עסקאות גדולות וקבלת החלטות מקצועיות).',
+            'והחשוב מכל — אני לא "נעלם" אחרי שהאתר עולה לאוויר. כחלק מהליווי החודשי, אני נשאר איתך בקשר מתמיד, בוחן את ביצועי האתר ותמיד מציע לך רעיונות והצעות יזומות לשיפור הנראות, לרענון העיצוב ולהתאמה מדויקת לצרכים המשתנים של העסק.'
+          ]
+        }
+      },
+      en: {
+        nav: {
+          brand: 'Tsoor Hartov',
+          tagline: 'Information Systems • Web Dev',
+          caseStudies: 'Featured Work',
+          services: 'Services',
+          automations: 'Automations',
+          pricing: 'Plans',
+          socialKit: 'Social Marketing',
+          about: 'About',
+          contact: 'Consultation',
+          whatsappCta: 'WhatsApp'
+        },
+        hero: {
+          badge: '100% Custom Built • Advanced AI for Design & Tools • Mobile & Desktop',
+          headlineStart: 'Bespoke Custom Websites & AI Tools',
+          headlineAccent: 'Engineered to Scale with Your Business',
+          headlineEnd: 'on Mobile & Desktop.',
+          subheadline: 'Hi, I’m Tsoor Hartov (30) — B.Sc holder, Information Systems expert and Project Manager, certified Full-Stack Web Developer by Coding Academy. I combine 100% custom web architecture with cutting-edge AI tools for website design, custom tool building, and operational business workflows — with deep mobile & desktop excellence and unlimited scalability. Plus, I stay in close contact post-launch with ongoing proactive visual suggestions.',
+          ctaPrimary: 'Let’s Build Your Platform',
+          ctaSecondary: 'View Featured Showcase (tiranlasry.com)',
+          ctaEstimate: 'Project & Addons Calculator',
+          stats: [
+            { value: '100% Custom', label: 'Bespoke code, zero rigid templates' },
+            { value: 'AI Tools', label: 'Advanced AI for design & custom tools' },
+            { value: 'Mobile & PC', label: 'Pixel-perfect on all screen sizes' },
+            { value: 'Active Partner', label: 'Proactive visual & design improvements' }
+          ]
+        },
+        credentialsBar: [
+          { label: 'Bachelor of Science', detail: 'B.Sc Degree' },
+          { label: 'Certified Full-Stack Developer', detail: 'Coding Academy' },
+          { label: 'Information Systems Expert', detail: 'IS Architecture' },
+          { label: 'Certified Project Manager', detail: 'Agile & Execution' },
+          { label: 'Logistics & Supply Chain', detail: 'Process Optimization' }
+        ],
+        problemSolution: {
+          title: 'Why Most Small Business Websites Fail',
+          subtitle: 'The clear difference between a generic template and an engineered digital asset that drives business',
+          problems: [
+            { title: 'Bloated, Laggy Templates', desc: 'Plugin-heavy WordPress or basic builder sites that take seconds to load, losing over 60% of potential buyers.' },
+            { title: 'Generic Cookie-Cutter Design', desc: 'Looks identical to competitors and fails to communicate premium craftsmanship and trust.' },
+            { title: 'Disconnected from Operations & Logistics', desc: 'Inquiries sit in forgotten inboxes, orders don’t sync with inventory, and hours are wasted on double manual data entry.' }
+          ],
+          solutions: [
+            { title: 'Clean, Ultra-Fast Custom Code', desc: 'Blazing-fast modern React architecture, loading in 0.8s on smartphones and social media in-app browsers.' },
+            { title: 'Boutique Custom Design', desc: 'Every element, typography choice, and layout is customized to position your business as a market leader.' },
+            { title: 'Information Systems & Process Automations', desc: 'Direct WhatsApp lead dispatch, CRM synchronization, order flow, and inventory integrations driven by real IS expertise.' }
+          ]
+        },
+        caseStudy: {
+          badge: 'Featured Showcase',
+          clientName: 'Tiran Lasry Studio',
+          domain: 'tiranlasry.com',
+          url: 'https://tiranlasry.com',
+          industry: 'Custom Handmade Architectural Lighting Fixtures',
+          headline: 'Transforming Bespoke Craftsmanship into a High-Converting Digital Showroom for Architects',
+          overview: 'Tiran Lasry creates timeless, custom lighting fixtures in Ness Ziona. The site was built as an immersive showcase and catalog to attract top interior designers and architects, offering seamless custom quote inquiries.',
+          highlights: [
+            'Stunning catalog gallery showcasing raw materials (brass, solid wood, blackened steel)',
+            'Frictionless custom quote request funnel directly to WhatsApp',
+            'Luxury, minimalist user experience reflecting artisanal craftsmanship',
+            'Mobile perfection — optimized for Instagram design traffic'
+          ],
+          quote: 'The website truly reflects what we build: timeless luxury, handmade excellence, and uncompromising attention to detail.',
+          cta: 'Want a high-end website tailored for your business?'
+        },
+        pricing: {
+          title: 'Transparent, Straightforward Investment',
+          subtitle: 'A high-impact digital asset built for tangible ROI',
+          packageHeader: 'Flagship Business Package: Full Build + Dedicated Maintenance',
+          oneTimePrice: '₪10,000',
+          oneTimeSub: 'One-time investment for full bespoke build',
+          monthlyPrice: '₪800',
+          monthlySub: '/ month for hosting, security, support & updates',
+          note: 'Scope modifications and specialized systems are priced transparently as modular add-ons.',
+          features: [
+            'Comprehensive discovery and competitive analysis by an IS Project Manager',
+            'Bespoke visual design tailored to your brand identity',
+            'Modern, lightning-fast React / Node.js development (clean custom code)',
+            '100% responsive mobile-first experience',
+            'Direct WhatsApp integration and conversion triggers',
+            'Full setup for Meta & Google social ad campaigns',
+            'Foundational technical SEO for Google search',
+            'Fast cloud hosting + SSL security',
+            'Monthly maintenance: peace of mind, continuous backups and updates'
+          ]
+        },
+        socialMarketing: {
+          title: 'Engineered for Social Media Advertising',
+          subtitle: 'Your site is built to convert traffic from Instagram, Facebook, TikTok, and LinkedIn into paying clients',
+          channels: [
+            {
+              name: 'Instagram & TikTok',
+              badge: 'Bio Link & Story Ads',
+              desc: 'Loads under 0.8s inside in-app mobile browsers without glitches, driving immediate WhatsApp interactions.'
+            },
+            {
+              name: 'Meta Ads (Facebook)',
+              badge: 'High ROAS Funnels',
+              desc: 'Configured with Meta Pixel & Conversion API for accurate tracking of leads and sales.'
+            },
+            {
+              name: 'WhatsApp Business',
+              badge: '1-Click Direct Chat',
+              desc: 'Dynamic buttons open direct WhatsApp chats with pre-filled service inquiry messages.'
+            },
+            {
+              name: 'LinkedIn & B2B',
+              badge: 'Authority Cards',
+              desc: 'Rich OpenGraph cards that showcase your brand elegantly when links are shared in posts or DMs.'
+            }
+          ],
+          previewTitle: 'Live Preview: How Your Link Looks When Shared on Social Media',
+          demoUrl: 'tsoorhartov.com',
+          demoCardTitle: 'Tsoor Hartov | Custom Bespoke Websites & Systems for Growing SMBs',
+          demoCardDesc: 'Engineered custom for mobile & desktop, scalable as you grow, with ongoing proactive design updates.'
+        },
+        about: {
+          title: 'Nice to meet you, I’m Tsoor Hartov',
+          badge: 'Age 30 | B.Sc | Information Systems Expert & PM | Certified by Coding Academy',
+          tagline: 'An engineer who understands not just design and code, but real business operations, project management, and supply chain logistics.',
+          badgesList: [
+            { title: 'Bachelor of Science (B.Sc)', subtitle: 'Analytical rigor, systems architecture, and complex problem solving' },
+            { title: 'Certified by Coding Academy', subtitle: 'Advanced Full-Stack engineering standards in React, Node.js and modern web' },
+            { title: 'Information Systems Expert & Project Manager', subtitle: 'Strict timeline control, business requirement scoping, and resource management' },
+            { title: 'Logistics & Supply Chain Specialist', subtitle: 'Deep operational insight into inventory, vendor flows, and process automation' }
+          ],
+          story: [
+            'I am 30 years old, hold a B.Sc degree, and operate as an Information Systems expert and Project Manager with deep specialized expertise in logistics and supply chain management, alongside being a certified Full-Stack Web Developer graduated from Coding Academy.',
+            'This synergy between an academic scientific foundation, hands-on operational project management, and certified high-level software development gives small and medium businesses an unmatched unfair advantage.',
+            'I am not just a "web designer" who throws a cookie-cutter template together and leaves you on your own. I analyze your business operations holistically: how your clients find you, how order flows through your systems, how supply chain and inventory are coordinated, and how each pixel on your site drives tangible bottom-line growth.'
+          ]
+        }
+      }
+    };
+
+    function App() {
+      // Default language is Hebrew
+      const [lang, setLang] = useState('he');
+      const isRtl = lang === 'he';
+      const content = contentData[lang];
+
+      // Interactive Addons State
+      const [selectedAddons, setSelectedAddons] = useState([]);
+      const [simulationStep, setSimulationStep] = useState(0);
+      const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+      const [socialPlatform, setSocialPlatform] = useState('instagram');
+
+      useEffect(() => {
+        document.documentElement.dir = isRtl ? 'rtl' : 'ltr';
+        document.documentElement.lang = lang;
+      }, [lang]);
+
+      const toggleAddon = (id) => {
+        if (selectedAddons.includes(id)) {
+          setSelectedAddons(selectedAddons.filter(a => a !== id));
+        } else {
+          setSelectedAddons([...selectedAddons, id]);
+        }
+      };
+
+      const addons = [
+        { id: 'ai-tools', name: isRtl ? 'כלי AI מתקדמים (עיצוב ומחשבונים אינטראקטיביים לעסק)' : 'Advanced AI Tools (Design & Custom Calculators)', setup: 2500, mo: 150 },
+        { id: 'lead-alerts', name: isRtl ? 'התראות לידים מיידיות לוואטסאפ (050-593-5609)' : 'Instant Lead Alerts to WhatsApp & Email', setup: 1500, mo: 100 },
+        { id: 'crm', name: isRtl ? 'חיבור CRM מלא (Monday / Airtable)' : 'CRM Sync (Monday / Airtable)', setup: 2000, mo: 150 },
+        { id: 'invoice', name: isRtl ? 'סליקת אשראי והפקת חשבונית אוטומטית' : 'Automated Invoicing & Payments', setup: 2200, mo: 100 },
+        { id: 'multi', name: isRtl ? 'אתר דו-לשוני מלא (עברית ואנגלית)' : 'Full Bilingual Setup (Hebrew & English)', setup: 2800, mo: 100 },
+        { id: 'domain-emails', name: isRtl ? 'דומיין מותאם ותיבות דוא״ל עסקיות יוקרתיות (Google Workspace)' : 'Custom Branded Domain & Executive Inboxes (Google Workspace)', setup: 1200, mo: 80 }
+      ];
+
+      const baseSetup = 10000;
+      const baseMonthly = 800;
+      const extraSetup = selectedAddons.reduce((acc, id) => acc + (addons.find(a => a.id === id)?.setup || 0), 0);
+      const extraMonthly = selectedAddons.reduce((acc, id) => acc + (addons.find(a => a.id === id)?.mo || 0), 0);
+
+      const runSim = () => {
+        setSimulationStep(1);
+        setTimeout(() => setSimulationStep(2), 1000);
+        setTimeout(() => setSimulationStep(3), 2000);
+        setTimeout(() => setSimulationStep(4), 3000);
+        setTimeout(() => setSimulationStep(0), 4500);
+      };
+
+      const whatsappUrl = `https://wa.me/972505935609?text=${encodeURIComponent(
+        isRtl ? 'היי צור, ראיתי את האתר שלך ואשמח לשמוע פרטים על בניית אתר/אוטומציות לעסק שלי.' : 'Hi Tsoor, I saw your site and want to discuss web dev & automations for my business.'
+      )}`;
+
+      return (
+        <div className="min-h-screen bg-[#0b0f19] text-slate-100 flex flex-col">
+          {/* Header */}
+          <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0b0f19]/95 backdrop-blur-md border-b border-slate-800 py-3 px-4 sm:px-8">
+            <div className="max-w-7xl mx-auto flex items-center justify-between">
+              {/* Logo & Brand Name */}
+              <div className="flex items-center gap-2.5 sm:gap-3">
+                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-tr from-teal-500 to-sky-500 flex items-center justify-center font-black text-white text-base sm:text-lg shadow-lg shadow-teal-500/20 shrink-0">
+                  TS
+                </div>
+                <div>
+                  <span className="font-extrabold text-base sm:text-lg text-white leading-tight block">{content.nav.brand}</span>
+                  <div className="text-[11px] text-slate-400 leading-tight hidden sm:block">{content.nav.tagline}</div>
+                </div>
+              </div>
+
+              {/* Desktop Nav Links (>= 1024px) */}
+              <div className="hidden lg:flex items-center gap-6 text-sm text-slate-300 font-medium">
+                <a href="#case-study" className="hover:text-teal-400 transition-colors">{content.nav.caseStudies}</a>
+                <a href="#services" className="hover:text-teal-400 transition-colors">{content.nav.services}</a>
+                <a href="#automations" className="hover:text-teal-400 transition-colors">{content.nav.automations}</a>
+                <a href="#pricing" className="hover:text-teal-400 transition-colors">{content.nav.pricing}</a>
+                <a href="#about" className="hover:text-teal-400 transition-colors">{content.nav.about}</a>
+              </div>
+
+              {/* Header Actions */}
+              <div className="flex items-center gap-2 sm:gap-3">
+                <button
+                  onClick={() => setLang(lang === 'he' ? 'en' : 'he')}
+                  className="px-2.5 py-1.5 rounded-lg border border-slate-700 bg-slate-800 text-xs font-semibold text-slate-200 hover:text-white transition-all flex items-center gap-1"
+                >
+                  🌐 {lang === 'he' ? 'EN' : 'עברית'}
+                </button>
+
+                {/* WhatsApp Header Button with Centered Official Logo */}
+                <a
+                  href={whatsappUrl}
+                  target="_blank"
+                  className="flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#25D366]/15 border border-[#25D366]/30 text-[#25D366] text-xs font-bold hover:bg-[#25D366]/25 transition-all"
+                  title="WhatsApp"
+                >
+                  <svg className="w-4 h-4 shrink-0" viewBox="0 0 64 64" style={{ display: 'block' }}>
+                    <path fill="#25D366" d="M32 2C15.432 2 2 15.432 2 32c0 5.293 1.378 10.274 3.791 14.604L2 62l15.86-4.152A29.835 29.835 0 0 0 32 62c16.568 0 30-13.432 30-30S48.568 2 32 2z"/>
+                    <path fill="#FFFFFF" d="M47.79 38.835c-.792-.397-4.686-2.312-5.411-2.576-.726-.264-1.255-.396-1.784.397-.528.792-2.046 2.576-2.508 3.104-.462.529-.924.594-1.716.198-.792-.396-3.344-1.232-6.37-3.93-2.355-2.099-3.945-4.693-4.407-5.485-.462-.792-.049-1.22.347-1.614.357-.356.792-.924 1.188-1.386.396-.462.528-.792.792-1.32.264-.528.132-.99-.066-1.386-.198-.396-1.784-4.298-2.443-5.883-.643-1.545-1.298-1.334-1.783-1.36-.462-.022-.99-.026-1.518-.026-.528 0-1.386.198-2.112.99-.726.792-2.772 2.706-2.772 6.6 0 3.894 2.838 7.656 3.234 8.184.396.528 5.584 8.528 13.528 11.956 1.89.816 3.364 1.303 4.514 1.666 1.897.604 3.624.519 4.988.315 1.523-.227 4.686-1.914 5.346-3.762.66-1.848.66-3.432.462-3.762-.198-.33-.726-.528-1.518-.924z"/>
+                  </svg>
+                  <span className="hidden sm:inline">{content.nav.whatsappCta}</span>
+                </a>
+
+                {/* Consultation CTA on Desktop */}
+                <a
+                  href="#contact"
+                  className="hidden lg:inline-flex px-4 py-2 rounded-xl bg-gradient-to-r from-teal-500 to-sky-600 text-white text-xs font-bold shadow-md shadow-teal-500/25 hover:scale-105 transition-all"
+                >
+                  {content.nav.contact}
+                </a>
+
+                {/* Mobile / Tablet Menu Button (< 1024px) */}
+                <button
+                  onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                  aria-label="Toggle Menu"
+                  className="lg:hidden p-2 rounded-xl bg-slate-800 text-slate-200 hover:text-white border border-slate-700"
+                >
+                  {mobileMenuOpen ? '✕' : '☰'}
+                </button>
+              </div>
+            </div>
+
+            {/* Mobile Drawer */}
+            {mobileMenuOpen && (
+              <div className="lg:hidden mt-3 pt-3 pb-3 border-t border-slate-800 bg-[#0d1322] rounded-2xl p-4 space-y-2 border border-slate-800/80 shadow-2xl">
+                <a href="#case-study" onClick={() => setMobileMenuOpen(false)} className="block text-sm font-semibold text-slate-200 hover:text-teal-400 py-2 px-2 border-b border-slate-800/50">{content.nav.caseStudies}</a>
+                <a href="#services" onClick={() => setMobileMenuOpen(false)} className="block text-sm font-semibold text-slate-200 hover:text-teal-400 py-2 px-2 border-b border-slate-800/50">{content.nav.services}</a>
+                <a href="#automations" onClick={() => setMobileMenuOpen(false)} className="block text-sm font-semibold text-slate-200 hover:text-teal-400 py-2 px-2 border-b border-slate-800/50">{content.nav.automations}</a>
+                <a href="#pricing" onClick={() => setMobileMenuOpen(false)} className="block text-sm font-semibold text-slate-200 hover:text-teal-400 py-2 px-2 border-b border-slate-800/50">{content.nav.pricing}</a>
+                <a href="#about" onClick={() => setMobileMenuOpen(false)} className="block text-sm font-semibold text-slate-200 hover:text-teal-400 py-2 px-2">{content.nav.about}</a>
+                
+                <div className="pt-2 flex flex-col gap-2">
+                  <a
+                    href={whatsappUrl}
+                    target="_blank"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl bg-[#25D366] text-white text-xs font-bold shadow-md"
+                  >
+                    <svg className="w-4 h-4 shrink-0" viewBox="0 0 64 64">
+                      <path fill="#25D366" d="M32 2C15.432 2 2 15.432 2 32c0 5.293 1.378 10.274 3.791 14.604L2 62l15.86-4.152A29.835 29.835 0 0 0 32 62c16.568 0 30-13.432 30-30S48.568 2 32 2z"/>
+                      <path fill="#FFFFFF" d="M47.79 38.835c-.792-.397-4.686-2.312-5.411-2.576-.726-.264-1.255-.396-1.784.397-.528.792-2.046 2.576-2.508 3.104-.462.529-.924.594-1.716.198-.792-.396-3.344-1.232-6.37-3.93-2.355-2.099-3.945-4.693-4.407-5.485-.462-.792-.049-1.22.347-1.614.357-.356.792-.924 1.188-1.386.396-.462.528-.792.792-1.32.264-.528.132-.99-.066-1.386-.198-.396-1.784-4.298-2.443-5.883-.643-1.545-1.298-1.334-1.783-1.36-.462-.022-.99-.026-1.518-.026-.528 0-1.386.198-2.112.99-.726.792-2.772 2.706-2.772 6.6 0 3.894 2.838 7.656 3.234 8.184.396.528 5.584 8.528 13.528 11.956 1.89.816 3.364 1.303 4.514 1.666 1.897.604 3.624.519 4.988.315 1.523-.227 4.686-1.914 5.346-3.762.66-1.848.66-3.432.462-3.762-.198-.33-.726-.528-1.518-.924z"/>
+                    </svg>
+                    <span>שיחה ישירה בוואטסאפ (050-593-5609)</span>
+                  </a>
+                  <a
+                    href="#contact"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl bg-gradient-to-r from-teal-500 to-sky-600 text-white text-xs font-bold"
+                  >
+                    {content.nav.contact}
+                  </a>
+                </div>
+              </div>
+            )}
+          </nav>
+
+          {/* Hero */}
+          <header className="pt-36 pb-20 px-4 sm:px-8 text-center max-w-5xl mx-auto relative">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-teal-500/10 border border-teal-500/30 text-teal-300 text-xs font-semibold mb-6 animate-pulse">
+              <span className="w-2 h-2 rounded-full bg-teal-400"></span>
+              <span>{content.hero.badge}</span>
+            </div>
+
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white leading-tight mb-6">
+              <span>{content.hero.headlineStart} </span>
+              <span className="bg-gradient-to-r from-teal-400 via-teal-300 to-sky-400 bg-clip-text text-transparent">
+                {content.hero.headlineAccent}
+              </span>{' '}
+              <span>{content.hero.headlineEnd}</span>
+            </h1>
+
+            <p className="text-base sm:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed mb-10">
+              {content.hero.subheadline}
+            </p>
+
+            <div className="flex flex-wrap items-center justify-center gap-4 mb-14">
+              <a
+                href="#contact"
+                className="px-8 py-3.5 rounded-xl bg-gradient-to-r from-teal-500 to-sky-600 text-white font-bold text-sm shadow-xl shadow-teal-500/25 hover:scale-105 transition-all"
+              >
+                {content.hero.ctaPrimary} {isRtl ? '←' : '→'}
+              </a>
+              <a
+                href="#case-study"
+                className="px-6 py-3.5 rounded-xl bg-slate-900 border border-slate-700 text-slate-200 font-semibold text-sm hover:border-teal-500/50 transition-all"
+              >
+                {content.hero.ctaSecondary} ↗
+              </a>
+              <a
+                href="#pricing"
+                className="px-5 py-3.5 rounded-xl bg-slate-900/60 border border-teal-500/20 text-teal-300 font-semibold text-sm hover:bg-slate-800 transition-all"
+              >
+                🧮 {content.hero.ctaEstimate}
+              </a>
+            </div>
+
+            {/* Metrics */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto text-start">
+              {content.hero.stats.map((st, i) => (
+                <div key={i} className="p-4 rounded-2xl bg-slate-900/70 border border-slate-800 backdrop-blur-sm">
+                  <div className="text-xl sm:text-2xl font-black text-teal-400 font-mono mb-1">{st.value}</div>
+                  <div className="text-xs text-slate-400">{st.label}</div>
+                </div>
+              ))}
+            </div>
+          </header>
+
+          {/* Credentials Ribbon */}
+          <div className="border-y border-slate-800 bg-slate-950/80 py-4 px-4 sm:px-8">
+            <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-center gap-4 sm:gap-8">
+              {content.credentialsBar.map((cr, i) => (
+                <div key={i} className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-900/80 border border-slate-800">
+                  <span className="text-teal-400 font-bold">✓</span>
+                  <div>
+                    <div className="text-xs font-bold text-white leading-tight">{cr.label}</div>
+                    <div className="text-[10px] text-teal-400/80 font-mono">{cr.detail}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Value Proposition */}
+          <section className="py-20 px-4 sm:px-8 max-w-7xl mx-auto">
+            <div className="text-center max-w-3xl mx-auto mb-14">
+              <h2 className="text-2xl sm:text-4xl font-extrabold text-white mb-3">{content.problemSolution.title}</h2>
+              <p className="text-sm text-slate-400">{content.problemSolution.subtitle}</p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="p-6 sm:p-8 rounded-3xl bg-red-950/20 border border-red-500/20 space-y-4">
+                <h3 className="text-lg font-bold text-red-300">⚠️ {isRtl ? 'אתרים סטנדרטיים בשוק (סוכנויות ותבניות מדף)' : 'Standard Market Templates'}</h3>
+                {content.problemSolution.problems.map((p, i) => (
+                  <div key={i} className="flex items-start gap-3">
+                    <span className="text-red-400 font-bold mt-0.5">✕</span>
+                    <div>
+                      <div className="text-sm font-bold text-slate-200">{p.title}</div>
+                      <div className="text-xs text-slate-400 mt-0.5 leading-relaxed">{p.desc}</div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="p-6 sm:p-8 rounded-3xl bg-teal-950/25 border border-teal-500/30 space-y-4 shadow-xl shadow-teal-950/30">
+                <h3 className="text-lg font-bold text-teal-300">✨ {isRtl ? 'הפיתוח וההנדסה של צור הרטוב' : 'Tsoor Hartov Bespoke Engineering'}</h3>
+                {content.problemSolution.solutions.map((s, i) => (
+                  <div key={i} className="flex items-start gap-3">
+                    <span className="text-teal-400 font-bold mt-0.5">✓</span>
+                    <div>
+                      <div className="text-sm font-bold text-white">{s.title}</div>
+                      <div className="text-xs text-slate-300 mt-0.5 leading-relaxed">{s.desc}</div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          {/* Case Study: Tiran Lasry */}
+          <section id="case-study" className="py-20 px-4 sm:px-8 bg-[#0a0d15] border-y border-slate-800">
+            <div className="max-w-7xl mx-auto">
+              <div className="flex flex-col md:flex-row items-start md:items-end justify-between mb-10 gap-4">
+                <div>
+                  <span className="text-xs font-bold text-teal-400 bg-teal-500/10 px-3 py-1 rounded-full border border-teal-500/30">
+                    {content.caseStudy.badge}
+                  </span>
+                  <h2 className="text-3xl sm:text-4xl font-black text-white mt-2">{content.caseStudy.clientName}</h2>
+                  <p className="text-xs sm:text-sm text-slate-400">{content.caseStudy.industry}</p>
+                </div>
+                <a
+                  href={content.caseStudy.url}
+                  target="_blank"
+                  className="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-white text-xs sm:text-sm font-bold border border-slate-700 flex items-center gap-1.5"
+                >
+                  {isRtl ? 'ביקור באתר החי (tiranlasry.com)' : 'Visit Live Site (tiranlasry.com)'} ↗
+                </a>
+              </div>
+
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-slate-900/60 border border-slate-800 rounded-3xl p-6 sm:p-10">
+                <div className="lg:col-span-5 space-y-5">
+                  <h3 className="text-xl sm:text-2xl font-bold text-white leading-snug">{content.caseStudy.headline}</h3>
+                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{content.caseStudy.overview}</p>
+                  
+                  <div className="space-y-2 pt-2">
+                    <div className="text-xs font-bold text-teal-400 uppercase tracking-wider">{isRtl ? 'דגשי הפרויקט:' : 'Project Highlights:'}</div>
+                    {content.caseStudy.highlights.map((h, i) => (
+                      <div key={i} className="flex items-center gap-2 text-xs text-slate-300">
+                        <span className="text-teal-400">✓</span>
+                        <span>{h}</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 text-xs italic text-slate-300 border-l-4 border-l-teal-500">
+                    "{content.caseStudy.quote}"
+                  </div>
+                </div>
+
+                <div className="lg:col-span-7">
+                  <div className="rounded-2xl overflow-hidden border border-slate-800 shadow-2xl relative bg-gradient-to-br from-stone-900 via-neutral-900 to-black p-6 sm:p-8">
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="bg-white/10 backdrop-blur-md px-3.5 py-1.5 rounded-xl border border-white/15 inline-flex items-center gap-2.5">
+                        <img
+                          src="https://tiranlasry.com/images/Figma/Tiran_T_Grey_Logo.png"
+                          alt="Tiran Lasry Logo"
+                          className="h-6 w-auto object-contain filter invert"
+                          onError={(e) => { e.target.style.display = 'none'; }}
+                        />
+                        <span className="text-white font-serif tracking-widest text-xs uppercase font-medium">TIRAN LASRY</span>
+                      </div>
+                      <span className="text-[11px] font-mono text-amber-300 bg-amber-500/15 border border-amber-500/30 px-3 py-1 rounded-full">
+                        Custom Lighting Studio
+                      </span>
+                    </div>
+
+                    <div className="my-6">
+                      <div className="mb-3 max-w-xs">
+                        <img
+                          src="https://tiranlasry.com/images/Figma/Tiran_lasry_slogen.png"
+                          alt="Tiran Lasry Slogan"
+                          className="h-9 sm:h-11 w-auto object-contain filter invert opacity-95"
+                          onError={(e) => { e.target.style.display = 'none'; }}
+                        />
+                      </div>
+                      <div className="text-xl sm:text-2xl font-bold text-white mb-2 font-serif">
+                        גופי תאורה אדריכליים בעבודת יד
+                      </div>
+                      <p className="text-xs sm:text-sm text-stone-300 max-w-lg leading-relaxed">
+                        עיצוב וייצור גופי תאורה על-זמניים לאדריכלים ולמעצבי פנים. שילוב בין עץ טבעי, פליז ומתכות בעיבוד אישי, מותאם לחללים פרטיים ומסחריים. המזמרה 7, נס ציונה.
+                      </p>
+                    </div>
+
+                    <div className="flex flex-wrap items-center justify-between gap-2 pt-4 border-t border-stone-800">
+                      <div className="flex flex-wrap gap-2 text-[11px]">
+                        <span className="px-2.5 py-1 rounded-full bg-stone-800 text-stone-300 border border-stone-700">צמודי תקרה (Ceiling)</span>
+                        <span className="px-2.5 py-1 rounded-full bg-stone-800 text-stone-300 border border-stone-700">גופי קיר (Wall)</span>
+                        <span className="px-2.5 py-1 rounded-full bg-stone-800 text-stone-300 border border-stone-700">תלויים (Pendant)</span>
+                      </div>
+                      <a
+                        href="https://tiranlasry.com"
+                        target="_blank"
+                        className="text-xs font-bold text-teal-400 hover:text-teal-300 flex items-center gap-1"
+                      >
+                        מעבר לאתר החי ↗
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Pricing & Addons Calculator */}
+          <section id="pricing" className="py-24 px-4 sm:px-8 max-w-7xl mx-auto">
+            <div className="text-center max-w-3xl mx-auto mb-12">
+              <h2 className="text-3xl sm:text-4xl font-black text-white mb-3">{content.pricing.title}</h2>
+              <p className="text-sm text-slate-400">{content.pricing.subtitle}</p>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+              {/* Flagship Package Box */}
+              <div className="lg:col-span-6 p-8 rounded-3xl bg-slate-900/70 border-2 border-teal-500/40 relative shadow-2xl glow-teal">
+                <div className="text-xs font-bold uppercase tracking-wider text-teal-400 bg-teal-500/10 px-2.5 py-1 rounded-md inline-block mb-3">
+                  {isRtl ? 'חבילת הדגל המומלצת' : 'Signature Package'}
+                </div>
+                <h3 className="text-2xl font-bold text-white mb-2">{content.pricing.packageHeader}</h3>
+
+                <div className="my-6 p-5 rounded-2xl bg-slate-950/80 border border-slate-800 flex items-baseline justify-between">
+                  <div>
+                    <div className="text-3xl sm:text-4xl font-extrabold text-white font-mono">{content.pricing.oneTimePrice}</div>
+                    <div className="text-xs text-slate-400">{content.pricing.oneTimeSub}</div>
+                  </div>
+                  <div className="text-end">
+                    <div className="text-2xl font-bold text-teal-400 font-mono">+ {content.pricing.monthlyPrice}</div>
+                    <div className="text-xs text-slate-400">{content.pricing.monthlySub}</div>
+                  </div>
+                </div>
+
+                <div className="space-y-2.5 mb-6 text-xs sm:text-sm text-slate-300">
+                  {content.pricing.features.map((f, i) => (
+                    <div key={i} className="flex items-center gap-2.5">
+                      <span className="text-teal-400 font-bold">✓</span>
+                      <span>{f}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="text-xs text-slate-400 border-t border-slate-800 pt-4 mb-6">
+                  <span className="text-teal-400 font-semibold">* מדיניות שינויים: </span>
+                  {content.pricing.note}
+                </div>
+
+                <a
+                  href="#contact"
+                  className="block text-center w-full py-3.5 rounded-xl bg-gradient-to-r from-teal-500 to-sky-600 text-white font-bold text-sm shadow-xl shadow-teal-500/25 hover:scale-105 transition-all"
+                >
+                  {isRtl ? 'שריינו פרויקט עם צור עכשיו' : 'Book Your Project with Tsoor'}
+                </a>
+              </div>
+
+              {/* Interactive Addons Calculator */}
+              <div className="lg:col-span-6 p-8 rounded-3xl bg-slate-900/50 border border-slate-800">
+                <h3 className="text-xl font-bold text-white mb-1">🧮 {isRtl ? 'מחשבון תוספות ומערכות מותאמות' : 'Addons & Custom Systems Estimator'}</h3>
+                <p className="text-xs text-slate-400 mb-6">
+                  {isRtl ? 'בחרו רכיבים נוספים לפרויקט שלכם לקבלת הערכת תקציב מיידית:' : 'Select additional features to calculate instant estimate:'}
+                </p>
+
+                <div className="space-y-3 mb-6">
+                  {addons.map(ad => {
+                    const active = selectedAddons.includes(ad.id);
+                    return (
+                      <div
+                        key={ad.id}
+                        onClick={() => toggleAddon(ad.id)}
+                        className={`p-3.5 rounded-xl border cursor-pointer flex items-center justify-between text-xs transition-all ${
+                          active ? 'bg-teal-950/30 border-teal-500 text-white font-bold' : 'bg-slate-950 border-slate-800 text-slate-300 hover:border-slate-700'
+                        }`}
+                      >
+                        <div className="flex items-center gap-2">
+                          <span className={`w-4 h-4 rounded flex items-center justify-center text-[10px] ${active ? 'bg-teal-500 text-white' : 'border border-slate-700'}`}>
+                            {active ? '✓' : ''}
+                          </span>
+                          <span>{ad.name}</span>
+                        </div>
+                        <div className="font-mono text-teal-400 font-bold">
+                          +{ad.setup.toLocaleString()} ₪ (+{ad.mo} ₪/חודש)
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+
+                <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 text-start space-y-1">
+                  <div className="text-xs text-slate-400">{isRtl ? 'הערכת השקעה כוללת (בסיס + תוספות):' : 'Estimated Total (Base + Addons):'}</div>
+                  <div className="flex items-baseline justify-between">
+                    <span className="text-2xl font-black text-white font-mono">{(baseSetup + extraSetup).toLocaleString()} ₪</span>
+                    <span className="text-sm font-bold text-teal-400 font-mono">+ {(baseMonthly + extraMonthly).toLocaleString()} ₪/חודש</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Social Marketing Section */}
+          <section id="social-kit" dir={isRtl ? 'rtl' : 'ltr'} className="py-24 px-4 sm:px-8 bg-[#0a0e18] border-t border-slate-800">
+            <div className="max-w-7xl mx-auto">
+              <div className="text-center max-w-3xl mx-auto mb-16">
+                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-teal-500/10 border border-teal-500/30 text-teal-300 text-xs font-semibold mb-3">
+                  <span>📱</span>
+                  <span>{isRtl ? 'שיווק ממומן ואורגני ברשתות' : 'Built for Social Advertising'}</span>
+                </div>
+                <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-4">
+                  {content.socialMarketing.title}
+                </h2>
+                <p className="text-slate-400 text-sm sm:text-base">
+                  {content.socialMarketing.subtitle}
+                </p>
+              </div>
+
+              {/* 4 Pillars of Social Optimization */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+                {content.socialMarketing.channels.map((chan, i) => (
+                  <div
+                    key={i}
+                    dir={isRtl ? 'rtl' : 'ltr'}
+                    className="p-6 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-teal-500/40 transition-all flex flex-col justify-between"
+                  >
+                    <div>
+                      <div className="flex items-center justify-between gap-2 mb-3">
+                        <span className={`text-sm font-bold text-white ${isRtl ? 'text-right' : 'text-left'}`}>
+                          {chan.name}
+                        </span>
+                        <span
+                          dir="ltr"
+                          className="text-[10px] font-mono text-teal-400 bg-teal-500/10 px-2.5 py-1 rounded-full border border-teal-500/30 text-left shrink-0 inline-flex items-center tracking-normal whitespace-nowrap"
+                        >
+                          {chan.badge}
+                        </span>
+                      </div>
+                      <p className={`text-xs sm:text-sm text-slate-300 leading-relaxed ${isRtl ? 'text-right' : 'text-left'}`}>
+                        {chan.desc}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Social Preview Box */}
+              <div className="max-w-4xl mx-auto bg-slate-900/80 border border-slate-800 rounded-3xl p-6 sm:p-10 backdrop-blur-xl shadow-2xl">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-800 mb-8">
+                  <div>
+                    <h3 className="text-lg sm:text-xl font-bold text-white">
+                      {content.socialMarketing.previewTitle}
+                    </h3>
+                    <p className="text-xs text-slate-400 mt-0.5">
+                      {isRtl ? 'בחרו פלטפורמה לתצוגה מקדימה:' : 'Select platform to preview:'}
+                    </p>
+                  </div>
+                  <div className="flex items-center gap-1.5 bg-slate-950 p-1.5 rounded-xl border border-slate-800 text-xs">
+                    {['instagram', 'whatsapp', 'facebook', 'linkedin'].map((p) => (
+                      <button
+                        key={p}
+                        onClick={() => setSocialPlatform(p)}
+                        className={`px-3 py-1.5 rounded-lg font-bold capitalize transition-colors ${
+                          socialPlatform === p ? 'bg-teal-500 text-white shadow' : 'text-slate-400 hover:text-white'
+                        }`}
+                      >
+                        {p}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Simulated Social Card */}
+                <div className="flex justify-center">
+                  <div className="w-full max-w-md bg-black/60 border border-slate-800 rounded-2xl p-4 text-start">
+                    <div className="flex items-center justify-between mb-3">
+                      <div className="flex items-center gap-2">
+                        <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-teal-500 to-sky-500 text-white font-bold text-xs flex items-center justify-center">
+                          TS
+                        </div>
+                        <div>
+                          <div className="text-xs font-bold text-white">tsoor.hartov</div>
+                          <div className="text-[10px] text-slate-400">Sponsored • Business Web Dev</div>
+                        </div>
+                      </div>
+                      <span className="text-xs text-slate-400">•••</span>
+                    </div>
+
+                    <div className="rounded-xl overflow-hidden border border-slate-800 mb-3 aspect-video relative">
+                      <img
+                        src="https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=800&q=80"
+                        alt="Ad preview"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+
+                    <div className="p-3 bg-slate-900 rounded-xl flex items-center justify-between border border-slate-800">
+                      <div className={isRtl ? 'text-right' : 'text-left'}>
+                        <div dir="ltr" className="text-[11px] text-teal-400 font-mono text-left">tsoorhartov.com</div>
+                        <div className="text-xs font-bold text-white">רוצים אתר שמוכר לעסק שלכם?</div>
+                      </div>
+                      <span dir="ltr" className="px-3 py-1 rounded-lg bg-teal-500 text-white text-xs font-bold shrink-0 text-left">
+                        Learn More
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* About Tsoor Section */}
+          <section id="about" className="py-24 px-4 sm:px-8 bg-[#0a0d15] border-t border-slate-800">
+            <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+              <div className="lg:col-span-5 p-8 rounded-3xl bg-slate-900/80 border border-slate-800 text-start space-y-4">
+                <div className="flex items-center gap-4">
+                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-tr from-teal-500 to-sky-500 flex flex-col items-center justify-center font-black text-white">
+                    <span>TS</span>
+                    <span className="text-[9px] font-mono">30 YO</span>
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-extrabold text-white">{isRtl ? 'צור הרטוב' : 'Tsoor Hartov'}</h3>
+                    <p className="text-xs font-bold text-teal-400">B.Sc • Coding Academy • IS PM</p>
+                  </div>
+                </div>
+
+                <div className="space-y-2.5 pt-2">
+                  {content.about.badgesList.map((b, i) => (
+                    <div key={i} className="p-3 rounded-xl bg-slate-950 border border-slate-800/80">
+                      <div className="text-xs font-bold text-white">{b.title}</div>
+                      <div className="text-[11px] text-slate-400 mt-0.5">{b.subtitle}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="lg:col-span-7 space-y-5">
+                <span className="text-xs font-bold text-teal-400 bg-teal-500/10 px-3 py-1 rounded-full border border-teal-500/30">
+                  {content.about.badge}
+                </span>
+                <h2 className="text-3xl font-black text-white">{content.about.title}</h2>
+                <p className="text-teal-300 font-medium text-sm leading-relaxed">{content.about.tagline}</p>
+                <div className="space-y-3 text-sm text-slate-300 leading-relaxed">
+                  {content.about.story.map((st, i) => (
+                    <p key={i}>{st}</p>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Contact Section */}
+          <section id="contact" className="py-24 px-4 sm:px-8 max-w-4xl mx-auto text-center">
+            <h2 className="text-3xl font-black text-white mb-3">{isRtl ? 'מוכנים להרים אתר שמייצר לקוחות?' : 'Ready to Build a High-Converting Site?'}</h2>
+            <p className="text-sm text-slate-400 mb-8">{isRtl ? 'פנו אליי ישירות בוואטסאפ או השאירו פרטים ונשוחח ללא התחייבות.' : 'Reach out on WhatsApp or submit your details for a discovery call.'}</p>
+
+            <div className="p-8 rounded-3xl bg-slate-900/60 border border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-6">
+              <div className="text-start space-y-1">
+                <div className="text-lg font-bold text-white">{isRtl ? 'שיחה ישירה בוואטסאפ עם צור הרטוב' : 'Direct WhatsApp Chat with Tsoor'}</div>
+                <div className="text-xs text-slate-400">{isRtl ? 'מענה מהיר, אפיון צרכים והצעת מחיר שקופה' : 'Quick response, requirement analysis & transparent quote'}</div>
+              </div>
+
+              <a
+                href={whatsappUrl}
+                target="_blank"
+                className="px-8 py-4 rounded-2xl bg-[#25D366] hover:bg-[#20bd5a] text-white font-black text-sm shadow-xl shadow-[#25D366]/30 hover:scale-105 transition-all shrink-0 flex items-center gap-2.5"
+              >
+                <svg className="w-5 h-5 shrink-0" viewBox="0 0 64 64">
+                  <path fill="#25D366" d="M32 2C15.432 2 2 15.432 2 32c0 5.293 1.378 10.274 3.791 14.604L2 62l15.86-4.152A29.835 29.835 0 0 0 32 62c16.568 0 30-13.432 30-30S48.568 2 32 2z"/>
+                  <path fill="#FFFFFF" d="M47.79 38.835c-.792-.397-4.686-2.312-5.411-2.576-.726-.264-1.255-.396-1.784.397-.528.792-2.046 2.576-2.508 3.104-.462.529-.924.594-1.716.198-.792-.396-3.344-1.232-6.37-3.93-2.355-2.099-3.945-4.693-4.407-5.485-.462-.792-.049-1.22.347-1.614.357-.356.792-.924 1.188-1.386.396-.462.528-.792.792-1.32.264-.528.132-.99-.066-1.386-.198-.396-1.784-4.298-2.443-5.883-.643-1.545-1.298-1.334-1.783-1.36-.462-.022-.99-.026-1.518-.026-.528 0-1.386.198-2.112.99-.726.792-2.772 2.706-2.772 6.6 0 3.894 2.838 7.656 3.234 8.184.396.528 5.584 8.528 13.528 11.956 1.89.816 3.364 1.303 4.514 1.666 1.897.604 3.624.519 4.988.315 1.523-.227 4.686-1.914 5.346-3.762.66-1.848.66-3.432.462-3.762-.198-.33-.726-.528-1.518-.924z"/>
+                </svg>
+                <span>{isRtl ? 'פתיחת שיחה בוואטסאפ (050-593-5609)' : 'WhatsApp (+972-50-593-5609)'}</span>
+              </a>
+            </div>
+          </section>
+
+          {/* Floating WhatsApp */}
+          <div className={`fixed bottom-5 sm:bottom-6 ${isRtl ? 'left-4 sm:left-6' : 'right-4 sm:right-6'} z-50 flex items-center gap-2`}>
+            <a
+              href={whatsappUrl}
+              target="_blank"
+              aria-label="WhatsApp with Tsoor (050-593-5609)"
+              className="group relative flex items-center gap-2.5 p-1.5 sm:px-4 sm:py-2.5 bg-slate-900/95 hover:bg-slate-850 border border-slate-700/80 hover:border-[#25D366]/70 rounded-full shadow-2xl shadow-black/80 hover:scale-105 active:scale-95 transition-all duration-300 backdrop-blur-md"
+            >
+              <div className="relative shrink-0 flex items-center justify-center">
+                <svg viewBox="0 0 64 64" className="w-11 h-11 sm:w-10 sm:h-10 shrink-0 drop-shadow-md">
+                  <path fill="#25D366" d="M32 2C15.432 2 2 15.432 2 32c0 5.293 1.378 10.274 3.791 14.604L2 62l15.86-4.152A29.835 29.835 0 0 0 32 62c16.568 0 30-13.432 30-30S48.568 2 32 2z"/>
+                  <path fill="#FFFFFF" d="M47.79 38.835c-.792-.397-4.686-2.312-5.411-2.576-.726-.264-1.255-.396-1.784.397-.528.792-2.046 2.576-2.508 3.104-.462.529-.924.594-1.716.198-.792-.396-3.344-1.232-6.37-3.93-2.355-2.099-3.945-4.693-4.407-5.485-.462-.792-.049-1.22.347-1.614.357-.356.792-.924 1.188-1.386.396-.462.528-.792.792-1.32.264-.528.132-.99-.066-1.386-.198-.396-1.784-4.298-2.443-5.883-.643-1.545-1.298-1.334-1.783-1.36-.462-.022-.99-.026-1.518-.026-.528 0-1.386.198-2.112.99-.726.792-2.772 2.706-2.772 6.6 0 3.894 2.838 7.656 3.234 8.184.396.528 5.584 8.528 13.528 11.956 1.89.816 3.364 1.303 4.514 1.666 1.897.604 3.624.519 4.988.315 1.523-.227 4.686-1.914 5.346-3.762.66-1.848.66-3.432.462-3.762-.198-.33-.726-.528-1.518-.924z"/>
+                </svg>
+                <span className="absolute -top-0.5 -right-0.5 w-3 h-3 bg-red-500 border-2 border-slate-900 rounded-full"></span>
+              </div>
+
+              <div className="hidden sm:block text-start px-1">
+                <div className="text-xs font-bold text-white leading-tight">
+                  {isRtl ? 'וואטסאפ ישיר' : 'WhatsApp'}
+                </div>
+                <div className="text-[10px] text-teal-400 font-mono leading-tight">050-593-5609</div>
+              </div>
+            </a>
+          </div>
+
+          {/* Footer */}
+          <footer className="border-t border-slate-800 bg-[#080b12] py-8 text-center text-xs text-slate-500">
+            <div>{isRtl ? '© כל הזכויות שמורות לצור הרטוב — מומחה מערכות מידע, ניהול פרויקטים ומפתח מוסמך Coding Academy' : '© All rights reserved to Tsoor Hartov — B.Sc, Information Systems & Coding Academy Certified Developer'}</div>
+            <div className="mt-1 font-mono text-[11px] text-teal-400/80">React & Node.js • tiranlasry.com reference showcase</div>
+          </footer>
+        </div>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+  </script>
+</body>
+</html>
