@@ -33,3 +33,69 @@
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.08);
 }
+
+/* Accessibility: Respect user motion preferences (WCAG 2.3.3 Animation from Interactions) */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Modal animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Print Styles for Legal Documents & Accessibility */
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #111827 !important;
+  }
+
+  /* When printing from modal, hide everything else */
+  header,
+  footer,
+  main,
+  [aria-label*="WhatsApp"],
+  .fixed:not([role="dialog"]) {
+    display: none !important;
+  }
+
+  [role="dialog"] {
+    position: static !important;
+    background: #ffffff !important;
+    color: #111827 !important;
+    padding: 0 !important;
+  }
+
+  [role="dialog"] > div {
+    border: none !important;
+    box-shadow: none !important;
+    max-height: none !important;
+    background: #ffffff !important;
+    color: #111827 !important;
+  }
+
+  [role="dialog"] * {
+    color: #111827 !important;
+    background: transparent !important;
+    border-color: #e5e7eb !important;
+  }
+}

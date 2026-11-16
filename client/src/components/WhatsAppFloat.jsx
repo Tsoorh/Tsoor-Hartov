@@ -41,7 +41,7 @@ export default function WhatsAppFloat({ lang }) {
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Chat with Tsoor Hartov on WhatsApp (050-593-5609)"
-        className="group relative flex items-center gap-2 p-1 sm:px-3 sm:py-2 bg-slate-900/90 hover:bg-slate-850 border border-slate-700/80 hover:border-[#25D366]/60 rounded-full shadow-2xl shadow-black/80 hover:scale-105 active:scale-95 transition-all duration-300 backdrop-blur-md"
+        className="group relative flex items-center gap-2 p-1 sm:px-3 sm:py-2 bg-slate-900/90 hover:bg-slate-850 border border-slate-700/80 hover:border-[#25D366]/60 rounded-full shadow-2xl shadow-black/80 hover:scale-105 active:scale-95 transition-all duration-300 backdrop-blur-md focus-visible:ring-2 focus-visible:ring-[#25D366] focus-visible:outline-none"
       >
         <div className="relative shrink-0 flex items-center justify-center">
           <svg viewBox="0 0 64 64" className="w-12 h-12 sm:w-11 sm:h-11 shrink-0 drop-shadow-md">

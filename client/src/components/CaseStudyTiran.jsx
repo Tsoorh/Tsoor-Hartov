@@ -41,26 +41,34 @@ export default function CaseStudyTiran({ content, lang }) {
             </a>
 
             {/* Viewport switch for preview */}
-            <div className="flex items-center bg-slate-900 border border-slate-800 rounded-xl p-1">
+            <div
+              role="group"
+              aria-label={isRtl ? 'בחירת תצוגת מסך' : 'Device Preview Mode'}
+              className="flex items-center bg-slate-900 border border-slate-800 rounded-xl p-1"
+            >
               <button
                 onClick={() => setDeviceMode('desktop')}
-                className={`p-1.5 rounded-lg text-xs font-medium transition-colors ${
+                aria-label={isRtl ? 'תצוגת מחשב' : 'Desktop View'}
+                aria-pressed={deviceMode === 'desktop'}
+                className={`p-1.5 rounded-lg text-xs font-medium transition-colors focus-visible:ring-2 focus-visible:ring-teal-400 focus-visible:outline-none ${
                   deviceMode === 'desktop'
                     ? 'bg-teal-500 text-white'
                     : 'text-slate-400 hover:text-white'
                 }`}
-                title="Desktop View"
+                title={isRtl ? 'תצוגת מחשב' : 'Desktop View'}
               >
                 <Monitor className="w-4 h-4" />
               </button>
               <button
                 onClick={() => setDeviceMode('mobile')}
-                className={`p-1.5 rounded-lg text-xs font-medium transition-colors ${
+                aria-label={isRtl ? 'תצוגת מובייל' : 'Mobile View'}
+                aria-pressed={deviceMode === 'mobile'}
+                className={`p-1.5 rounded-lg text-xs font-medium transition-colors focus-visible:ring-2 focus-visible:ring-teal-400 focus-visible:outline-none ${
                   deviceMode === 'mobile'
                     ? 'bg-teal-500 text-white'
                     : 'text-slate-400 hover:text-white'
                 }`}
-                title="Mobile View"
+                title={isRtl ? 'תצוגת מובייל' : 'Mobile View'}
               >
                 <Smartphone className="w-4 h-4" />
               </button>
@@ -142,10 +150,16 @@ export default function CaseStudyTiran({ content, lang }) {
                 </a>
 
                 {/* View Type Toggle (Showcase vs Live Iframe) */}
-                <div className="flex items-center bg-slate-900 border border-slate-800 rounded-lg p-0.5 text-[10px]">
+                <div
+                  role="group"
+                  aria-label={isRtl ? 'סוג תצוגה' : 'View Mode'}
+                  className="flex items-center bg-slate-900 border border-slate-800 rounded-lg p-0.5 text-[10px]"
+                >
                   <button
                     onClick={() => setViewType('showcase')}
-                    className={`px-2 py-1 rounded-md font-semibold transition-all flex items-center gap-1 ${
+                    aria-pressed={viewType === 'showcase'}
+                    aria-label={isRtl ? 'תצוגת גלריה' : 'Showcase View'}
+                    className={`px-2 py-1 rounded-md font-semibold transition-all flex items-center gap-1 focus-visible:ring-2 focus-visible:ring-teal-400 focus-visible:outline-none ${
                       viewType === 'showcase'
                         ? 'bg-teal-500 text-white shadow-sm'
                         : 'text-slate-400 hover:text-white'
@@ -156,7 +170,9 @@ export default function CaseStudyTiran({ content, lang }) {
                   </button>
                   <button
                     onClick={() => setViewType('live')}
-                    className={`px-2 py-1 rounded-md font-semibold transition-all flex items-center gap-1 ${
+                    aria-pressed={viewType === 'live'}
+                    aria-label={isRtl ? 'אתר חי אינטראקטיבי' : 'Live Iframe View'}
+                    className={`px-2 py-1 rounded-md font-semibold transition-all flex items-center gap-1 focus-visible:ring-2 focus-visible:ring-teal-400 focus-visible:outline-none ${
                       viewType === 'live'
                         ? 'bg-teal-500 text-white shadow-sm'
                         : 'text-slate-400 hover:text-white'

@@ -222,9 +222,13 @@ export default function ContactSection({ content, lang }) {
                 </div>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-4">
+              <form onSubmit={handleSubmit} className="space-y-4" noValidate>
                 {errorMessage && (
-                  <div className="p-3 rounded-xl bg-red-950/40 border border-red-500/30 text-xs text-red-300 flex items-center gap-2">
+                  <div
+                    role="alert"
+                    aria-live="assertive"
+                    className="p-3 rounded-xl bg-red-950/40 border border-red-500/30 text-xs text-red-300 flex items-center gap-2"
+                  >
                     <AlertCircle className="w-4 h-4 text-red-400 shrink-0" />
                     <span>{errorMessage}</span>
                   </div>
@@ -232,75 +236,94 @@ export default function ContactSection({ content, lang }) {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-semibold text-slate-300 mb-1.5">
-                      {contact.nameLabel}
+                    <label htmlFor="contact-name" className="block text-xs font-semibold text-slate-300 mb-1.5">
+                      {contact.nameLabel} <span className="text-teal-400" aria-hidden="true">*</span>
                     </label>
                     <input
+                      id="contact-name"
                       type="text"
                       required
+                      aria-required="true"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       placeholder={contact.namePlaceholder}
-                      className="w-full px-4 py-2.5 rounded-xl bg-slate-950 border border-slate-800 text-white text-sm focus:outline-none focus:border-teal-500 transition-colors"
+                      className="w-full px-4 py-2.5 rounded-xl bg-slate-950 border border-slate-800 text-white text-sm focus:outline-none focus:border-teal-500 focus-visible:ring-2 focus-visible:ring-teal-400 transition-colors"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-semibold text-slate-300 mb-1.5">
-                      {contact.phoneLabel}
+                    <label htmlFor="contact-phone" className="block text-xs font-semibold text-slate-300 mb-1.5">
+                      {contact.phoneLabel} <span className="text-teal-400" aria-hidden="true">*</span>
                     </label>
                     <input
+                      id="contact-phone"
                       type="tel"
                       required
+                      aria-required="true"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                       placeholder={contact.phonePlaceholder}
-                      className="w-full px-4 py-2.5 rounded-xl bg-slate-950 border border-slate-800 text-white text-sm focus:outline-none focus:border-teal-500 transition-colors"
+                      className="w-full px-4 py-2.5 rounded-xl bg-slate-950 border border-slate-800 text-white text-sm focus:outline-none focus:border-teal-500 focus-visible:ring-2 focus-visible:ring-teal-400 transition-colors"
                     />
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-semibold text-slate-300 mb-1.5">
+                    <label htmlFor="contact-email" className="block text-xs font-semibold text-slate-300 mb-1.5">
                       {contact.emailLabel}
                     </label>
                     <input
+                      id="contact-email"
                       type="email"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       placeholder={contact.emailPlaceholder}
-                      className="w-full px-4 py-2.5 rounded-xl bg-slate-950 border border-slate-800 text-white text-sm focus:outline-none focus:border-teal-500 transition-colors"
+                      className="w-full px-4 py-2.5 rounded-xl bg-slate-950 border border-slate-800 text-white text-sm focus:outline-none focus:border-teal-500 focus-visible:ring-2 focus-visible:ring-teal-400 transition-colors"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-semibold text-slate-300 mb-1.5">
+                    <label htmlFor="contact-business" className="block text-xs font-semibold text-slate-300 mb-1.5">
                       {contact.businessTypeLabel}
                     </label>
                     <input
+                      id="contact-business"
                       type="text"
                       value={formData.businessType}
                       onChange={(e) => setFormData({ ...formData, businessType: e.target.value })}
                       placeholder={contact.businessTypePlaceholder}
-                      className="w-full px-4 py-2.5 rounded-xl bg-slate-950 border border-slate-800 text-white text-sm focus:outline-none focus:border-teal-500 transition-colors"
+                      className="w-full px-4 py-2.5 rounded-xl bg-slate-950 border border-slate-800 text-white text-sm focus:outline-none focus:border-teal-500 focus-visible:ring-2 focus-visible:ring-teal-400 transition-colors"
                     />
                   </div>
                 </div>
 
                 {/* Multiple Needs Selector */}
                 <div>
-                  <label className="block text-xs font-semibold text-slate-300 mb-2">
+                  <div id="needs-group-label" className="block text-xs font-semibold text-slate-300 mb-2">
                     {contact.needsLabel}
-                  </label>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                  </div>
+                  <div
+                    role="group"
+                    aria-labelledby="needs-group-label"
+                    className="grid grid-cols-1 sm:grid-cols-2 gap-2"
+                  >
                     {contact.needsOptions.map((opt, i) => {
                       const isChecked = formData.needs.includes(opt);
                       return (
                         <div
                           key={i}
+                          role="checkbox"
+                          tabIndex={0}
+                          aria-checked={isChecked}
                           onClick={() => toggleNeed(opt)}
-                          className={`p-2.5 rounded-xl border text-xs cursor-pointer flex items-center justify-between transition-colors ${
+                          onKeyDown={(e) => {
+                            if (e.key === ' ' || e.key === 'Enter') {
+                              e.preventDefault();
+                              toggleNeed(opt);
+                            }
+                          }}
+                          className={`p-2.5 rounded-xl border text-xs cursor-pointer flex items-center justify-between transition-colors focus-visible:ring-2 focus-visible:ring-teal-400 focus-visible:outline-none ${
                             isChecked
                               ? 'bg-teal-950/40 border-teal-500/60 text-white font-medium'
                               : 'bg-slate-950 border-slate-800 text-slate-400 hover:border-slate-700'
@@ -311,6 +334,7 @@ export default function ContactSection({ content, lang }) {
                             className={`w-4 h-4 rounded-md flex items-center justify-center text-[10px] ${
                               isChecked ? 'bg-teal-500 text-white' : 'border border-slate-700'
                             }`}
+                            aria-hidden="true"
                           >
                             {isChecked && '✓'}
                           </span>
@@ -321,22 +345,23 @@ export default function ContactSection({ content, lang }) {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold text-slate-300 mb-1.5">
+                  <label htmlFor="contact-message" className="block text-xs font-semibold text-slate-300 mb-1.5">
                     {contact.messageLabel}
                   </label>
                   <textarea
+                    id="contact-message"
                     rows={3}
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     placeholder={contact.messagePlaceholder}
-                    className="w-full px-4 py-2.5 rounded-xl bg-slate-950 border border-slate-800 text-white text-sm focus:outline-none focus:border-teal-500 transition-colors"
+                    className="w-full px-4 py-2.5 rounded-xl bg-slate-950 border border-slate-800 text-white text-sm focus:outline-none focus:border-teal-500 focus-visible:ring-2 focus-visible:ring-teal-400 transition-colors"
                   ></textarea>
                 </div>
 
                 <button
                   type="submit"
                   disabled={submitting}
-                  className="w-full py-3.5 rounded-xl bg-gradient-to-r from-teal-500 to-sky-600 hover:from-teal-400 hover:to-sky-500 text-white font-bold text-sm shadow-xl shadow-teal-500/25 transition-all hover:scale-[1.01] active:scale-95 flex items-center justify-center gap-2"
+                  className="w-full py-3.5 rounded-xl bg-gradient-to-r from-teal-500 to-sky-600 hover:from-teal-400 hover:to-sky-500 text-white font-bold text-sm shadow-xl shadow-teal-500/25 transition-all hover:scale-[1.01] active:scale-95 flex items-center justify-center gap-2 focus-visible:ring-2 focus-visible:ring-teal-400 focus-visible:outline-none"
                 >
                   <Send className="w-4 h-4" />
                   <span>{submitting ? contact.submittingBtn : contact.submitBtn}</span>

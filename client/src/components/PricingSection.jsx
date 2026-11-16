@@ -98,10 +98,16 @@ export default function PricingSection({ content, lang, onSelectPackage }) {
           </p>
 
           {/* Toggle between Transparent Plans and Custom Estimator */}
-          <div className="mt-8 inline-flex items-center p-1 bg-slate-900 border border-slate-800 rounded-2xl shadow-inner">
+          <div
+            role="tablist"
+            aria-label={isRtl ? 'בחירת תצוגת מחירים' : 'Pricing View Selection'}
+            className="mt-8 inline-flex items-center p-1 bg-slate-900 border border-slate-800 rounded-2xl shadow-inner"
+          >
             <button
+              role="tab"
+              aria-selected={viewMode === 'transparent'}
               onClick={() => setViewMode('transparent')}
-              className={`px-4 sm:px-6 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all ${
+              className={`px-4 sm:px-6 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all focus-visible:ring-2 focus-visible:ring-teal-400 focus-visible:outline-none ${
                 viewMode === 'transparent'
                   ? 'bg-gradient-to-r from-teal-500 to-sky-600 text-white shadow-md'
                   : 'text-slate-400 hover:text-white'
@@ -110,8 +116,10 @@ export default function PricingSection({ content, lang, onSelectPackage }) {
               {pricing.viewTransparent}
             </button>
             <button
+              role="tab"
+              aria-selected={viewMode === 'custom'}
               onClick={() => setViewMode('custom')}
-              className={`px-4 sm:px-6 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all flex items-center gap-1.5 ${
+              className={`px-4 sm:px-6 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all flex items-center gap-1.5 focus-visible:ring-2 focus-visible:ring-teal-400 focus-visible:outline-none ${
                 viewMode === 'custom'
                   ? 'bg-gradient-to-r from-teal-500 to-sky-600 text-white shadow-md'
                   : 'text-slate-400 hover:text-white'
@@ -318,8 +326,17 @@ export default function PricingSection({ content, lang, onSelectPackage }) {
                 return (
                   <div
                     key={addon.id}
+                    role="checkbox"
+                    tabIndex={0}
+                    aria-checked={isSelected}
                     onClick={() => toggleAddon(addon.id)}
-                    className={`p-4 rounded-2xl border transition-all cursor-pointer flex items-center justify-between gap-4 ${
+                    onKeyDown={(e) => {
+                      if (e.key === ' ' || e.key === 'Enter') {
+                        e.preventDefault();
+                        toggleAddon(addon.id);
+                      }
+                    }}
+                    className={`p-4 rounded-2xl border transition-all cursor-pointer flex items-center justify-between gap-4 focus-visible:ring-2 focus-visible:ring-teal-400 focus-visible:outline-none ${
                       isSelected
                         ? 'bg-teal-950/30 border-teal-500/60 shadow-md'
                         : 'bg-slate-950/40 border-slate-800/80 hover:border-slate-700'
@@ -332,6 +349,7 @@ export default function PricingSection({ content, lang, onSelectPackage }) {
                             ? 'bg-teal-500 border-teal-500 text-white'
                             : 'border-slate-700 bg-slate-900'
                         }`}
+                        aria-hidden="true"
                       >
                         {isSelected && <Check className="w-4 h-4" />}
                       </div>
@@ -349,7 +367,7 @@ export default function PricingSection({ content, lang, onSelectPackage }) {
                       <div className="text-sm font-bold text-teal-400 font-mono">
                         +{addon.setupILS.toLocaleString()} ₪
                       </div>
-                      <div className="text-[11px] text-slate-500">
+                      <div className="text-[11px] text-slate-400">
                         {addon.monthlyILS > 0 ? `+${addon.monthlyILS} ₪/חודש` : 'ללא עלות חודשית נוספת'}
                       </div>
                     </div>

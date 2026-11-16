@@ -71,12 +71,20 @@ export default function TemplatesShowcase({ lang }) {
         </div>
 
         {/* Industry Tabs */}
-        <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-12">
+        <div
+          role="tablist"
+          aria-label={isRtl ? 'קטגוריות פרויקטים ופורמטים' : 'Project Formats & Categories'}
+          className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-12"
+        >
           {formats.map((fmt) => (
             <button
               key={fmt.id}
+              role="tab"
+              id={`format-tab-${fmt.id}`}
+              aria-controls="format-panel"
+              aria-selected={activeTab === fmt.id}
               onClick={() => setActiveTab(fmt.id)}
-              className={`px-4 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all ${
+              className={`px-4 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all focus-visible:ring-2 focus-visible:ring-teal-400 focus-visible:outline-none ${
                 activeTab === fmt.id
                   ? 'bg-teal-500 text-white shadow-lg shadow-teal-500/25 scale-105'
                   : 'bg-slate-900 text-slate-300 hover:bg-slate-800 border border-slate-800'
@@ -88,7 +96,12 @@ export default function TemplatesShowcase({ lang }) {
         </div>
 
         {/* Selected Format Card */}
-        <div className="bg-slate-900/60 border border-slate-800 rounded-3xl p-6 sm:p-10 backdrop-blur-md grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div
+          id="format-panel"
+          role="tabpanel"
+          aria-labelledby={`format-tab-${activeTab}`}
+          className="bg-slate-900/60 border border-slate-800 rounded-3xl p-6 sm:p-10 backdrop-blur-md grid grid-cols-1 lg:grid-cols-12 gap-8 items-center"
+        >
           <div className="lg:col-span-6 space-y-5">
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-teal-500/10 text-teal-300 text-xs font-semibold border border-teal-500/30">
               <Sparkles className="w-3 h-3" />
