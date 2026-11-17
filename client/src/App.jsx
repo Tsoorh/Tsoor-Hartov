@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { siteContent } from './data/content';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import CredentialsRibbon from './components/CredentialsRibbon';
 import ValueProps from './components/ValueProps';
 import CaseStudyTiran from './components/CaseStudyTiran';
 import TemplatesShowcase from './components/TemplatesShowcase';
@@ -107,7 +106,6 @@ export default function App() {
       {/* Main Content Sections */}
       <main id="main-content" className="flex-1">
         <Hero content={content} lang={lang} />
-        <CredentialsRibbon content={content} lang={lang} />
         <ValueProps content={content} lang={lang} />
         <CaseStudyTiran content={content} lang={lang} />
         <TemplatesShowcase lang={lang} />

@@ -196,7 +196,9 @@ export default function SocialMarketingPreview({ content, lang }) {
                   </div>
                 </div>
                 <div className={`text-xs text-slate-200 mb-2 ${isRtl ? 'text-right' : 'text-left'}`}>
-                  עסקים קטנים ובינוניים: הגיע הזמן לעבור את תקרת הזכוכית של אתרים כבדים. אתר מותאם אישית ומהיר ב-0.8 שניות שמחובר ישירות לוואטסאפ שלכם.
+                  {isRtl
+                    ? 'עסקים בצמיחה: נמאס מאתרים איטיים שלא מייצרים תוצאות? פיתוח מותאם אישית שמשדרג את המותג ומביא לקוחות איכותיים.'
+                    : 'Growing businesses: Escape slow, clunky websites. Bespoke digital architecture engineered to scale your brand and convert clients.'}
                 </div>
                 <div className="rounded-xl overflow-hidden border border-slate-700/60 bg-[#242526]">
                   <img

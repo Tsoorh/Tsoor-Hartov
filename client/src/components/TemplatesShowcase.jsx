@@ -56,17 +56,17 @@ export default function TemplatesShowcase({ lang }) {
         <div className="text-center max-w-3xl mx-auto mb-14">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-teal-500/10 border border-teal-500/30 text-teal-300 text-xs font-semibold mb-3">
             <Sliders className="w-3.5 h-3.5" />
-            <span>{isRtl ? 'ארכיטקטורת Custom מתקדמת • ללא מערכות סגורות' : 'Custom Architecture • Zero Closed Platforms'}</span>
+            <span>{isRtl ? 'פורמטים מוכחים לעסקים' : 'Proven Industry Formats'}</span>
           </div>
           <h2 className="text-2xl sm:text-4xl font-extrabold text-white mb-4">
             {isRtl
-              ? 'לעבור את תקרת הזכוכית של Wix ו-WordPress'
-              : 'Escape the Glass Ceiling of Wix & WordPress'}
+              ? 'פתרונות דיגיטליים מותאמים לענף שלכם'
+              : 'Tailored Digital Architecture for Your Industry'}
           </h2>
           <p className="text-slate-400 text-sm sm:text-base leading-relaxed">
             {isRtl
-              ? 'במקום להיתקע במערכות סגורות שמגבילות את הביצועים – ארכיטקטורת React & Node.js מאפשרת להתחיל היום מפורמט מנצח וקטלוג מהיר וממיר, ולהלביש עליו בהמשך מחשבוני מחיר, פורטלים לאדריכלים ואוטומציות, בלי לבנות מחדש לעולם.'
-              : 'Instead of hitting the wall of closed builder platforms, custom React & Node.js allows you to launch an ultra-fast catalog site today and bolt on pricing calculators, architect portals, and automations later without rebuilding.'}
+              ? 'כל עסק פועל אחרת. בחרו את הפורמט הקרוב לתחום שלכם, שממנו נבנה חוויה מותאמת אישית ב-100% למיתוג, לקטלוג ולמשפך הלקוחות הייחודי של העסק.'
+              : 'Every business operates differently. Explore proven foundations customized 100% to your brand identity, interactive showcase, and unique client acquisition funnel.'}
           </p>
         </div>
 

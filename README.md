@@ -61,7 +61,6 @@ TSOOR/
 │       └── components/         # קומפוננטות React מודולריות:
 │           ├── Navbar.jsx
 │           ├── Hero.jsx
-│           ├── CredentialsRibbon.jsx  # סרגל הסמכות (B.Sc, Coding Academy, מערכות מידע)
 │           ├── ValueProps.jsx
 │           ├── CaseStudyTiran.jsx     # פרויקט טירן לסרי tiranlasry.com
 │           ├── TemplatesShowcase.jsx  # תצוגת תבניות והתאמות אישיות

@@ -16,8 +16,8 @@ export const siteContent = {
       badge: 'אתרי פרימיום ומערכות מותאמות אישית לעסקים בצמיחה',
       headlineStart: 'אתרים מותאמים אישית ומערכות דיגיטליות',
       headlineAccent: 'שמייצרים לקוחות ומזניקים את העסק',
-      headlineEnd: 'למובייל ולמחשב.',
-      subheadline: 'שלום, אני צור הרטוב - מומחה מערכות מידע ומנהל פרויקטים (בעל תואר B.Sc), מפתח Full-Stack מוסמך Coding Academy. איתי אתם מקבלים פיתוח React & Node.js מותאם אישית מאפס, שוברים את תקרת הזכוכית של מערכות סגורות, ומקבלים שותף טכנולוגי שמלווה את העסק לאורך זמן בראש שקט.',
+      headlineEnd: '',
+      subheadline: 'פיתוח אתרי פרימיום ומערכות דיגיטליות בקוד נקי (React) ללא תבניות מוגבלות. שירות יסודי ומקצועי, ארכיטקטורה מותאמת אישית לצמיחת העסק וליווי טכנולוגי צמוד לכל אורך הדרך.',
       ctaPrimary: 'בואו נדבר על האתר שלכם',
       ctaSecondary: 'צפו בפרויקט לדוגמה (tiranlasry.com)',
       ctaEstimate: 'מחשבון פרויקט ותוספות',
@@ -25,16 +25,9 @@ export const siteContent = {
         { value: '0.8s', label: 'טעינת שיא במובייל וברשתות' },
         { value: '100%', label: 'בעלות מלאה על הקוד והנתונים' },
         { value: 'Custom', label: 'ארכיטקטורה שצומחת ללא הגבלה' },
-        { value: '1:1', label: 'ליווי טכנולוגי ישיר ומענה בוואטסאפ' }
+        { value: '1:1', label: 'ליווי טכנולוגי ישיר ומענה אישי' }
       ]
     },
-    credentialsBar: [
-      { label: 'תואר ראשון במדעים', detail: 'B.Sc' },
-      { label: 'מוסמך פיתוח Full-Stack', detail: 'Coding Academy' },
-      { label: 'מומחה מערכות מידע', detail: 'ארכיטקטורת תוכנה' },
-      { label: 'ניהול פרויקטים', detail: 'אפיון וביצוע מדויק' },
-      { label: 'לוגיסטיקה ושרשרת אספקה', detail: 'אופטימיזציית תהליכים' }
-    ],
     problemSolution: {
       title: 'איך שוברים את תקרת הזכוכית של Wix ו-WordPress?',
       subtitle: 'ההבדל בין אתר שנבנה במערכת סגורה ונתקע בעוד שנה, לבין ארכיטקטורת Custom שצומחת עם העסק',
@@ -58,11 +51,11 @@ export const siteContent = {
           desc: 'אתם מתחילים היום מאתר תדמית וקטלוג מהיר וממיר, ומלבישים עליו בהמשך מחשבוני מחיר, פורטלים B2B, אוטומציות ואינטגרציות ERP/CRM - בלי לבנות מאפס מחדש לעולם.'
         },
         {
-          title: 'מהירות שיא (0.8s) שממקסמת כל שקל בפרסום',
-          desc: 'קוד נקי ללא תוספים מיותרים. הדפים נטענים מיידית בתוך הדפדפן של אינסטגרם ופייסבוק, עם ממשק מלוטש ומעבר חלק לוואטסאפ שלכם.'
+          title: 'ביצועי שיא וטעינה מהירה שממקסמים כל שקל בפרסום',
+          desc: 'קוד נקי ללא תוספים מיותרים. הדפים נטענים מיידית במובייל וברשתות, עם ממשק מלוטש ומעבר חלק ליצירת קשר.'
         },
         {
-          title: 'שקט נפשי מלא ועדכונים ישירים בוואטסאפ',
+          title: 'ליווי שוטף וכתובת מקצועית אחת',
           desc: 'שרתי ענן מנוהלים, גיבויים יומיים, תעודת SSL מאובטחת, ומענה ישיר מצור לעדכוני תוכן והעלאת מוצרים חדשים לקטלוג.'
         }
       ]
@@ -77,7 +70,7 @@ export const siteContent = {
       overview: 'טירן לסרי מעצב ומייצר גופי תאורה על-זמניים בהתאמה אישית בנס ציונה. האתר נבנה מותאם אישית במלואו כחלון ראווה וקטלוג אינטראקטיבי המציג את חומרי הגלם (עץ, פליז, מתכת מושחרת) ומאפשר לאדריכלים לבקש הצעת מחיר מדויקת לכל פריט ישירות בוואטסאפ.',
       highlights: [
         'ארכיטקטורה מותאמת אישית ומלאה המאפשרת הרחבת קטלוג ומערכות בכל עת',
-        'התאמה רספונסיבית מוקפדת למובייל ולמחשב (מעל 80% מהתנועה מאינסטגרם)',
+        'חוויית משתמש מוקפדת המותאמת במיוחד לתנועה מרשתות חברתיות',
         'נראות פרימיום נקייה המשקפת עבודת יד ודיוק בלתי מתפשר',
         'טופס פנייה מודולרי להצעת מחיר אישית ללא סרבול ישירות ל-WhatsApp'
       ],
@@ -121,7 +114,7 @@ export const siteContent = {
         {
           step: '1',
           title: 'גולש נכנס מקמפיין במובייל',
-          desc: 'המבקר נחשף למודעה באינסטגרם/פייסבוק/טיקטוק ונוחת בדף מהיר ב-0.8 שניות ללא המתנה.'
+          desc: 'המבקר נחשף למודעה באינסטגרם/פייסבוק/טיקטוק ונוחת בדף מהיר וקליל ללא המתנה.'
         },
         {
           step: '2',
@@ -160,11 +153,11 @@ export const siteContent = {
         monthlyMaintenanceDesc: 'תחזוקת שרת ענן ייעודי, דומיין ותעודת SSL',
         features: [
           'פיתוח עצמאי וממוקד ב-React & Tailwind ללא מערכות סגורות',
-          'טעינת שיא של 0.8 שניות הממקסמת כל שקל בפרסום באינסטגרם, פייסבוק וטיקטוק',
+          'טעינה מיידית ללא שיהוי הממקסמת את יחסי ההמרה מפרסום באינסטגרם, פייסבוק וטיקטוק',
           'חיבור ישיר לוואטסאפ עם פתיחת שיחה והודעה מותאמת אישית',
           'טופס לידים מהיר מחובר ישירות למייל ולנייד',
           'הטמעת Meta Pixel ו-Google Analytics למעקב המרות מדויק',
-          'התאמה רספונסיבית מוקפדת למובייל ולמחשב'
+          'רספונסיביות מלאה וחוויית משתמש חלקה בכל מכשיר'
         ],
         btnText: 'אפיון דף נחיתה בוואטסאפ'
       },
@@ -180,7 +173,7 @@ export const siteContent = {
         features: [
           'פיתוח מותאם אישית מלא בקוד עצמאי (React / Node.js) ללא תבניות ומערכות סגורות',
           'ארכיטקטורה מודולרית שמוכנה להתרחב לכל עמוד, מחשבון או מערכת בעתיד',
-          'התאמה רספונסיבית מוקפדת למובייל ולמחשב (טעינה ב-0.8 שניות)',
+          'ביצועים מהירים וחוויית גלישה רספונסיבית מוקפדת בכל מסך',
           'הזרמת תמונות ומדיה מהירה בענן (CDN מנוהל)',
           'חיבור דומיין אישי, תעודת SSL ואבטחת DNS מלאה',
           'מקצה שיפורים ממוקד לאחר העלייה לאוויר (Fine-Tuning)'
@@ -264,12 +257,12 @@ export const siteContent = {
       previewTitle: 'תצוגה מקדימה: איך הקישור שלכם נראה כשמשתפים אותו ברשתות',
       demoUrl: 'tsoorhartov.com',
       demoCardTitle: 'צור הרטוב | אתרים מותאמים אישית ומערכות דיגיטליות לעסקים',
-      demoCardDesc: 'האתר שמשדרג את העסק שלך: מהיר ב-0.8 שניות, בנוי ומותאם אישית מאפס ומחובר ישירות לוואטסאפ ולמערכות הניהול.'
+      demoCardDesc: 'האתר שמשדרג את העסק שלך: מהיר, מותאם אישית מאפס ומחובר ישירות למערכות הניהול.'
     },
     about: {
       title: 'נעים להכיר, אני צור הרטוב',
       badge: 'מומחה מערכות מידע ומנהל פרויקטים (B.Sc) | בוגר Coding Academy',
-      tagline: 'איש מקצוע שמביא שילוב נדיר בין הנדסה, הבנה עסקית עמוקה ופיתוח מותאם אישית ברמה הגבוהה ביותר.',
+      tagline: 'שילוב ייחודי בין הנדסת מערכות, חשיבה עסקית ופיתוח תוכנה מתקדם ברמה הגבוהה ביותר.',
       badgesList: [
         { title: 'תואר ראשון במדעים (B.Sc)', subtitle: 'חשיבה אנליטית, ארכיטקטורת מערכות ופתרון בעיות מורכבות' },
         { title: 'בוגר Coding Academy', subtitle: 'הסמכת פיתוח Full-Stack מתקדמת בסטנדרטים התעשייתיים הגבוהים' },
@@ -277,20 +270,20 @@ export const siteContent = {
         { title: 'מומחיות בלוגיסטיקה ושרשרת אספקה', subtitle: 'הבנה עמוקה של זרימת מוצרים, ספקים, מלאי ואינטגרציות' }
       ],
       story: [
-        'אני מומחה למערכות מידע ומנהל פרויקטים בעל תואר B.Sc, עם ניסיון מעשי עשיר בהובלת תהליכים מורכבים בלוגיסטיקה ובשרשרת אספקה, וכן מפתח Full-Stack מוסמך מבית Coding Academy.',
-        'הפילוסופיה שלי פשוטה: אתם לא מקבלים מערכת סגורה שכולאת אתכם במבנה נוקשה, אלא פיתוח מותאם אישית מלא (React ו-Node.js). המשמעות עבורכם היא חופש פעולה מוחלט - האתר שלכם נטען במהירות שיא ויכול להתרחב לכל מודול או מערכת בכל שלב.',
-        'והחשוב מכל - אתם מקבלים שותף טכנולוגי שלא נעלם אחרי העלייה לאוויר. במסגרת הליווי החודשי אתם נהנים מראש שקט מלא, תחזוקת שרתים מאובטחת ומענה ישיר בוואטסאפ לכל עדכון תוכן או צורך חדש בעסק.'
+        'בניית אתר או מערכת לעסק היא לא רק עניין של עיצוב, אלא קודם כל הבנה מעמיקה של תהליכים עסקיים, יעילות ותשתיות אמינות. הרקע ההנדסי שלי במערכות מידע (B.Sc) יחד עם הניסיון בהובלת תהליכים מורכבים בלוגיסטיקה ובשרשרת אספקה, מאפשר לי לתכנן עבורכם אתר יציב, מהיר ומדויק – כזה שמשרת את המטרות העסקיות מהיום הראשון.',
+        'במקום להסתפק בתבניות מוכנות ומערכות כבולות, אני מפתח בקוד עצמאי נקי ב-React ו-Node.js (מוסמך Coding Academy). המשמעות עבורכם היא חופש פעולה מוחלט, ביצועים ללא פשרות ויכולת להרחיב את האתר לכל כלי, קטלוג או מערכת שהעסק יצטרך בהמשך הדרך.',
+        'השירות איתי הוא יסודי ומקצועי לכל אורך הדרך: משלב האפיון והעיצוב, דרך הפיתוח ועד ליווי שוטף לאחר העלייה לאוויר – עם כתובת מקצועית ברורה, שקיפות מלאה ואחריות אמיתית על התוצאה.'
       ],
       values: [
-        { label: 'פיתוח מותאם אישית שצומח עם העסק', desc: 'ללא תקרת זכוכית. אפשרות להוסיף כל עמוד, מחשבון ומערכת בכל שלב עתידי.' },
-        { label: 'דגש קפדני על מובייל ומחשב', desc: 'חוויית משתמש מלוטשת בכל מסך, זמני טעינה של 0.8 שניות ואחוזי המרה גבוהים.' },
-        { label: 'ליווי טכנולוגי בראש שקט', desc: 'מענה ישיר מצור בוואטסאפ לביצוע עדכוני קטלוג ותוכן ללא התעסקות טכנית מצידכם.' },
-        { label: 'הבנה עסקית, הנדסית ולוגיסטית', desc: 'שילוב של B.Sc, ניהול פרויקטים ו-Coding Academy שמבטיח דיוק ואיכות ללא פשרות.' }
+        { label: 'שירות יסודי ומקצועי', desc: 'אפיון מעמיק, ירידה לפרטים ובקרת איכות קפדנית בכל שורת קוד.' },
+        { label: 'קוד עצמאי ובעלות מלאה', desc: 'חופש מוחלט ללא תלות בפלטפורמות סגורות – כל הנכסים, הקוד והנתונים שלכם ב-100%.' },
+        { label: 'חוויית משתמש והמרת לקוחות', desc: 'ממשק מלוטש, רספונסיביות מלאה בכל מסך וזרימת גולשים טבעית ליצירת קשר.' },
+        { label: 'ליווי ואחריות לאורך זמן', desc: 'שותף מקצועי שמכיר את האתר שלכם מבפנים ומספק מענה אמין בכל צורך חדש.' }
       ]
     },
     contact: {
       title: 'מוכנים להרים אתר מותאם אישית שמייצר לקוחות וצומח עם העסק?',
-      subtitle: 'השאירו פרטים או שלחו הודעה ישירה לוואטסאפ, ונאפיין יחד אתר מותאם אישית למובייל ולמחשב עם שקט נפשי מלא.',
+      subtitle: 'השאירו פרטים או שלחו הודעה ישירה לוואטסאפ, ונאפיין יחד את הפתרון הדיגיטלי המדויק לעסק שלכם.',
       nameLabel: 'שם מלא *',
       namePlaceholder: 'למשל: ישראל ישראלי',
       phoneLabel: 'טלפון נייד *',
@@ -303,7 +296,7 @@ export const siteContent = {
       currentWebsitePlaceholder: 'www.mybusiness.co.il',
       needsLabel: 'מה העסק שלך צריך בעיקר?',
       needsOptions: [
-        'אתר מותאם אישית ויוקרתי (מובייל + מחשב)',
+        'אתר מותאם אישית ויוקרתי (קוד עצמאי)',
         'דומיין מותאם ותיבות דוא״ל עסקיות יוקרתיות',
         'מחשבון הצעות מחיר וכלים דיגיטליים אינטראקטיביים',
         'אוטומציות לידים, WhatsApp וסנכרון CRM',
@@ -319,9 +312,9 @@ export const siteContent = {
       directWhatsappBtn: 'פתיחת שיחה בוואטסאפ עכשיו'
     },
     footer: {
-      brandDesc: 'צור הרטוב - מומחה מערכות מידע, מנהל פרויקטים ומפתח Full-Stack מוסמך Coding Academy (B.Sc). פיתוח אתרים מותאמים אישית ויוקרתיים למובייל ולמחשב, כלים דיגיטליים ואוטומציות.',
+      brandDesc: 'צור הרטוב • פיתוח אתרים מותאמים אישית ומערכות דיגיטליות לעסקים בצמיחה. שירות יסודי ומקצועי ללא פשרות.',
       copyright: '© כל הזכויות שמורות לצור הרטוב - פיתוח אתרים ומערכות דיגיטליות לעסקים.',
-      subnote: 'נבנה ב-React & Node.js בהתאמה אישית מלאה למובייל ולמחשב.'
+      subnote: 'נבנה ב-React & Node.js בהתאמה אישית מלאה.'
     }
   },
   en: {
@@ -341,8 +334,8 @@ export const siteContent = {
       badge: 'Bespoke Web Platforms & Custom Systems for Growing SMBs',
       headlineStart: 'Bespoke Custom Websites & Systems',
       headlineAccent: 'Engineered to Scale with Your Business',
-      headlineEnd: 'on Mobile & Desktop.',
-      subheadline: 'Hi, I’m Tsoor Hartov - Information Systems & Project Manager (B.Sc), certified Full-Stack Web Developer by Coding Academy. With me, you receive 100% custom React & Node.js architecture built from scratch, escaping the glass ceiling of closed platforms, with ongoing hands-on technical partnership and total peace of mind.',
+      headlineEnd: '',
+      subheadline: 'Bespoke web platforms and custom digital systems built with clean code (React & Node.js). Thorough and professional engineering, tailored architecture designed to scale with your business, and dedicated ongoing technical partnership.',
       ctaPrimary: 'Let’s Build Your Platform',
       ctaSecondary: 'View Featured Showcase (tiranlasry.com)',
       ctaEstimate: 'Project & Addons Calculator',
@@ -350,16 +343,9 @@ export const siteContent = {
         { value: '0.8s', label: 'Ultra-fast load on mobile ad traffic' },
         { value: '100%', label: 'Full code & customer data ownership' },
         { value: 'Custom', label: 'Infinite scalability, zero plugin bloat' },
-        { value: '1:1', label: 'Direct WhatsApp communication with Tsoor' }
+        { value: '1:1', label: 'Dedicated technical partnership & personal support' }
       ]
     },
-    credentialsBar: [
-      { label: 'Bachelor of Science', detail: 'B.Sc Degree' },
-      { label: 'Certified Full-Stack Developer', detail: 'Coding Academy' },
-      { label: 'Information Systems Expert', detail: 'Software Architecture' },
-      { label: 'Certified Project Manager', detail: 'Agile & Execution' },
-      { label: 'Logistics & Supply Chain', detail: 'Process Optimization' }
-    ],
     problemSolution: {
       title: 'How to Escape the Glass Ceiling of Wix & WordPress',
       subtitle: 'The difference between building on a closed template platform that locks you down, and a custom architecture engineered to scale',
@@ -383,8 +369,8 @@ export const siteContent = {
           desc: 'Start with an ultra-fast, high-converting showcase and seamlessly bolt on pricing calculators, B2B portals, WhatsApp bots, and ERP integrations later - without ever rebuilding from scratch.'
         },
         {
-          title: '0.8s Load Speed That Maximizes Every Ad Dollar',
-          desc: 'Clean code, zero unnecessary plugins. Pages load instantly inside Instagram and Facebook in-app browsers with fluid navigation straight to WhatsApp.'
+          title: 'Ultra-Fast Performance Maximizing Every Ad Dollar',
+          desc: 'Clean code with zero plugin bloat. Pages load instantly inside mobile browsers with fluid navigation straight to contact.'
         },
         {
           title: 'Complete Peace of Mind & WhatsApp Updates',
@@ -402,7 +388,7 @@ export const siteContent = {
       overview: 'Tiran Lasry creates timeless, custom lighting fixtures in Ness Ziona. Built 100% custom as an immersive showcase and catalog showcasing raw materials (brass, solid wood, blackened steel), enabling architects to request custom item quotes directly via WhatsApp.',
       highlights: [
         '100% Custom architecture allowing modular catalog expansion anytime',
-        'Meticulous responsive optimization for mobile & desktop (80% traffic from Instagram)',
+        'Meticulous UX optimized specifically for high-intent social traffic',
         'Minimalist luxury aesthetic showcasing raw craftsmanship and precision',
         'Frictionless custom quote request funnel directly to WhatsApp'
       ],
@@ -446,7 +432,7 @@ export const siteContent = {
         {
           step: '1',
           title: 'Mobile Traffic from Social Ad',
-          desc: 'Prospects click your Instagram or Facebook ad and land on an instant-loading page in 0.8s without delays.'
+          desc: 'Prospects click your social ad and land on an instant, lightning-fast page without delays.'
         },
         {
           step: '2',
@@ -485,11 +471,11 @@ export const siteContent = {
         monthlyMaintenanceDesc: 'Managed cloud server, custom domain & SSL certificate',
         features: [
           'Engineered from scratch with React & Tailwind with zero platform bloat',
-          'Ultra-fast 0.8s mobile load speed maximizing ROI on Meta & TikTok ads',
+          'Instant page loading maximizing conversions on Meta & TikTok campaigns',
           'Direct 1-click WhatsApp chat launch with pre-filled message',
           'Instant lead capture form delivering directly to phone and email',
           'Meta Pixel & Google Analytics conversion tracking pre-installed',
-          'Pixel-perfect responsive optimization across mobile and desktop'
+          'Fluid responsive layout and seamless UX across all devices'
         ],
         btnText: 'Scope Landing Page via WhatsApp'
       },
@@ -505,7 +491,7 @@ export const siteContent = {
         features: [
           '100% custom code (React / Node.js) with zero template restrictions',
           'Modular architecture engineered to expand to any portal, calculator, or tool',
-          'Meticulous responsive optimization for mobile & desktop (0.8s load speed)',
+          'Rapid performance and flawless responsive UX on every device',
           'High-speed cloud media delivery and managed global CDN',
           'Custom domain setup, SSL security certificate, and DNS security',
           'Structured post-launch refinement round (Fine-Tuning)'
@@ -589,12 +575,12 @@ export const siteContent = {
       previewTitle: 'Live Preview: How Your Link Looks When Shared on Social Media',
       demoUrl: 'tsoorhartov.com',
       demoCardTitle: 'Tsoor Hartov | Custom Bespoke Websites & Systems for Growing SMBs',
-      demoCardDesc: 'Engineered custom for mobile & desktop, 0.8s load times, connected directly to WhatsApp and your CRM.'
+      demoCardDesc: 'Custom engineered platform built to scale your business and streamline client acquisition.'
     },
     about: {
       title: 'Nice to meet you, I’m Tsoor Hartov',
       badge: 'Information Systems Expert & Project Manager (B.Sc) | Certified by Coding Academy',
-      tagline: 'An engineer who brings a rare synergy between systems architecture, operational business insight, and custom Full-Stack development.',
+      tagline: 'A unique synergy between systems architecture, operational business insight, and custom Full-Stack development.',
       badgesList: [
         { title: 'Bachelor of Science (B.Sc)', subtitle: 'Analytical rigor, systems architecture, and complex problem solving' },
         { title: 'Certified by Coding Academy', subtitle: 'Advanced Full-Stack engineering standards in modern web' },
@@ -602,20 +588,20 @@ export const siteContent = {
         { title: 'Logistics & Supply Chain Specialist', subtitle: 'Deep operational insight into inventory, vendor flows, and process automation' }
       ],
       story: [
-        'I am an Information Systems expert and Project Manager holding a B.Sc degree, with rich hands-on experience leading complex operations in logistics and supply chain management, alongside being a certified Full-Stack Web Developer graduated from Coding Academy.',
-        'My philosophy is simple: you never receive a closed platform that traps you in rigid constraints, but rather full custom architecture in React and Node.js. For you, this means complete freedom - your site loads ultra-fast and can scale with any feature, page, or system at any stage.',
-        'Most importantly - you receive a technology partner who never disappears after deployment. As part of our monthly partnership, you get peace of mind, secure server maintenance, and direct WhatsApp support for any catalog updates or new business needs.'
+        'Building a website or business system is never just visual design—it requires deep operational insight into business processes, efficiency, and robust infrastructure. My engineering background in Information Systems (B.Sc), combined with hands-on experience directing complex logistics and supply chain workflows, enables me to architect resilient, high-performance systems that serve your business goals from day one.',
+        'Instead of relying on rigid, closed website builders, I develop 100% custom code using modern React & Node.js (certified by Coding Academy). For you, this means complete architectural freedom, uncompromising performance, and the flexibility to scale with any future tool, catalog, or internal portal without ever rebuilding.',
+        'Our collaboration is thorough and professional at every milestone: from scoping and design to deployment and ongoing support—providing a clear technical anchor, complete transparency, and genuine accountability.'
       ],
       values: [
-        { label: '100% Custom Code (Scales with You)', desc: 'Zero glass ceiling. Freely add any page, feature, or integration as you grow.' },
-        { label: 'Mobile & Desktop Perfection', desc: 'Flawless responsive design, 0.8s lightning speed, and high-conversion UX on every screen.' },
-        { label: 'Hassle-Free Technology Partnership', desc: 'Direct WhatsApp communication with Tsoor for hands-on catalog updates without technical friction.' },
-        { label: 'Engineering & Business Mindset', desc: 'Synergy of B.Sc, Project Management, and Coding Academy standards ensuring uncompromising quality.' }
+        { label: 'Thorough & Professional Engineering', desc: 'In-depth scoping, obsessive attention to detail, and strict quality control on every line of code.' },
+        { label: 'Custom Code & Full Ownership', desc: 'Zero lock-in or platform constraints—all source code, domain assets, and customer data belong 100% to you.' },
+        { label: 'Conversion & User Experience', desc: 'Polished interfaces, responsive precision on all screens, and fluid user pathways that drive inquiries.' },
+        { label: 'Dedicated Ongoing Accountability', desc: 'A dedicated partner who knows your systems inside out and delivers reliable technical solutions as you grow.' }
       ]
     },
     contact: {
       title: 'Ready to build a Custom website that scales with your business?',
-      subtitle: 'Leave your details or send an instant WhatsApp message to start your custom mobile & desktop project with Tsoor.',
+      subtitle: 'Leave your details or reach out directly via WhatsApp to begin tailoring the exact digital platform for your business.',
       nameLabel: 'Full Name *',
       namePlaceholder: 'e.g. John Doe',
       phoneLabel: 'Phone Number *',
@@ -628,7 +614,7 @@ export const siteContent = {
       currentWebsitePlaceholder: 'www.mybusiness.com',
       needsLabel: 'What does your business need?',
       needsOptions: [
-        'New Bespoke Custom Website (Mobile + Desktop)',
+        'Bespoke Custom Website (Clean Code)',
         'Custom Domain & Branded Business Email Suite (Google Workspace)',
         'Interactive Quote Calculators & Digital Business Tools',
         'Lead Automations, WhatsApp & CRM Synchronization',
@@ -644,7 +630,7 @@ export const siteContent = {
       directWhatsappBtn: 'Open WhatsApp Chat Now'
     },
     footer: {
-      brandDesc: 'Tsoor Hartov - Information Systems Expert, Project Manager, and Coding Academy Certified Full-Stack Developer (B.Sc). Bespoke Custom Web Development for Mobile & Desktop.',
+      brandDesc: 'Tsoor Hartov • Bespoke custom web development and digital systems for growing businesses. Thorough, professional engineering.',
       copyright: '© All rights reserved to Tsoor Hartov - Bespoke Web Development & Digital Systems.',
       subnote: 'Crafted with React & Node.js in 100% Custom Architecture.'
     }

@@ -19,7 +19,7 @@ export default function Footer({ content, lang, setLang, onOpenLegal }) {
                 {nav.brand}
               </span>
               <span className="text-[10px] text-teal-400 font-mono bg-teal-500/10 px-2 py-0.5 rounded-full border border-teal-500/20">
-                B.Sc • Coding Academy
+                {lang === 'he' ? 'פיתוח אתרים ומערכות' : 'Custom Web Development'}
               </span>
             </div>
             <p className="max-w-md text-slate-400 leading-relaxed text-xs">

@@ -25,8 +25,8 @@ export default function Hero({ content, lang }) {
             <span>{content.hero.headlineStart} </span>
             <span className="bg-gradient-to-r from-teal-400 via-teal-300 to-sky-400 bg-clip-text text-transparent">
               {content.hero.headlineAccent}
-            </span>{' '}
-            <span>{content.hero.headlineEnd}</span>
+            </span>
+            {content.hero.headlineEnd ? <span> {content.hero.headlineEnd}</span> : null}
           </h1>
 
           {/* Subheadline with Tsoor's personal identity */}
