@@ -1,5 +1,17 @@
 import React, { useState } from 'react';
-import { Check, ShieldCheck, Sparkles, Plus, Calculator, ArrowRight, ArrowLeft, Clock, Zap, FileCode, CheckCircle2 } from 'lucide-react';
+import {
+  Check,
+  ShieldCheck,
+  Sparkles,
+  Calculator,
+  ArrowRight,
+  ArrowLeft,
+  FileCode,
+  CheckCircle2,
+  Layers,
+  CreditCard,
+  MessageSquare
+} from 'lucide-react';
 
 export default function PricingSection({ content, lang, onSelectPackage }) {
   const { pricing } = content;
@@ -8,6 +20,10 @@ export default function PricingSection({ content, lang, onSelectPackage }) {
 
   // View Mode: 'transparent' or 'custom'
   const [viewMode, setViewMode] = useState('transparent');
+
+  // Foundation Project Choice in Calculator: 'landing' or 'full'
+  const [selectedBase, setSelectedBase] = useState('full');
+  const [selectedRetainer, setSelectedRetainer] = useState('tier2'); // 'tier1' (350) or 'tier2' (750)
 
   // Interactive Add-ons Calculator state
   const addons = [
@@ -65,8 +81,13 @@ export default function PricingSection({ content, lang, onSelectPackage }) {
     }
   };
 
-  const baseSetup = 10000;
-  const baseMonthly = 800;
+  const baseSetup = selectedBase === 'landing' ? 2500 : 8500;
+  const baseMonthly =
+    selectedBase === 'landing'
+      ? 150
+      : selectedRetainer === 'tier1'
+      ? 350
+      : 750;
 
   const totalAddonSetup = selectedAddons.reduce((sum, id) => {
     const addon = addons.find((a) => a.id === id);
@@ -81,14 +102,26 @@ export default function PricingSection({ content, lang, onSelectPackage }) {
   const finalSetup = baseSetup + totalAddonSetup;
   const finalMonthly = baseMonthly + totalAddonMonthly;
 
+  const whatsappMessage = encodeURIComponent(
+    isRtl
+      ? `היי צור, ביצעתי הערכה במחשבון האתר: בסיס ${
+          selectedBase === 'landing' ? 'דף נחיתה (החל מ-2,500 ₪)' : 'אתר מלא (החל מ-8,500 ₪)'
+        }, עם ריטיינר חודשי של ${baseMonthly} ₪, וסך הכל ${finalSetup.toLocaleString()} ₪ הקמה ו-${finalMonthly.toLocaleString()} ₪ חודשי (לפני מע״מ). אשמח שנדבר על אפיון הפרויקט.`
+      : `Hi Tsoor, I used the calculator on your website: Base ${
+          selectedBase === 'landing' ? 'Landing Page' : 'Full Custom Site'
+        }, with ${baseMonthly} ILS monthly retainer, total setup around ${finalSetup.toLocaleString()} ILS and ${finalMonthly.toLocaleString()} ILS/mo. I'd love to discuss scoping.`
+  );
+
+  const whatsappUrl = `https://wa.me/972505935609?text=${whatsappMessage}`;
+
   return (
-    <section id="pricing" className="py-24 bg-[#0b0f19] relative">
+    <section id="pricing" className="py-24 bg-[#0b0f19] relative transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12">
+        <div className="text-center max-w-3xl mx-auto mb-8">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-teal-500/10 border border-teal-500/30 text-teal-300 text-xs font-semibold mb-3">
             <Sparkles className="w-3.5 h-3.5" />
-            <span>{isRtl ? 'שקיפות מלאה ללא כבילה' : '100% Transparency & No Lock-In'}</span>
+            <span>{isRtl ? 'עוגן תמחור שקוף • ללא כבילה' : 'Transparent Anchor Pricing • Zero Lock-In'}</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-4">
             {pricing.title}
@@ -97,7 +130,7 @@ export default function PricingSection({ content, lang, onSelectPackage }) {
             {pricing.subtitle}
           </p>
 
-          {/* Toggle between Transparent Plans and Custom Estimator */}
+          {/* View Toggle */}
           <div
             role="tablist"
             aria-label={isRtl ? 'בחירת תצוגת מחירים' : 'Pricing View Selection'}
@@ -131,166 +164,178 @@ export default function PricingSection({ content, lang, onSelectPackage }) {
           </div>
         </div>
 
-        {/* View 1: Standard Transparent Plans (10K Setup + 450 vs 800 Retainer) */}
+        {/* VAT & Payment Terms Notification Banner */}
+        <div className="max-w-5xl mx-auto mb-10 p-4 rounded-2xl bg-slate-900/70 border border-slate-800/80 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
+          <div className="flex items-center gap-2 text-teal-300 font-semibold">
+            <span className="w-2 h-2 rounded-full bg-teal-400 animate-pulse"></span>
+            <span>{pricing.vatNote}</span>
+          </div>
+          <div className="text-slate-400 text-center sm:text-end">
+            <span className="text-slate-300 font-medium">{pricing.paymentTermsTitle}</span>{' '}
+            {pricing.paymentTermsDesc}
+          </div>
+        </div>
+
+        {/* VIEW 1: TRANSPARENT ANCHOR PACKAGES (LANDING PAGE & FULL CUSTOM PLATFORM) */}
         {viewMode === 'transparent' && (
           <div className="max-w-5xl mx-auto space-y-10">
-            {/* 1. Setup Card */}
-            <div className="relative rounded-3xl bg-slate-900/80 border border-slate-800 p-8 sm:p-10 shadow-2xl backdrop-blur-xl overflow-hidden">
-              <div className="absolute top-0 right-0 w-72 h-72 bg-teal-500/10 rounded-full blur-3xl pointer-events-none" />
-
-              <div className="flex flex-col md:flex-row md:items-center justify-between pb-6 border-b border-slate-800 gap-6">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+              
+              {/* PACKAGE 1: LANDING PAGE (החל מ-2,500 ₪) */}
+              <div className="lg:col-span-5 p-7 sm:p-8 rounded-3xl bg-slate-900/70 border border-slate-800 flex flex-col justify-between hover:border-slate-700 transition-all glow-card">
                 <div>
-                  <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-teal-400 bg-teal-500/10 px-3 py-1 rounded-md mb-2">
-                    <FileCode className="w-3.5 h-3.5" />
-                    <span>{pricing.setupHeader}</span>
+                  <div className="flex items-center justify-between gap-2 mb-3">
+                    <span className="text-xs font-bold text-teal-300 bg-teal-500/15 px-3 py-1 rounded-full border border-teal-500/30">
+                      {pricing.packageLanding.badge}
+                    </span>
+                    <span className="text-[11px] font-mono text-slate-400">One-Page</span>
                   </div>
-                  <h3 className="text-2xl sm:text-3xl font-extrabold text-white">
-                    {isRtl ? 'פיתוח אתר מותאם אישית מאפס' : '100% Custom Platform Architecture'}
+
+                  <h3 className="text-2xl font-bold text-white mb-2">
+                    {pricing.packageLanding.title}
                   </h3>
-                  <p className="text-xs sm:text-sm text-slate-400 mt-1 max-w-xl">
-                    {isRtl
-                      ? 'הקמת נכס דיגיטלי ב-React & Node.js, ללא מערכות סגורות ותוספים כבדים, עם מהירות שיא של 0.8s והתאמה מושלמת למובייל ולמחשב.'
-                      : 'Bespoke React & Node.js engineering, zero closed platform limits, 0.8s speed, and pixel-perfect mobile responsiveness.'}
-                  </p>
-                </div>
 
-                <div className="text-start md:text-end shrink-0 bg-slate-950/70 p-4 sm:p-6 rounded-2xl border border-slate-800">
-                  <div className="text-3xl sm:text-4xl font-extrabold text-white font-mono">
-                    {pricing.setupPrice}
+                  <div className="flex items-baseline gap-1.5 mb-2">
+                    <span className="text-3xl sm:text-4xl font-extrabold text-white font-mono">
+                      {pricing.packageLanding.price}
+                    </span>
                   </div>
-                  <div className="text-xs text-slate-400 mt-1">
-                    {pricing.setupSub}
+                  <div className="text-xs text-slate-400 mb-6 pb-6 border-b border-slate-800">
+                    {pricing.packageLanding.priceSub}
                   </div>
-                </div>
-              </div>
 
-              {/* Setup Deliverables List */}
-              <div className="pt-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5">
-                  {pricing.setupFeatures.map((feat, i) => (
-                    <div key={i} className="flex items-start gap-2.5">
-                      <div className="w-5 h-5 rounded-full bg-teal-500/20 text-teal-400 flex items-center justify-center shrink-0 mt-0.5">
-                        <Check className="w-3.5 h-3.5" />
+                  {/* Minor Monthly Maintenance Callout */}
+                  <div className="p-3.5 rounded-xl bg-slate-950/80 border border-slate-800 mb-6">
+                    <div className="flex items-baseline justify-between mb-1">
+                      <span className="text-xs font-bold text-teal-400">
+                        {isRtl ? 'תחזוקה ואחסון ענן קל:' : 'Maintenance & Cloud Hosting:'}
+                      </span>
+                      <span className="text-sm font-bold text-white font-mono">
+                        {pricing.packageLanding.monthlyMaintenanceText}
+                      </span>
+                    </div>
+                    <p className="text-[11px] text-slate-400">
+                      {pricing.packageLanding.monthlyMaintenanceDesc}
+                    </p>
+                  </div>
+
+                  {/* Features List */}
+                  <div className="space-y-3 mb-8">
+                    {pricing.packageLanding.features.map((feat, i) => (
+                      <div key={i} className="flex items-start gap-2.5 text-xs text-slate-300">
+                        <Check className="w-4 h-4 text-teal-400 shrink-0 mt-0.5" />
+                        <span>{feat}</span>
                       </div>
-                      <span className="text-xs sm:text-sm text-slate-300">
-                        {feat}
-                      </span>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
-              </div>
-            </div>
 
-            {/* 2. Monthly Retainer Options (Side-by-Side Anchoring) */}
-            <div>
-              <div className="text-center max-w-2xl mx-auto mb-6">
-                <h3 className="text-lg sm:text-xl font-bold text-white">
-                  {pricing.retainerTitle}
-                </h3>
+                <a
+                  href={`https://wa.me/972505935609?text=${encodeURIComponent(
+                    isRtl
+                      ? 'היי צור, אשמח לקבל פרטים ולאפיין דף נחיתה ממיר (החל מ-2,500 ₪) לעסק שלי.'
+                      : 'Hi Tsoor, I would like to scope a bespoke landing page (starting from ₪2,500) for my business.'
+                  )}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full inline-flex items-center justify-center gap-2 py-3.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-semibold text-xs sm:text-sm border border-slate-700 transition-all hover:scale-[1.02] active:scale-95"
+                >
+                  <MessageSquare className="w-4 h-4 text-teal-400" />
+                  <span>{pricing.packageLanding.btnText}</span>
+                </a>
               </div>
 
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-stretch">
-                {/* Tier 1: Essential Ops (450 ILS) */}
-                <div className="p-7 sm:p-8 rounded-3xl bg-slate-900/60 border border-slate-800 flex flex-col justify-between hover:border-slate-700 transition-colors">
-                  <div>
-                    <div className="flex items-center justify-between gap-2 mb-2">
-                      <span className="text-xs font-mono text-slate-400 uppercase tracking-wider">
-                        {pricing.tier1.nameEn}
-                      </span>
+              {/* PACKAGE 2: FULL CUSTOM PLATFORM (החל מ-8,500 ₪ + 350/750 RETAINERS) */}
+              <div className="lg:col-span-7 p-7 sm:p-9 rounded-3xl bg-slate-900/90 border-2 border-teal-500/60 flex flex-col justify-between relative shadow-2xl shadow-teal-950/50 glow-teal">
+                <div className="absolute top-0 right-0 w-60 h-60 bg-teal-500/15 rounded-full blur-3xl pointer-events-none" />
+
+                <div>
+                  <div className="flex items-center justify-between gap-2 mb-3">
+                    <span className="text-xs font-bold text-teal-300 bg-teal-500/20 px-3 py-1 rounded-full border border-teal-500/40">
+                      {pricing.packageFull.badge}
+                    </span>
+                    <span className="text-xs font-mono text-teal-400 uppercase tracking-wider">
+                      {isRtl ? 'המומלץ והמבוקש ביותר' : 'Recommended Architecture'}
+                    </span>
+                  </div>
+
+                  <h3 className="text-2xl sm:text-3xl font-extrabold text-white mb-2">
+                    {pricing.packageFull.title}
+                  </h3>
+
+                  <div className="flex items-baseline gap-2 mb-2">
+                    <span className="text-3xl sm:text-5xl font-black text-teal-400 font-mono">
+                      {pricing.packageFull.price}
+                    </span>
+                  </div>
+                  <div className="text-xs text-slate-300 mb-6 pb-6 border-b border-slate-800">
+                    {pricing.packageFull.priceSub}
+                  </div>
+
+                  {/* Retainer Selection Cards Inside Package 2 */}
+                  <div className="space-y-2 mb-6">
+                    <div className="text-xs font-bold text-white uppercase tracking-wider">
+                      {pricing.retainerTitle}
                     </div>
 
-                    <h4 className="text-xl sm:text-2xl font-bold text-white mb-2">
-                      {pricing.tier1.name}
-                    </h4>
-
-                    <p className="text-xs text-slate-400 leading-relaxed mb-6">
-                      {pricing.tier1.desc}
-                    </p>
-
-                    <div className="flex items-baseline gap-1.5 mb-6 pb-6 border-b border-slate-800">
-                      <span className="text-3xl sm:text-4xl font-extrabold text-white font-mono">
-                        {pricing.tier1.price}
-                      </span>
-                      <span className="text-xs text-slate-400">
-                        {pricing.tier1.sub}
-                      </span>
-                    </div>
-
-                    <div className="space-y-3 mb-8">
-                      {pricing.tier1.features.map((item, idx) => (
-                        <div key={idx} className="flex items-start gap-2.5 text-xs text-slate-300">
-                          <Check className="w-4 h-4 text-slate-400 shrink-0 mt-0.5" />
-                          <span className={item.startsWith('*') ? 'text-amber-300/80 italic' : ''}>{item}</span>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+                      {/* Retainer 1: 350 */}
+                      <div className="p-3.5 rounded-2xl bg-slate-950/70 border border-slate-800">
+                        <div className="flex items-center justify-between mb-1">
+                          <span className="font-bold text-xs text-white">{pricing.tier1.name}</span>
+                          <span className="font-mono text-xs font-extrabold text-teal-400">
+                            {pricing.tier1.price}{pricing.tier1.sub}
+                          </span>
                         </div>
-                      ))}
+                        <p className="text-[11px] text-slate-400 leading-snug">
+                          {pricing.tier1.desc}
+                        </p>
+                      </div>
+
+                      {/* Retainer 2: 750 (Managed) */}
+                      <div className="p-3.5 rounded-2xl bg-teal-950/40 border border-teal-500/40 shadow-inner">
+                        <div className="flex items-center justify-between mb-1">
+                          <span className="font-bold text-xs text-teal-200">{pricing.tier2.name}</span>
+                          <span className="font-mono text-xs font-extrabold text-teal-300">
+                            {pricing.tier2.price}{pricing.tier2.sub}
+                          </span>
+                        </div>
+                        <p className="text-[11px] text-teal-300/80 leading-snug">
+                          {isRtl ? 'כולל עד שעתיים חודשיות לעדכוני תוכן בוואטסאפ' : 'Includes 2hrs/mo updates via WhatsApp'}
+                        </p>
+                      </div>
                     </div>
                   </div>
 
-                  <a
-                    href="#contact"
-                    className="w-full inline-flex items-center justify-center gap-2 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-semibold text-xs sm:text-sm border border-slate-700 transition-all"
-                  >
-                    <span>{pricing.tier1.btnText}</span>
-                    <ArrowIcon className="w-4 h-4" />
-                  </a>
-                </div>
-
-                {/* Tier 2: All-Inclusive Managed (800 ILS - Recommended) */}
-                <div className="p-7 sm:p-8 rounded-3xl bg-slate-900/90 border-2 border-teal-500/60 flex flex-col justify-between relative shadow-2xl shadow-teal-950/50 glow-teal">
-                  <div className="absolute top-0 right-0 w-48 h-48 bg-teal-500/15 rounded-full blur-2xl pointer-events-none" />
-
-                  <div>
-                    <div className="flex items-center justify-between gap-2 mb-2">
-                      <span className="text-xs font-mono text-teal-400 uppercase tracking-wider">
-                        {pricing.tier2.nameEn}
-                      </span>
-                      <span className="text-[11px] font-bold text-teal-300 bg-teal-500/20 px-2.5 py-0.5 rounded-full border border-teal-500/40">
-                        {pricing.tier2.badge}
-                      </span>
-                    </div>
-
-                    <h4 className="text-xl sm:text-2xl font-bold text-white mb-2">
-                      {pricing.tier2.name}
-                    </h4>
-
-                    <p className="text-xs text-slate-300 leading-relaxed mb-6">
-                      {pricing.tier2.desc}
-                    </p>
-
-                    <div className="flex items-baseline gap-1.5 mb-6 pb-6 border-b border-slate-800">
-                      <span className="text-3xl sm:text-4xl font-extrabold text-teal-400 font-mono">
-                        {pricing.tier2.price}
-                      </span>
-                      <span className="text-xs text-slate-400">
-                        {pricing.tier2.sub}
-                      </span>
-                      <span className="mr-3 text-[11px] text-teal-300/90 font-medium bg-teal-950/60 px-2 py-0.5 rounded border border-teal-500/30">
-                        {isRtl ? 'תוספת 350 ₪ בלבד לחודש' : 'Only +₪350 difference'}
-                      </span>
-                    </div>
-
-                    <div className="space-y-3 mb-8">
-                      {pricing.tier2.features.map((item, idx) => (
-                        <div key={idx} className="flex items-start gap-2.5 text-xs text-slate-200">
-                          <CheckCircle2 className="w-4 h-4 text-teal-400 shrink-0 mt-0.5" />
-                          <span className={idx === 1 ? 'font-semibold text-teal-200' : ''}>{item}</span>
-                        </div>
-                      ))}
-                    </div>
+                  {/* Core Features */}
+                  <div className="space-y-3 mb-8">
+                    {pricing.packageFull.features.map((feat, i) => (
+                      <div key={i} className="flex items-start gap-2.5 text-xs text-slate-200">
+                        <CheckCircle2 className="w-4 h-4 text-teal-400 shrink-0 mt-0.5" />
+                        <span>{feat}</span>
+                      </div>
+                    ))}
                   </div>
-
-                  <a
-                    href="#contact"
-                    className="w-full inline-flex items-center justify-center gap-2 py-3.5 rounded-xl bg-gradient-to-r from-teal-500 to-sky-600 hover:from-teal-400 hover:to-sky-500 text-white font-bold text-xs sm:text-sm shadow-xl shadow-teal-500/25 transition-all hover:scale-[1.02] active:scale-95"
-                  >
-                    <span>{pricing.tier2.btnText}</span>
-                    <ArrowIcon className="w-4 h-4" />
-                  </a>
                 </div>
+
+                <a
+                  href={`https://wa.me/972505935609?text=${encodeURIComponent(
+                    isRtl
+                      ? 'היי צור, ראיתי את מסלול האתר המותאם אישית (החל מ-8,500 ₪) ואשמח לתאם שיחת אפיון לעסק שלי.'
+                      : 'Hi Tsoor, I am interested in your full bespoke platform package (starting from ₪8,500) and would like to scope it for my business.'
+                  )}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full inline-flex items-center justify-center gap-2 py-4 rounded-xl bg-gradient-to-r from-teal-500 to-sky-600 hover:from-teal-400 hover:to-sky-500 text-white font-bold text-xs sm:text-sm shadow-xl shadow-teal-500/25 transition-all hover:scale-[1.02] active:scale-95"
+                >
+                  <MessageSquare className="w-4 h-4" />
+                  <span>{pricing.packageFull.btnText}</span>
+                  <ArrowIcon className="w-4 h-4" />
+                </a>
               </div>
             </div>
 
-            {/* 3. Anti-Lock-In Guarantee Box */}
+            {/* Anti-Lock-In Guarantee Box */}
             <div className="p-6 rounded-2xl bg-slate-950/80 border border-slate-800 flex items-start gap-4">
               <div className="w-10 h-10 rounded-xl bg-teal-500/10 border border-teal-500/30 flex items-center justify-center text-teal-400 shrink-0 mt-0.5">
                 <ShieldCheck className="w-5 h-5" />
@@ -307,7 +352,7 @@ export default function PricingSection({ content, lang, onSelectPackage }) {
           </div>
         )}
 
-        {/* View 2: Custom Estimator & Add-ons Calculator */}
+        {/* VIEW 2: CUSTOM ESTIMATOR & ADD-ONS CALCULATOR */}
         {viewMode === 'custom' && (
           <div className="max-w-4xl mx-auto bg-slate-900/60 border border-slate-800 rounded-3xl p-6 sm:p-10 backdrop-blur-xl">
             <div className="mb-8">
@@ -319,8 +364,92 @@ export default function PricingSection({ content, lang, onSelectPackage }) {
               </p>
             </div>
 
-            {/* Addons Selection Grid */}
-            <div className="space-y-3 mb-8">
+            {/* Step 1: Choose Foundation Project Base */}
+            <div className="mb-8 p-5 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-4">
+              <div className="text-xs font-bold text-teal-400 uppercase tracking-wider">
+                {isRtl ? 'שלב 1: בחירת בסיס הפרויקט' : 'Step 1: Choose Project Foundation'}
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <button
+                  type="button"
+                  onClick={() => setSelectedBase('landing')}
+                  className={`p-4 rounded-xl border text-start transition-all focus-visible:ring-2 focus-visible:ring-teal-400 focus-visible:outline-none ${
+                    selectedBase === 'landing'
+                      ? 'bg-teal-950/40 border-teal-500/60 shadow-md'
+                      : 'bg-slate-900/50 border-slate-800 text-slate-400 hover:border-slate-700'
+                  }`}
+                >
+                  <div className="flex items-center justify-between mb-1">
+                    <span className="font-bold text-sm text-white">
+                      {isRtl ? 'דף נחיתה ממיר (One-Page)' : 'Landing Page'}
+                    </span>
+                    <span className="text-xs font-mono font-bold text-teal-400">2,500 ₪</span>
+                  </div>
+                  <div className="text-[11px] text-slate-400">
+                    {isRtl ? '+ 150 ₪/חודש תחזוקת שרת ודומיין' : '+ ₪150/mo cloud hosting & domain'}
+                  </div>
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => setSelectedBase('full')}
+                  className={`p-4 rounded-xl border text-start transition-all focus-visible:ring-2 focus-visible:ring-teal-400 focus-visible:outline-none ${
+                    selectedBase === 'full'
+                      ? 'bg-teal-950/40 border-teal-500/60 shadow-md'
+                      : 'bg-slate-900/50 border-slate-800 text-slate-400 hover:border-slate-700'
+                  }`}
+                >
+                  <div className="flex items-center justify-between mb-1">
+                    <span className="font-bold text-sm text-white">
+                      {isRtl ? 'אתר מותאם אישית מלא ומערכות' : 'Full Custom Platform'}
+                    </span>
+                    <span className="text-xs font-mono font-bold text-teal-400">8,500 ₪</span>
+                  </div>
+                  <div className="text-[11px] text-slate-400">
+                    {isRtl ? '+ בחירת ריטיינר (350 ₪ או 750 ₪)' : '+ Retainer choice (₪350 or ₪750)'}
+                  </div>
+                </button>
+              </div>
+
+              {/* If Full Platform is selected, show Retainer choice */}
+              {selectedBase === 'full' && (
+                <div className="pt-2 border-t border-slate-800/80 flex flex-wrap items-center gap-3">
+                  <span className="text-xs text-slate-400">
+                    {isRtl ? 'מסלול ליווי מבוקש:' : 'Retainer:'}
+                  </span>
+                  <button
+                    type="button"
+                    onClick={() => setSelectedRetainer('tier1')}
+                    className={`px-3 py-1 rounded-lg text-xs font-semibold border transition-all ${
+                      selectedRetainer === 'tier1'
+                        ? 'bg-teal-500 text-white border-teal-500'
+                        : 'bg-slate-900 text-slate-300 border-slate-700'
+                    }`}
+                  >
+                    {isRtl ? 'תשתית ושקט טכני (350 ₪)' : 'Essential (₪350)'}
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setSelectedRetainer('tier2')}
+                    className={`px-3 py-1 rounded-lg text-xs font-semibold border transition-all ${
+                      selectedRetainer === 'tier2'
+                        ? 'bg-teal-500 text-white border-teal-500'
+                        : 'bg-slate-900 text-slate-300 border-slate-700'
+                    }`}
+                  >
+                    {isRtl ? 'ניהול מלא בראש שקט (750 ₪ - מומלץ)' : 'Managed (₪750 - Recommended)'}
+                  </button>
+                </div>
+              )}
+            </div>
+
+            {/* Step 2: Add-ons Selection Grid */}
+            <div className="mb-8 space-y-3">
+              <div className="text-xs font-bold text-teal-400 uppercase tracking-wider mb-2">
+                {isRtl ? 'שלב 2: תוספות, מחשבונים ומערכות מתקדמות' : 'Step 2: Add-ons & Modular Capabilities'}
+              </div>
+
               {addons.map((addon) => {
                 const isSelected = selectedAddons.includes(addon.id);
                 return (
@@ -380,23 +509,31 @@ export default function PricingSection({ content, lang, onSelectPackage }) {
             <div className="p-6 rounded-2xl bg-slate-950 border border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-6">
               <div className="space-y-1 text-center sm:text-start">
                 <div className="text-xs text-slate-400">
-                  {isRtl ? 'הערכת השקעה כוללת (הקמה 10,000 ₪ + ריטיינר ניהול 800 ₪ + תוספות שנבחרו):' : 'Estimated Total (Setup ₪10,000 + Managed ₪800 + Selected Addons):'}
+                  {isRtl
+                    ? `הערכת השקעה כוללת (בסיס ${baseSetup.toLocaleString()} ₪ + תחזוקה ${baseMonthly} ₪ + ${selectedAddons.length} תוספות):`
+                    : `Estimated Total (Base ₪${baseSetup.toLocaleString()} + Retainer ₪${baseMonthly} + ${selectedAddons.length} Addons):`}
                 </div>
-                <div className="flex items-baseline gap-3">
+                <div className="flex flex-wrap items-baseline gap-3">
                   <span className="text-2xl sm:text-3xl font-extrabold text-white font-mono">
                     {finalSetup.toLocaleString()} ₪
                   </span>
                   <span className="text-sm text-teal-400 font-mono font-semibold">
                     + {finalMonthly.toLocaleString()} ₪ / {isRtl ? 'חודש' : 'month'}
                   </span>
+                  <span className="text-[11px] text-slate-400">
+                    ({isRtl ? 'לפני מע״מ' : 'excl. VAT'})
+                  </span>
                 </div>
               </div>
 
               <a
-                href="#contact"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-teal-500 to-sky-600 text-white font-semibold text-xs sm:text-sm hover:scale-105 transition-all shadow-lg shadow-teal-500/25"
+                href={whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-teal-500 to-sky-600 hover:from-teal-400 hover:to-sky-500 text-white font-semibold text-xs sm:text-sm hover:scale-105 transition-all shadow-lg shadow-teal-500/25"
               >
-                <span>{isRtl ? 'בקש הצעת מחיר מדויקת לאפיון זה' : 'Request Proposal for this Scope'}</span>
+                <MessageSquare className="w-4 h-4" />
+                <span>{isRtl ? 'שליחת אפיון זה לוואטסאפ של צור' : 'Send Estimate to WhatsApp'}</span>
                 <ArrowIcon className="w-4 h-4" />
               </a>
             </div>

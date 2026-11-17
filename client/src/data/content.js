@@ -142,24 +142,58 @@ export const siteContent = {
     },
     pricing: {
       title: 'השקעה שקופה ומסלולי שירות ברורים',
-      subtitle: 'הקמת נכס דיגיטלי מותאם אישית ב-100% לצד שני מסלולי ריטיינר חודשיים לבחירתכם, ללא כבילה',
-      setupHeader: 'הקמת האתר (תשלום חד-פעמי)',
-      setupPrice: '10,000 ₪',
-      setupSub: 'תשלום חד-פעמי לאפיון ופיתוח מותאם אישית מלא',
-      setupFeatures: [
-        'פיתוח מותאם אישית מלא בקוד עצמאי (React / Node.js) ללא מערכות סגורות',
-        'התאמה רספונסיבית מוקפדת למובייל ולמחשב (טעינה ב-0.8 שניות)',
-        'הזרמת תמונות ומדיה מהירה בענן (CDN מנוהל)',
-        'חיבור מהיר ל-WhatsApp וכפתורי יצירת קשר ממוקדי המרה',
-        'חיבור דומיין אישי, תעודת SSL ואבטחת DNS מלאה',
-        'מקצה שיפורים ממוקד לאחר העלייה לאוויר (Fine-Tuning)'
-      ],
-      retainerTitle: 'בחרו את מסלול הריטיינר החודשי המתאים לעסק שלכם:',
+      subtitle: 'פיתוח מותאם אישית מאפס לפי עוגן תמחור שקוף, לצד מסלולי תחזוקה וליווי ללא כבילה',
+      vatNote: '* כל המחירים נקובים בש״ח ואינם כוללים מע״מ כחוק',
+      paymentTermsTitle: 'תנאי פריסה ואמצעי תשלום:',
+      paymentTermsDesc: 'הקמה: חלוקת תשלומים באבני דרך (מקדמה בחתימה, שלב פיתוח, ויתרה בעלייה לאוויר) בהעברה בנקאית או Bit. ריטיינר חודשי: הוראת קבע מאובטחת באשראי עם הפקת חשבונית מס אוטומטית במייל.',
+      
+      // Package 1: Landing Page
+      packageLanding: {
+        id: 'landing',
+        badge: 'דף נחיתה ממיר לקמפיינים',
+        title: 'דף נחיתה מותאם אישית (One-Page)',
+        price: 'החל מ-2,500 ₪',
+        priceSub: 'תשלום חד-פעמי להקמה (לפי אפיון מדויק)',
+        setupILS: 2500,
+        monthlyMaintenanceILS: 150,
+        monthlyMaintenanceText: '150 ₪ / חודש',
+        monthlyMaintenanceDesc: 'תחזוקת שרת ענן ייעודי, דומיין ותעודת SSL',
+        features: [
+          'פיתוח עצמאי וממוקד ב-React & Tailwind ללא מערכות סגורות',
+          'טעינת שיא של 0.8 שניות הממקסמת כל שקל בפרסום באינסטגרם, פייסבוק וטיקטוק',
+          'חיבור ישיר לוואטסאפ עם פתיחת שיחה והודעה מותאמת אישית',
+          'טופס לידים מהיר מחובר ישירות למייל ולנייד',
+          'הטמעת Meta Pixel ו-Google Analytics למעקב המרות מדויק',
+          'התאמה רספונסיבית מוקפדת למובייל ולמחשב'
+        ],
+        btnText: 'אפיון דף נחיתה בוואטסאפ'
+      },
+
+      // Package 2: Full Custom Platform
+      packageFull: {
+        id: 'full',
+        badge: 'אתר מלא ומערכות דיגיטליות',
+        title: 'אתר מותאם אישית ומערכות דיגיטליות',
+        price: 'החל מ-8,500 ₪',
+        priceSub: 'תשלום חד-פעמי להקמה (לפי אפיון מקיף)',
+        setupILS: 8500,
+        features: [
+          'פיתוח מותאם אישית מלא בקוד עצמאי (React / Node.js) ללא תבניות ומערכות סגורות',
+          'ארכיטקטורה מודולרית שמוכנה להתרחב לכל עמוד, מחשבון או מערכת בעתיד',
+          'התאמה רספונסיבית מוקפדת למובייל ולמחשב (טעינה ב-0.8 שניות)',
+          'הזרמת תמונות ומדיה מהירה בענן (CDN מנוהל)',
+          'חיבור דומיין אישי, תעודת SSL ואבטחת DNS מלאה',
+          'מקצה שיפורים ממוקד לאחר העלייה לאוויר (Fine-Tuning)'
+        ],
+        btnText: 'אפיון אתר מלא בוואטסאפ'
+      },
+
+      retainerTitle: 'בחרו את מסלול הריטיינר החודשי המתאים לאתר שלכם:',
       tier1: {
         id: 'essential',
         name: 'מסלול תשתית ושקט טכני',
         nameEn: 'Essential Ops',
-        price: '450 ₪',
+        price: '350 ₪',
         sub: '/ חודש',
         desc: 'מיועד לעסקים שרוצים שהאתר יעבוד בצורה מושלמת, מאובטחת ומהירה, ומעדכנים תכנים רק לעיתים רחוקות.',
         features: [
@@ -176,11 +210,11 @@ export const siteContent = {
         name: 'מסלול ניהול מלא בראש שקט',
         nameEn: 'All-Inclusive Managed',
         badge: 'הבחירה המשתלמת והמומלצת',
-        price: '800 ₪',
+        price: '750 ₪',
         sub: '/ חודש',
         desc: 'המעטפת השלמה: שותף טכנולוגי צמוד שמבצע עבורכם עדכוני קטלוג ותוכן שוטפים ישירות דרך הודעת וואטסאפ.',
         features: [
-          'כולל את כל מרכיבי מסלול התשתית (450 ₪)',
+          'כולל את כל מרכיבי מסלול התשתית (350 ₪)',
           'עד שעתיים חודשיות של עדכוני תוכן וקטלוג ישירות דרך WhatsApp (העלאת מוצרים, אופטימיזציית תמונות, עדכון מחירים, החלפת באנרים - שווי של 500 ₪ בחודש בפני עצמו!)',
           'מענה ותמיכה בוואטסאפ בעדיפות גבוהה (בתוך יום עסקים אחד)',
           'דוח ביצועים ותנועת גולשים חודשי מרוכז',
@@ -192,13 +226,13 @@ export const siteContent = {
         title: 'מדיניות בעלות מלאה (ללא כבילה וחתונה קתולית):',
         text: 'הדומיין, התמונות, הטקסטים וכל נתוני הלקוחות שייכים לכם ב-100%. ניתן לעבור בין מסלולים או לסיים התקשרות בכל עת בהתראה של 30 יום מראש ולקבל ייצוא מלא של כל הנכסים והנתונים שלכם ללא שום קנסות.'
       },
-      toggleLabel: 'איך תרצה לראות את התמחור?',
+      toggleLabel: 'בחרו סוג פרויקט ותצוגה:',
       viewTransparent: 'מסלולי שירות ותמחור שקוף',
-      viewCustom: 'מחשבון תוספות ומערכות מתקדמות',
+      viewCustom: 'מחשבון שדרוגים ותוספות',
       calculatorTitle: 'מחשבון שדרוגים ומערכות נוספות',
-      calculatorSubtitle: 'בחרו רכיבים ומערכות מתקדמות לשילוב בפרויקט שלכם:',
-      baseSetupText: 'הקמת בסיס האתר:',
-      baseMonthlyText: 'ריטיינר ניהול מומלץ (800 ₪):',
+      calculatorSubtitle: 'בחרו את בסיס הפרויקט והוסיפו מערכות וכלים מתקדמים:',
+      baseSetupText: 'הקמת בסיס הפרויקט:',
+      baseMonthlyText: 'תחזוקה / ריטיינר חודשי:',
       totalEstimatedSetup: 'סה״כ הקמה מוערכת:',
       totalEstimatedMonthly: 'סה״כ חודשי מוערך:'
     },
@@ -433,24 +467,58 @@ export const siteContent = {
     },
     pricing: {
       title: 'Transparent Investment & Retainer Plans',
-      subtitle: '100% custom platform setup paired with two clear monthly retainer options, with zero lock-in',
-      setupHeader: 'Platform Setup (One-Time Investment)',
-      setupPrice: '₪10,000',
-      setupSub: 'One-time setup for bespoke architecture and full build',
-      setupFeatures: [
-        '100% Custom code (React / Node.js) with zero closed platform lock-ins',
-        'Meticulous responsive optimization for mobile & desktop (0.8s load speed)',
-        'High-speed cloud media delivery and managed CDN',
-        'Direct WhatsApp integration and high-conversion lead funnels',
-        'Custom domain setup, SSL security, and full DNS configuration',
-        'Structured post-launch refinement round (Fine-Tuning)'
-      ],
+      subtitle: 'Bespoke custom development with transparent anchor pricing and flexible monthly retainers with zero lock-in',
+      vatNote: '* All rates are in ILS and exclude VAT as per Israeli law',
+      paymentTermsTitle: 'Payment Terms & Methods:',
+      paymentTermsDesc: 'Setup: Milestone-based payments (deposit on signing, development phase, balance on launch) via Bank Transfer or Bit. Monthly Retainer: Secure recurring credit card billing with automatic tax invoice by email.',
+      
+      // Package 1: Landing Page
+      packageLanding: {
+        id: 'landing',
+        badge: 'High-Conversion Campaigns Page',
+        title: 'Bespoke Landing Page (One-Page)',
+        price: 'Starting from ₪2,500',
+        priceSub: 'One-time setup investment (based on project scope)',
+        setupILS: 2500,
+        monthlyMaintenanceILS: 150,
+        monthlyMaintenanceText: '₪150 / month',
+        monthlyMaintenanceDesc: 'Managed cloud server, custom domain & SSL certificate',
+        features: [
+          'Engineered from scratch with React & Tailwind with zero platform bloat',
+          'Ultra-fast 0.8s mobile load speed maximizing ROI on Meta & TikTok ads',
+          'Direct 1-click WhatsApp chat launch with pre-filled message',
+          'Instant lead capture form delivering directly to phone and email',
+          'Meta Pixel & Google Analytics conversion tracking pre-installed',
+          'Pixel-perfect responsive optimization across mobile and desktop'
+        ],
+        btnText: 'Scope Landing Page via WhatsApp'
+      },
+
+      // Package 2: Full Custom Platform
+      packageFull: {
+        id: 'full',
+        badge: 'Full Platform & Digital Systems',
+        title: 'Bespoke Custom Web Platform & Systems',
+        price: 'Starting from ₪8,500',
+        priceSub: 'One-time setup investment (based on comprehensive scope)',
+        setupILS: 8500,
+        features: [
+          '100% custom code (React / Node.js) with zero template restrictions',
+          'Modular architecture engineered to expand to any portal, calculator, or tool',
+          'Meticulous responsive optimization for mobile & desktop (0.8s load speed)',
+          'High-speed cloud media delivery and managed global CDN',
+          'Custom domain setup, SSL security certificate, and DNS security',
+          'Structured post-launch refinement round (Fine-Tuning)'
+        ],
+        btnText: 'Scope Full Site via WhatsApp'
+      },
+
       retainerTitle: 'Choose the monthly retainer plan tailored to your business needs:',
       tier1: {
         id: 'essential',
         name: 'Essential Ops Retainer',
         nameEn: 'Essential Ops',
-        price: '₪450',
+        price: '₪350',
         sub: '/ month',
         desc: 'For businesses that want a fast, secure, and always-online site, updating content only occasionally.',
         features: [
@@ -467,11 +535,11 @@ export const siteContent = {
         name: 'All-Inclusive Managed Retainer',
         nameEn: 'All-Inclusive Managed',
         badge: 'Recommended / Best Value',
-        price: '₪800',
+        price: '₪750',
         sub: '/ month',
         desc: 'The full suite: a dedicated technology partner handling ongoing catalog and content updates directly via WhatsApp.',
         features: [
-          'Everything included in Essential Ops (₪450)',
+          'Everything included in Essential Ops (₪350)',
           'Up to 2 hours/month of hands-on catalog & content updates via WhatsApp (uploading products, image optimization, price changes, banner swaps - worth ₪500/mo on its own!)',
           'Priority WhatsApp support (response within 1 business day)',
           'Monthly consolidated traffic & performance snapshot',
@@ -483,13 +551,13 @@ export const siteContent = {
         title: 'Complete Ownership Guarantee (No Lock-In):',
         text: 'Your domain, imagery, copy, and all customer lead data belong to you 100%. You can switch between tiers or terminate our retainer at any time with 30 days notice and receive a full export of all your assets and data with zero penalties.'
       },
-      toggleLabel: 'How would you like to view pricing?',
+      toggleLabel: 'Select project foundation & view mode:',
       viewTransparent: 'Standard Plans & Transparent Pricing',
       viewCustom: 'Custom Features & Addons Estimator',
       calculatorTitle: 'Custom Features & Addons Estimator',
-      calculatorSubtitle: 'Select additional modules and automations to calculate your estimate:',
+      calculatorSubtitle: 'Choose your project base and select advanced modules to estimate your investment:',
       baseSetupText: 'Base Platform Build:',
-      baseMonthlyText: 'Recommended Managed Retainer (₪800):',
+      baseMonthlyText: 'Monthly Retainer / Maintenance:',
       totalEstimatedSetup: 'Estimated Setup Total:',
       totalEstimatedMonthly: 'Estimated Monthly Total:'
     },

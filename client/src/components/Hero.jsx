@@ -21,7 +21,7 @@ export default function Hero({ content, lang }) {
           </div>
 
           {/* Main Headline */}
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.15] mb-6">
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold font-hebrew text-white leading-tight mb-6">
             <span>{content.hero.headlineStart} </span>
             <span className="bg-gradient-to-r from-teal-400 via-teal-300 to-sky-400 bg-clip-text text-transparent">
               {content.hero.headlineAccent}

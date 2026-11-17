@@ -1,7 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Phone, Globe, Menu, X, Shield } from 'lucide-react';
 
-export default function Navbar({ lang, setLang, content, onOpenLegal }) {
+export default function Navbar({
+  lang,
+  setLang,
+  content,
+  onOpenLegal
+}) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const isRtl = lang === 'he';
@@ -113,7 +118,7 @@ export default function Navbar({ lang, setLang, content, onOpenLegal }) {
             {/* Desktop Consultation CTA */}
             <a
               href="#contact"
-              className="hidden lg:inline-flex h-9 px-4 rounded-xl bg-gradient-to-r from-teal-500 to-sky-600 hover:from-teal-400 hover:to-sky-500 text-white text-xs font-bold shadow-md shadow-teal-500/25 transition-all hover:scale-105 items-center gap-1.5 shrink-0 focus-visible:ring-2 focus-visible:ring-teal-400 focus-visible:outline-none"
+              className="hidden lg:inline-flex h-9 px-4 rounded-xl bg-gradient-to-r from-teal-500 to-sky-600 hover:from-teal-400 hover:to-sky-500 text-white font-bold shadow-md shadow-teal-500/25 transition-all hover:scale-105 items-center gap-1.5 shrink-0 focus-visible:ring-2 focus-visible:ring-teal-400 focus-visible:outline-none"
             >
               <Phone className="w-3.5 h-3.5" />
               <span>{content.nav.contact}</span>

@@ -34,6 +34,32 @@
   border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
+/* =========================================================================
+   SIENNA ACCESSIBILITY WIDGET CUSTOM STYLING (Dark Theme & High Contrast)
+   ========================================================================= */
+.asw-menu-btn,
+[class*="sienna-btn"],
+[class*="asw-menu-btn"] {
+  background-color: #0f172a !important;
+  border: 1px solid rgba(20, 184, 166, 0.4) !important;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.7), 0 0 15px rgba(20, 184, 166, 0.25) !important;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease !important;
+  z-index: 49 !important;
+}
+
+.asw-menu-btn:hover,
+[class*="sienna-btn"]:hover,
+[class*="asw-menu-btn"]:hover {
+  transform: scale(1.08) !important;
+  border-color: rgba(20, 184, 166, 0.8) !important;
+  box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.8), 0 0 20px rgba(20, 184, 166, 0.45) !important;
+}
+
+.asw-menu-btn svg,
+[class*="asw-menu-btn"] svg {
+  fill: #2dd4bf !important;
+}
+
 /* Accessibility: Respect user motion preferences (WCAG 2.3.3 Animation from Interactions) */
 @media (prefers-reduced-motion: reduce) {
   *,

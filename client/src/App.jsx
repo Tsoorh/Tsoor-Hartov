@@ -21,6 +21,15 @@ export default function App() {
   const [lang, setLang] = useState('he');
   const content = siteContent[lang];
 
+  // Ensure pure dark mode across the application
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      localStorage.removeItem('theme');
+      document.documentElement.classList.remove('light');
+      document.documentElement.classList.add('dark');
+    }
+  }, []);
+
   // Legal Modal & Deep Linking State
   const [legalModalOpen, setLegalModalOpen] = useState(false);
   const [activeLegalTab, setActiveLegalTab] = useState('accessibility');
@@ -71,8 +80,14 @@ export default function App() {
     return () => window.removeEventListener('hashchange', checkHash);
   }, []);
 
+  const isRtl = lang === 'he';
+
   return (
-    <div className="min-h-screen bg-[#0b0f19] text-slate-100 flex flex-col font-sans selection:bg-teal-500 selection:text-white">
+    <div
+      className={`min-h-screen flex flex-col ${
+        isRtl ? 'font-hebrew' : 'font-sans'
+      } bg-[#0b0f19] text-slate-100 selection:bg-teal-500 selection:text-white`}
+    >
       {/* Accessible Skip to Content Link (WCAG 2.4.1 Bypass Blocks) */}
       <a
         href="#main-content"
@@ -82,7 +97,12 @@ export default function App() {
       </a>
 
       {/* Top Fixed Header */}
-      <Navbar lang={lang} setLang={setLang} content={content} onOpenLegal={openLegalModal} />
+      <Navbar
+        lang={lang}
+        setLang={setLang}
+        content={content}
+        onOpenLegal={openLegalModal}
+      />
 
       {/* Main Content Sections */}
       <main id="main-content" className="flex-1">
@@ -99,7 +119,7 @@ export default function App() {
         <ContactSection content={content} lang={lang} />
       </main>
 
-      {/* Floating Elements */}
+      {/* Floating WhatsApp CTA */}
       <WhatsAppFloat lang={lang} />
 
       {/* Global Footer */}
