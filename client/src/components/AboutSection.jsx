@@ -20,7 +20,7 @@ export default function AboutSection({ content, lang }) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           {/* Left Column: Visual Profile Card & Credential Badges */}
-          <div className="lg:col-span-5 space-y-6">
+          <div data-animate="fade-up" className="lg:col-span-5 space-y-6">
             <div className="p-8 rounded-3xl bg-slate-900/70 border border-slate-800 shadow-2xl backdrop-blur-xl relative overflow-hidden glow-card">
               <div className="absolute top-0 right-0 w-32 h-32 bg-teal-500/10 rounded-full blur-2xl pointer-events-none" />
 
@@ -81,7 +81,7 @@ export default function AboutSection({ content, lang }) {
           </div>
 
           {/* Right Column: Story & Why this matters for SMBs */}
-          <div className="lg:col-span-7 space-y-6">
+          <div data-animate="fade-up" className="lg:col-span-7 space-y-6">
             <h2 className="text-3xl sm:text-4xl font-extrabold text-white leading-tight">
               {about.title}
             </h2>
@@ -97,10 +97,11 @@ export default function AboutSection({ content, lang }) {
             </div>
 
             {/* Core Values Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
+            <div data-animate-stagger className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
               {about.values.map((val, idx) => (
                 <div
                   key={idx}
+                  data-animate-item
                   className="p-4 rounded-2xl bg-slate-900/50 border border-slate-800/80 hover:border-teal-500/30 transition-colors"
                 >
                   <div className="flex items-center gap-2 mb-1">

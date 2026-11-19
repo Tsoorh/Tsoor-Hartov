@@ -7,7 +7,7 @@ export default function ValueProps({ content, lang }) {
   return (
     <section className="py-20 bg-[#0d121f] border-y border-slate-800/80 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div data-animate="fade-up" className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-2xl sm:text-4xl font-bold text-white mb-4">
             {problemSolution.title}
           </h2>
@@ -16,9 +16,9 @@ export default function ValueProps({ content, lang }) {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+        <div data-animate-stagger className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
           {/* Common Problems Box */}
-          <div className="p-6 sm:p-8 rounded-3xl bg-red-950/20 border border-red-500/20 relative overflow-hidden flex flex-col justify-between">
+          <div data-animate-item className="p-6 sm:p-8 rounded-3xl bg-red-950/20 border border-red-500/20 relative overflow-hidden flex flex-col justify-between">
             <div className="absolute top-0 right-0 w-32 h-32 bg-red-500/5 rounded-full blur-2xl pointer-events-none" />
             <div>
               <div className="flex items-center gap-3 mb-6">
@@ -57,7 +57,7 @@ export default function ValueProps({ content, lang }) {
           </div>
 
           {/* Tsoor's Solution Box */}
-          <div className="p-6 sm:p-8 rounded-3xl bg-teal-950/25 border border-teal-500/30 relative overflow-hidden flex flex-col justify-between shadow-xl shadow-teal-950/40">
+          <div data-animate-item className="p-6 sm:p-8 rounded-3xl bg-teal-950/25 border border-teal-500/30 relative overflow-hidden flex flex-col justify-between shadow-xl shadow-teal-950/40">
             <div className="absolute top-0 right-0 w-40 h-40 bg-teal-500/10 rounded-full blur-3xl pointer-events-none" />
             <div>
               <div className="flex items-center gap-3 mb-6">

@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import gsap from 'gsap';
 import {
   Check,
   ShieldCheck,
@@ -102,6 +103,44 @@ export default function PricingSection({ content, lang, onSelectPackage }) {
   const finalSetup = baseSetup + totalAddonSetup;
   const finalMonthly = baseMonthly + totalAddonMonthly;
 
+  // Smooth GSAP rolling number animation for calculator totals
+  const [displaySetup, setDisplaySetup] = useState(finalSetup);
+  const [displayMonthly, setDisplayMonthly] = useState(finalMonthly);
+  const setupValRef = useRef({ val: finalSetup });
+  const monthlyValRef = useRef({ val: finalMonthly });
+
+  useEffect(() => {
+    const prefersReduced =
+      typeof window !== 'undefined' &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (prefersReduced) {
+      setupValRef.current.val = finalSetup;
+      monthlyValRef.current.val = finalMonthly;
+      setDisplaySetup(finalSetup);
+      setDisplayMonthly(finalMonthly);
+      return;
+    }
+
+    const t1 = gsap.to(setupValRef.current, {
+      val: finalSetup,
+      duration: 0.45,
+      ease: 'power2.out',
+      onUpdate: () => setDisplaySetup(Math.round(setupValRef.current.val))
+    });
+    const t2 = gsap.to(monthlyValRef.current, {
+      val: finalMonthly,
+      duration: 0.45,
+      ease: 'power2.out',
+      onUpdate: () => setDisplayMonthly(Math.round(monthlyValRef.current.val))
+    });
+
+    return () => {
+      t1.kill();
+      t2.kill();
+    };
+  }, [finalSetup, finalMonthly]);
+
   const whatsappMessage = encodeURIComponent(
     isRtl
       ? `היי צור, ביצעתי הערכה במחשבון האתר: בסיס ${
@@ -118,7 +157,7 @@ export default function PricingSection({ content, lang, onSelectPackage }) {
     <section id="pricing" className="py-24 bg-[#0b0f19] relative transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-8">
+        <div data-animate="fade-up" className="text-center max-w-3xl mx-auto mb-8">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-teal-500/10 border border-teal-500/30 text-teal-300 text-xs font-semibold mb-3">
             <Sparkles className="w-3.5 h-3.5" />
             <span>{isRtl ? 'עוגן תמחור שקוף • ללא כבילה' : 'Transparent Anchor Pricing • Zero Lock-In'}</span>
@@ -178,11 +217,11 @@ export default function PricingSection({ content, lang, onSelectPackage }) {
 
         {/* VIEW 1: TRANSPARENT ANCHOR PACKAGES (LANDING PAGE & FULL CUSTOM PLATFORM) */}
         {viewMode === 'transparent' && (
-          <div className="max-w-5xl mx-auto space-y-10">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+          <div className="max-w-5xl mx-auto space-y-10 animate-fadeIn">
+            <div data-animate-stagger className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
               
               {/* PACKAGE 1: LANDING PAGE (החל מ-2,500 ₪) */}
-              <div className="lg:col-span-5 p-7 sm:p-8 rounded-3xl bg-slate-900/70 border border-slate-800 flex flex-col justify-between hover:border-slate-700 transition-all glow-card">
+              <div data-animate-item className="lg:col-span-5 p-7 sm:p-8 rounded-3xl bg-slate-900/70 border border-slate-800 flex flex-col justify-between hover:border-slate-700 transition-all glow-card">
                 <div>
                   <div className="flex items-center justify-between gap-2 mb-3">
                     <span className="text-xs font-bold text-teal-300 bg-teal-500/15 px-3 py-1 rounded-full border border-teal-500/30">
@@ -246,7 +285,7 @@ export default function PricingSection({ content, lang, onSelectPackage }) {
               </div>
 
               {/* PACKAGE 2: FULL CUSTOM PLATFORM (החל מ-8,500 ₪ + 350/750 RETAINERS) */}
-              <div className="lg:col-span-7 p-7 sm:p-9 rounded-3xl bg-slate-900/90 border-2 border-teal-500/60 flex flex-col justify-between relative shadow-2xl shadow-teal-950/50 glow-teal">
+              <div data-animate-item className="lg:col-span-7 p-7 sm:p-9 rounded-3xl bg-slate-900/90 border-2 border-teal-500/60 flex flex-col justify-between relative shadow-2xl shadow-teal-950/50 glow-teal">
                 <div className="absolute top-0 right-0 w-60 h-60 bg-teal-500/15 rounded-full blur-3xl pointer-events-none" />
 
                 <div>
@@ -515,10 +554,10 @@ export default function PricingSection({ content, lang, onSelectPackage }) {
                 </div>
                 <div className="flex flex-wrap items-baseline gap-3">
                   <span className="text-2xl sm:text-3xl font-extrabold text-white font-mono">
-                    {finalSetup.toLocaleString()} ₪
+                    {displaySetup.toLocaleString()} ₪
                   </span>
                   <span className="text-sm text-teal-400 font-mono font-semibold">
-                    + {finalMonthly.toLocaleString()} ₪ / {isRtl ? 'חודש' : 'month'}
+                    + {displayMonthly.toLocaleString()} ₪ / {isRtl ? 'חודש' : 'month'}
                   </span>
                   <span className="text-[11px] text-slate-400">
                     ({isRtl ? 'לפני מע״מ' : 'excl. VAT'})

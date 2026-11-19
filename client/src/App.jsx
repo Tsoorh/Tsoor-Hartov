@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { siteContent } from './data/content';
+import { usePageScrollAnimations } from './hooks/useGsapAnimations';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import ValueProps from './components/ValueProps';
@@ -19,6 +20,9 @@ export default function App() {
   // Default language is Hebrew
   const [lang, setLang] = useState('he');
   const content = siteContent[lang];
+  const mainRef = useRef(null);
+
+  usePageScrollAnimations(mainRef, lang);
 
   // Ensure pure dark mode across the application
   useEffect(() => {
@@ -104,7 +108,7 @@ export default function App() {
       />
 
       {/* Main Content Sections */}
-      <main id="main-content" className="flex-1">
+      <main id="main-content" ref={mainRef} className="flex-1">
         <Hero content={content} lang={lang} />
         <ValueProps content={content} lang={lang} />
         <CaseStudyTiran content={content} lang={lang} />

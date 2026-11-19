@@ -131,7 +131,7 @@ export default function ContactSection({ content, lang }) {
   return (
     <section id="contact" className="py-24 bg-[#0b0f19] relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div data-animate="fade-up" className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-teal-500/10 border border-teal-500/30 text-teal-300 text-xs font-semibold mb-3">
             <Sparkles className="w-3.5 h-3.5" />
             <span>{isRtl ? 'בואו נדבר תכלס' : 'Let’s Connect'}</span>
@@ -144,9 +144,9 @@ export default function ContactSection({ content, lang }) {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 max-w-5xl mx-auto">
+        <div data-animate-stagger className="grid grid-cols-1 lg:grid-cols-12 gap-10 max-w-5xl mx-auto">
           {/* Direct WhatsApp Callout Box (Left / Right) */}
-          <div className="lg:col-span-5 space-y-6">
+          <div data-animate-item className="lg:col-span-5 space-y-6">
             <div className="p-8 rounded-3xl bg-emerald-950/20 border border-emerald-500/30 backdrop-blur-xl relative overflow-hidden flex flex-col justify-between h-full shadow-xl">
               <div>
                 <div className="w-14 h-14 rounded-2xl bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-emerald-400 mb-6">
@@ -198,7 +198,7 @@ export default function ContactSection({ content, lang }) {
           </div>
 
           {/* Form Box */}
-          <div className="lg:col-span-7 bg-slate-900/60 border border-slate-800 rounded-3xl p-6 sm:p-10 backdrop-blur-xl">
+          <div data-animate-item className="lg:col-span-7 bg-slate-900/60 border border-slate-800 rounded-3xl p-6 sm:p-10 backdrop-blur-xl">
             {submitted ? (
               <div className="text-center py-12 space-y-4">
                 <div className="w-16 h-16 rounded-full bg-teal-500/20 text-teal-400 flex items-center justify-center mx-auto mb-4 border border-teal-500/40">

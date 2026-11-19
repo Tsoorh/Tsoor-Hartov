@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Phone, Globe, Menu, X, Shield } from 'lucide-react';
 
 export default function Navbar({
@@ -9,13 +9,21 @@ export default function Navbar({
 }) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const progressBarRef = useRef(null);
   const isRtl = lang === 'he';
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+      const y = window.scrollY;
+      setScrolled(y > 20);
+      if (progressBarRef.current) {
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = docHeight > 0 ? Math.min(Math.max(y / docHeight, 0), 1) : 0;
+        progressBarRef.current.style.transform = `scaleX(${progress})`;
+      }
     };
-    window.addEventListener('scroll', handleScroll);
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -196,6 +204,20 @@ export default function Navbar({
             </div>
           </div>
         )}
+      </div>
+
+      {/* Subtle Scroll Progress Indicator */}
+      <div
+        aria-hidden="true"
+        className="absolute bottom-0 left-0 right-0 h-[2px] bg-transparent pointer-events-none overflow-hidden"
+      >
+        <div
+          ref={progressBarRef}
+          className={`h-full w-full bg-gradient-to-r from-teal-400 via-sky-400 to-teal-300 ${
+            isRtl ? 'origin-right' : 'origin-left'
+          }`}
+          style={{ transform: 'scaleX(0)' }}
+        />
       </div>
     </header>
   );

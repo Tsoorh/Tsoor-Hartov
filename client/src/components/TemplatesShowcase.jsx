@@ -53,7 +53,7 @@ export default function TemplatesShowcase({ lang }) {
   return (
     <section className="py-20 bg-[#0a0e17] border-t border-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-14">
+        <div data-animate="fade-up" className="text-center max-w-3xl mx-auto mb-14">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-teal-500/10 border border-teal-500/30 text-teal-300 text-xs font-semibold mb-3">
             <Sliders className="w-3.5 h-3.5" />
             <span>{isRtl ? 'פורמטים מוכחים לעסקים' : 'Proven Industry Formats'}</span>
@@ -97,11 +97,13 @@ export default function TemplatesShowcase({ lang }) {
 
         {/* Selected Format Card */}
         <div
+          data-animate="fade-up"
           id="format-panel"
           role="tabpanel"
           aria-labelledby={`format-tab-${activeTab}`}
-          className="bg-slate-900/60 border border-slate-800 rounded-3xl p-6 sm:p-10 backdrop-blur-md grid grid-cols-1 lg:grid-cols-12 gap-8 items-center"
+          className="bg-slate-900/60 border border-slate-800 rounded-3xl p-6 sm:p-10 backdrop-blur-md"
         >
+          <div key={activeTab} className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center animate-fadeIn">
           <div className="lg:col-span-6 space-y-5">
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-teal-500/10 text-teal-300 text-xs font-semibold border border-teal-500/30">
               <Sparkles className="w-3 h-3" />
@@ -156,6 +158,7 @@ export default function TemplatesShowcase({ lang }) {
                 </div>
               </div>
             </div>
+          </div>
           </div>
         </div>
       </div>

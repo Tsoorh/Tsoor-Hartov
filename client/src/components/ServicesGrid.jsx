@@ -18,7 +18,7 @@ export default function ServicesGrid({ content, lang }) {
   return (
     <section id="services" className="py-24 bg-[#0b0f19] relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div data-animate="fade-up" className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-4">
             {services.title}
           </h2>
@@ -27,12 +27,13 @@ export default function ServicesGrid({ content, lang }) {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div data-animate-stagger className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {services.list.map((srv) => {
             const Icon = iconMap[srv.icon] || Laptop;
             return (
               <div
                 key={srv.id}
+                data-animate-item
                 className="group p-8 rounded-3xl bg-slate-900/50 border border-slate-800 hover:border-teal-500/40 transition-all duration-300 hover:-translate-y-1 relative overflow-hidden flex flex-col justify-between glow-card"
               >
                 <div className="absolute top-0 right-0 w-32 h-32 bg-teal-500/5 rounded-full blur-2xl group-hover:bg-teal-500/10 transition-colors pointer-events-none" />

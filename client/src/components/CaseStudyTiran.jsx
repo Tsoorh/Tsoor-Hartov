@@ -14,7 +14,7 @@ export default function CaseStudyTiran({ content, lang }) {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+        <div data-animate="fade-up" className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
           <div>
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-500/10 border border-teal-500/30 text-teal-300 text-xs font-semibold mb-3">
               <Sparkles className="w-3.5 h-3.5" />
@@ -77,7 +77,7 @@ export default function CaseStudyTiran({ content, lang }) {
         </div>
 
         {/* Case Study Card */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-slate-900/60 border border-slate-800 rounded-3xl p-6 sm:p-10 backdrop-blur-xl glow-card">
+        <div data-animate="fade-up" className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-slate-900/60 border border-slate-800 rounded-3xl p-6 sm:p-10 backdrop-blur-xl glow-card">
           {/* Details & Copy */}
           <div className="lg:col-span-5 space-y-6">
             <h3 className="text-xl sm:text-2xl font-bold text-white leading-snug">

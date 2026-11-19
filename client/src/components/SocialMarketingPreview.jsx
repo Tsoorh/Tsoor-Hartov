@@ -10,7 +10,7 @@ export default function SocialMarketingPreview({ content, lang }) {
   return (
     <section id="social-kit" dir={isRtl ? 'rtl' : 'ltr'} className="py-24 bg-[#0a0e18] border-t border-slate-800/80 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div data-animate="fade-up" className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-teal-500/10 border border-teal-500/30 text-teal-300 text-xs font-semibold mb-3">
             <Share2 className="w-3.5 h-3.5" />
             <span>{isRtl ? 'שיווק ממומן ואורגני ברשתות' : 'Built for Social Advertising'}</span>
@@ -24,10 +24,11 @@ export default function SocialMarketingPreview({ content, lang }) {
         </div>
 
         {/* 4 Pillars of Social Optimization */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+        <div data-animate-stagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
           {socialMarketing.channels.map((chan, i) => (
             <div
               key={i}
+              data-animate-item
               dir={isRtl ? 'rtl' : 'ltr'}
               className="p-6 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-teal-500/40 transition-all flex flex-col justify-between"
             >
@@ -52,7 +53,7 @@ export default function SocialMarketingPreview({ content, lang }) {
         </div>
 
         {/* Interactive Social Media Previewer */}
-        <div className="max-w-4xl mx-auto bg-slate-900/80 border border-slate-800 rounded-3xl p-6 sm:p-10 backdrop-blur-xl shadow-2xl">
+        <div data-animate="fade-up" className="max-w-4xl mx-auto bg-slate-900/80 border border-slate-800 rounded-3xl p-6 sm:p-10 backdrop-blur-xl shadow-2xl">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-800 mb-8">
             <div>
               <h3 className="text-lg sm:text-xl font-bold text-white">

@@ -34,7 +34,7 @@ export default function AutomationsSection({ content, lang }) {
       <div className="absolute top-1/2 right-1/4 w-[500px] h-[500px] bg-teal-500/10 rounded-full blur-[150px] pointer-events-none -z-10" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div data-animate="fade-up" className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-500/10 border border-teal-500/30 text-teal-300 text-xs font-semibold mb-3">
             <Zap className="w-3.5 h-3.5" />
             <span>{isRtl ? 'אוטומציות ומערכות מותאמות אישית' : 'Custom Automations & Systems'}</span>
@@ -73,7 +73,7 @@ export default function AutomationsSection({ content, lang }) {
         </div>
 
         {/* 4-Step Flow Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 relative">
+        <div data-animate-stagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 relative">
           {automationsFlow.steps.map((st, idx) => {
             const Icon = stepIcons[idx] || Zap;
             const stepNumber = idx + 1;
@@ -83,6 +83,7 @@ export default function AutomationsSection({ content, lang }) {
             return (
               <div
                 key={idx}
+                data-animate-item
                 className={`p-6 rounded-3xl border transition-all duration-500 relative flex flex-col justify-between ${
                   isHighlighted
                     ? 'bg-teal-950/40 border-teal-400 shadow-xl shadow-teal-500/30 scale-105 -translate-y-2'
