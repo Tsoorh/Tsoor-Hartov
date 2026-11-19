@@ -67,7 +67,7 @@ export const siteContent = {
       url: 'https://tiranlasry.com',
       industry: 'סטודיו לייצור גופי תאורה אדריכליים בעבודת יד',
       headline: 'הפיכת מלאכת יד יוקרתית לחלון ראווה דיגיטלי שמביא אדריכלים ומעצבי פנים',
-      overview: 'טירן לסרי מעצב ומייצר גופי תאורה על-זמניים בהתאמה אישית בנס ציונה. האתר נבנה מותאם אישית במלואו כחלון ראווה וקטלוג אינטראקטיבי המציג את חומרי הגלם (עץ, פליז, מתכת מושחרת) ומאפשר לאדריכלים לבקש הצעת מחיר מדויקת לכל פריט ישירות בוואטסאפ.',
+      overview: 'טירן לסרי מעצב ומייצר גופי תאורה על-זמניים בהתאמה אישית בנס ציונה. האתר נבנה מותאם אישית במלואו כחלון ראווה וקטלוג אינטראקטיבי המציג את חומרי הגלם ומאפשר לאדריכלים לבקש הצעת מחיר מדויקת לכל פריט ישירות בוואטסאפ.',
       highlights: [
         'ארכיטקטורה מותאמת אישית ומלאה המאפשרת הרחבת קטלוג ומערכות בכל עת',
         'חוויית משתמש מוקפדת המותאמת במיוחד לתנועה מרשתות חברתיות',
@@ -384,7 +384,7 @@ export const siteContent = {
       url: 'https://tiranlasry.com',
       industry: 'Handmade Architectural Lighting Fixtures Studio',
       headline: 'Transforming Bespoke Craftsmanship into a High-Converting Digital Showroom for Architects',
-      overview: 'Tiran Lasry creates timeless, custom lighting fixtures in Ness Ziona. Built 100% custom as an immersive showcase and catalog showcasing raw materials (brass, solid wood, blackened steel), enabling architects to request custom item quotes directly via WhatsApp.',
+      overview: 'Tiran Lasry creates timeless, custom lighting fixtures in Ness Ziona. Built 100% custom as an immersive showcase and catalog showcasing raw materials, enabling architects to request custom item quotes directly via WhatsApp.',
       highlights: [
         '100% Custom architecture allowing modular catalog expansion anytime',
         'Meticulous UX optimized specifically for high-intent social traffic',
