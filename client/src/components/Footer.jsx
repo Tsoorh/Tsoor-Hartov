@@ -1,5 +1,6 @@
 import React from 'react';
 import { Globe, Shield, Lock, Scale } from 'lucide-react';
+import Logo from './Logo';
 
 export default function Footer({ content, lang, setLang, onOpenLegal }) {
   const { footer, nav } = content;
@@ -12,9 +13,7 @@ export default function Footer({ content, lang, setLang, onOpenLegal }) {
         <div className="flex flex-col lg:flex-row items-center justify-between gap-6 pb-8 border-b border-slate-800/80">
           <div className="text-center lg:text-start">
             <div className="flex items-center justify-center lg:justify-start gap-2 mb-2">
-              <div className="w-8 h-8 rounded-lg bg-teal-500/20 text-teal-400 border border-teal-500/40 flex items-center justify-center font-bold text-xs">
-                TS
-              </div>
+              <Logo className="w-8 h-8 shrink-0" idPrefix="footer_logo" />
               <span className="text-base font-bold text-white tracking-tight">
                 {nav.brand}
               </span>

@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Phone, Globe, Menu, X, Shield } from 'lucide-react';
+import Logo from './Logo';
 
 export default function Navbar({
   lang,
@@ -59,9 +60,10 @@ export default function Navbar({
             className="flex items-center gap-3 shrink-0 group focus-visible:ring-2 focus-visible:ring-teal-400 focus-visible:outline-none rounded-xl"
             aria-label={`${content.nav.brand} - ${content.nav.tagline}`}
           >
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-teal-500 to-sky-500 flex items-center justify-center shadow-lg shadow-teal-500/20 font-black text-white text-lg shrink-0 group-hover:scale-105 transition-transform">
-              TS
-            </div>
+            <Logo
+              className="w-10 h-10 shrink-0 drop-shadow-[0_4px_12px_rgba(20,184,166,0.25)] group-hover:scale-105 transition-transform"
+              idPrefix="nav_logo"
+            />
             <div className="flex flex-col justify-center">
               <span className="font-extrabold text-base sm:text-lg text-white leading-none tracking-tight group-hover:text-teal-400 transition-colors">
                 {content.nav.brand}

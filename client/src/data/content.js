@@ -1,8 +1,8 @@
 export const siteContent = {
   he: {
     nav: {
-      brand: 'צור הרטוב',
-      tagline: 'מערכות מידע • פיתוח אתרים',
+      brand: 'הרטוב',
+      tagline: 'פיתוח אתרים ומערכות',
       services: 'שירותים',
       caseStudies: 'פרויקטים נבחרים',
       automations: 'אוטומציות',
@@ -311,15 +311,15 @@ export const siteContent = {
       directWhatsappBtn: 'פתיחת שיחה בוואטסאפ עכשיו'
     },
     footer: {
-      brandDesc: 'צור הרטוב • פיתוח אתרים מותאמים אישית ומערכות דיגיטליות לעסקים בצמיחה. שירות יסודי ומקצועי ללא פשרות.',
-      copyright: '© כל הזכויות שמורות לצור הרטוב - פיתוח אתרים ומערכות דיגיטליות לעסקים.',
+      brandDesc: 'הרטוב • פיתוח אתרים מותאמים אישית ומערכות דיגיטליות לעסקים בצמיחה. שירות יסודי ומקצועי ללא פשרות.',
+      copyright: '© כל הזכויות שמורות להרטוב - פיתוח אתרים ומערכות דיגיטליות לעסקים.',
       subnote: 'נבנה ב-React & Node.js בהתאמה אישית מלאה.'
     }
   },
   en: {
     nav: {
-      brand: 'Tsoor Hartov',
-      tagline: 'Information Systems • Web Dev',
+      brand: 'Hartov',
+      tagline: 'Web Development & Systems',
       services: 'Services',
       caseStudies: 'Featured Work',
       automations: 'Automations',
@@ -628,8 +628,8 @@ export const siteContent = {
       directWhatsappBtn: 'Open WhatsApp Chat Now'
     },
     footer: {
-      brandDesc: 'Tsoor Hartov • Bespoke custom web development and digital systems for growing businesses. Thorough, professional engineering.',
-      copyright: '© All rights reserved to Tsoor Hartov - Bespoke Web Development & Digital Systems.',
+      brandDesc: 'Hartov • Bespoke custom web development and digital systems for growing businesses. Thorough, professional engineering.',
+      copyright: '© All rights reserved to Hartov - Bespoke Web Development & Digital Systems.',
       subnote: 'Crafted with React & Node.js in 100% Custom Architecture.'
     }
   }
