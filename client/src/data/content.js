@@ -261,7 +261,6 @@ export const siteContent = {
     },
     about: {
       title: 'נעים להכיר, אני צור הרטוב',
-      badge: 'מומחה מערכות מידע ומנהל פרויקטים (B.Sc) | בוגר Coding Academy',
       tagline: 'שילוב ייחודי בין הנדסת מערכות, חשיבה עסקית ופיתוח תוכנה מתקדם ברמה הגבוהה ביותר.',
       badgesList: [
         { title: 'תואר ראשון במדעים (B.Sc)', subtitle: 'חשיבה אנליטית, ארכיטקטורת מערכות ופתרון בעיות מורכבות' },
@@ -579,7 +578,6 @@ export const siteContent = {
     },
     about: {
       title: 'Nice to meet you, I’m Tsoor Hartov',
-      badge: 'Information Systems Expert & Project Manager (B.Sc) | Certified by Coding Academy',
       tagline: 'A unique synergy between systems architecture, operational business insight, and custom Full-Stack development.',
       badgesList: [
         { title: 'Bachelor of Science (B.Sc)', subtitle: 'Analytical rigor, systems architecture, and complex problem solving' },

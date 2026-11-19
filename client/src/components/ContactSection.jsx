@@ -164,7 +164,7 @@ export default function ContactSection({ content, lang }) {
                 <div className="space-y-3 pt-2 text-xs text-slate-300">
                   <div className="flex items-center gap-2">
                     <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-                    <span>{isRtl ? 'מענה ישיר מצור (ללא מזכירות או בוטים מסורבלים)' : 'Direct response from Tsoor (no bot loops)'}</span>
+                    <span>{isRtl ? 'מענה ישיר מצור' : 'Direct response from Tsoor'}</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />

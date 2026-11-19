@@ -1,5 +1,5 @@
 import React from 'react';
-import { GraduationCap, Award, Server, Truck, CheckCircle2, ShieldCheck, Sparkles, UserCheck } from 'lucide-react';
+import { GraduationCap, Award, Server, Truck, CheckCircle2, ShieldCheck, Sparkles } from 'lucide-react';
 
 export default function AboutSection({ content, lang }) {
   const { about } = content;
@@ -82,11 +82,6 @@ export default function AboutSection({ content, lang }) {
 
           {/* Right Column: Story & Why this matters for SMBs */}
           <div className="lg:col-span-7 space-y-6">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-500/10 border border-teal-500/30 text-teal-300 text-xs font-semibold">
-              <UserCheck className="w-3.5 h-3.5" />
-              <span>{about.badge}</span>
-            </div>
-
             <h2 className="text-3xl sm:text-4xl font-extrabold text-white leading-tight">
               {about.title}
             </h2>
