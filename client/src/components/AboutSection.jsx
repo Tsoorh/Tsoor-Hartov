@@ -1,5 +1,6 @@
 import React from 'react';
 import { GraduationCap, Award, Server, Truck, CheckCircle2, ShieldCheck, Sparkles } from 'lucide-react';
+import Logo from './Logo';
 
 export default function AboutSection({ content, lang }) {
   const { about } = content;
@@ -26,12 +27,10 @@ export default function AboutSection({ content, lang }) {
 
               {/* Profile Header */}
               <div className="flex items-center gap-4 mb-6">
-                <div className="w-20 h-20 rounded-2xl bg-gradient-to-tr from-teal-500 via-sky-500 to-indigo-600 p-[2px] shadow-lg shadow-teal-500/20">
-                  <div className="w-full h-full rounded-2xl bg-slate-950 flex flex-col items-center justify-center text-white">
-                    <span className="text-2xl font-black tracking-tight">TS</span>
-                    <span className="text-[9px] font-mono text-teal-400 uppercase">DEV</span>
-                  </div>
-                </div>
+                <Logo
+                  className="w-20 h-20 rounded-2xl shrink-0 drop-shadow-[0_8px_20px_rgba(20,184,166,0.3)] hover:scale-105 transition-transform"
+                  idPrefix="about_card_logo"
+                />
 
                 <div>
                   <h3 className="text-2xl font-extrabold text-white">

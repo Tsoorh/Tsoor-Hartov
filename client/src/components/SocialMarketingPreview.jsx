@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Share2, Instagram, Facebook, Linkedin, MessageCircle, Sparkles, Check, ArrowUpRight } from 'lucide-react';
+import Logo from './Logo';
 
 export default function SocialMarketingPreview({ content, lang }) {
   const { socialMarketing } = content;
@@ -123,8 +124,8 @@ export default function SocialMarketingPreview({ content, lang }) {
                 <div className="flex items-center justify-between mb-3">
                   <div className="flex items-center gap-2.5">
                     <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-amber-500 via-pink-500 to-purple-600 p-[2px]">
-                      <div className="w-full h-full rounded-full bg-slate-900 flex items-center justify-center font-bold text-xs text-white">
-                        TS
+                      <div className="w-full h-full rounded-full bg-slate-900 flex items-center justify-center overflow-hidden">
+                        <Logo className="w-6 h-6" idPrefix="social_ig_logo" />
                       </div>
                     </div>
                     <div>
@@ -188,11 +189,11 @@ export default function SocialMarketingPreview({ content, lang }) {
             {activePlatform === 'facebook' && (
               <div className="w-full max-w-md bg-[#18191a] border border-slate-800 rounded-2xl p-4 shadow-2xl text-slate-100 font-sans">
                 <div className="flex items-center gap-2 mb-3">
-                  <div className="w-9 h-9 rounded-full bg-blue-600 flex items-center justify-center font-bold text-xs text-white">
-                    TS
+                  <div className="w-9 h-9 rounded-full bg-slate-900 border border-slate-700/60 flex items-center justify-center overflow-hidden shrink-0">
+                    <Logo className="w-7 h-7" idPrefix="social_fb_logo" />
                   </div>
                   <div>
-                    <div className="text-xs font-bold">צור הרטוב - פיתוח אתרים ואוטומציות</div>
+                    <div className="text-xs font-bold">הרטוב - פיתוח אתרים ומערכות</div>
                     <div className="text-[10px] text-slate-400">Sponsored • 🌐</div>
                   </div>
                 </div>
@@ -223,11 +224,11 @@ export default function SocialMarketingPreview({ content, lang }) {
             {activePlatform === 'linkedin' && (
               <div className="w-full max-w-md bg-[#1b1f23] border border-slate-800 rounded-2xl p-4 shadow-2xl text-slate-100 font-sans">
                 <div className="flex items-center gap-2 mb-3">
-                  <div className="w-9 h-9 rounded-full bg-sky-600 flex items-center justify-center font-bold text-xs text-white">
-                    TS
+                  <div className="w-9 h-9 rounded-full bg-slate-900 border border-slate-700/60 flex items-center justify-center overflow-hidden shrink-0">
+                    <Logo className="w-7 h-7" idPrefix="social_li_logo" />
                   </div>
                   <div>
-                    <div className="text-xs font-bold">צור הרטוב | Full-Stack Architect</div>
+                    <div className="text-xs font-bold">הרטוב | Full-Stack Architect</div>
                     <div dir="ltr" className="text-[10px] text-slate-400 text-left">Senior Web Architect & Business Systems Specialist</div>
                   </div>
                 </div>
