@@ -143,10 +143,10 @@ export default function PricingSection({ content, lang, onSelectPackage }) {
 
   const whatsappMessage = encodeURIComponent(
     isRtl
-      ? `היי צור, ביצעתי הערכה במחשבון האתר: בסיס ${
+      ? `היי, ביצעתי הערכה במחשבון האתר של הרטוב בניית אתרים: בסיס ${
           selectedBase === 'landing' ? 'דף נחיתה (החל מ-2,500 ₪)' : 'אתר מלא (החל מ-8,500 ₪)'
         }, עם ריטיינר חודשי של ${baseMonthly} ₪, וסך הכל ${finalSetup.toLocaleString()} ₪ הקמה ו-${finalMonthly.toLocaleString()} ₪ חודשי (לפני מע״מ). אשמח שנדבר על אפיון הפרויקט.`
-      : `Hi Tsoor, I used the calculator on your website: Base ${
+      : `Hi, I used the calculator on the Hartov Web Development website: Base ${
           selectedBase === 'landing' ? 'Landing Page' : 'Full Custom Site'
         }, with ${baseMonthly} ILS monthly retainer, total setup around ${finalSetup.toLocaleString()} ILS and ${finalMonthly.toLocaleString()} ILS/mo. I'd love to discuss scoping.`
   );
@@ -272,8 +272,8 @@ export default function PricingSection({ content, lang, onSelectPackage }) {
                 <a
                   href={`https://wa.me/972505935609?text=${encodeURIComponent(
                     isRtl
-                      ? 'היי צור, אשמח לקבל פרטים ולאפיין דף נחיתה ממיר (החל מ-2,500 ₪) לעסק שלי.'
-                      : 'Hi Tsoor, I would like to scope a bespoke landing page (starting from ₪2,500) for my business.'
+                      ? 'היי, ראיתי את האתר של הרטוב בניית אתרים ואשמח לקבל פרטים ולאפיין דף נחיתה ממיר (החל מ-2,500 ₪) לעסק שלי.'
+                      : 'Hi, I would like to scope a bespoke landing page (starting from ₪2,500) with Hartov Web Development for my business.'
                   )}`}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -360,8 +360,8 @@ export default function PricingSection({ content, lang, onSelectPackage }) {
                 <a
                   href={`https://wa.me/972505935609?text=${encodeURIComponent(
                     isRtl
-                      ? 'היי צור, ראיתי את מסלול האתר המותאם אישית (החל מ-8,500 ₪) ואשמח לתאם שיחת אפיון לעסק שלי.'
-                      : 'Hi Tsoor, I am interested in your full bespoke platform package (starting from ₪8,500) and would like to scope it for my business.'
+                      ? 'היי, ראיתי את מסלול האתר המותאם אישית של הרטוב בניית אתרים (החל מ-8,500 ₪) ואשמח לתאם שיחת אפיון לעסק שלי.'
+                      : 'Hi, I am interested in the full bespoke platform package (starting from ₪8,500) by Hartov Web Development and would like to scope it for my business.'
                   )}`}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -572,7 +572,7 @@ export default function PricingSection({ content, lang, onSelectPackage }) {
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-teal-500 to-sky-600 hover:from-teal-400 hover:to-sky-500 text-white font-semibold text-xs sm:text-sm hover:scale-105 transition-all shadow-lg shadow-teal-500/25"
               >
                 <MessageSquare className="w-4 h-4" />
-                <span>{isRtl ? 'שליחת אפיון זה לוואטסאפ של צור' : 'Send Estimate to WhatsApp'}</span>
+                <span>{isRtl ? 'שליחת אפיון זה לוואטסאפ' : 'Send Estimate to WhatsApp'}</span>
                 <ArrowIcon className="w-4 h-4" />
               </a>
             </div>

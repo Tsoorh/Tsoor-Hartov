@@ -89,7 +89,7 @@ export default function LegalModal({
   if (!isOpen) return null;
 
   const handleCopyCoordinator = () => {
-    const textToCopy = `רכז נגישות Tsoorhartov.com: צור הרטוב | טלפון: 050-5935609 | מייל: tsoorhartov@gmail.com`;
+    const textToCopy = `רכז נגישות ופניות הציבור - הרטוב פיתוח אתרים | טלפון: 050-5935609 | מייל: tsoor.hartov@gmail.com`;
     navigator.clipboard?.writeText(textToCopy);
     setCopiedCoordinator(true);
     setTimeout(() => setCopiedCoordinator(false), 2500);
@@ -582,7 +582,7 @@ export default function LegalModal({
         {/* Modal Footer Bar */}
         <div className="px-6 py-4 border-t border-slate-800 bg-[#0a0f1d] flex flex-wrap items-center justify-between gap-3 shrink-0">
           <div className="text-xs text-slate-400">
-            Tsoorhartov.com • {lang === 'he' ? 'כל הזכויות שמורות לצור הרטוב' : 'All rights reserved to Tsoor Hartov'}
+            Tsoorhartov.com • {lang === 'he' ? 'כל הזכויות שמורות להרטוב פיתוח אתרים' : 'All rights reserved to Hartov Web Development'}
           </div>
 
           <div className="flex items-center gap-3">

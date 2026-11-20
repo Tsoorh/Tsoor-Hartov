@@ -116,16 +116,16 @@ export default function ContactSection({ content, lang }) {
 
   const whatsappMessage = encodeURIComponent(
     isRtl
-      ? `היי צור, ראיתי את האתר שלך ואשמח לשמוע פרטים על בניית אתר/אוטומציות לעסק שלי.`
-      : `Hi Tsoor, I saw your site and would like to consult about website development and automations for my business.`
+      ? `היי, ראיתי את האתר של הרטוב בניית אתרים ואשמח לשמוע פרטים על בניית אתר/אוטומציות לעסק שלי.`
+      : `Hi, I saw the Hartov Web Development site and would like to consult about website development and automations for my business.`
   );
 
   const directWhatsappUrl = `https://wa.me/972505935609?text=${whatsappMessage}`;
 
   const submittedWhatsappUrl = `https://wa.me/972505935609?text=${encodeURIComponent(
     isRtl
-      ? `היי צור, השארתי כרגע פרטים באתר:\nשם: ${formData.name}\nטלפון: ${formData.phone}${formData.businessType ? `\nתחום: ${formData.businessType}` : ''}\nאשמח שנדבר!`
-      : `Hi Tsoor, I just submitted an inquiry on your site:\nName: ${formData.name}\nPhone: ${formData.phone}\nLooking forward to speaking!`
+      ? `היי, השארתי כרגע פרטים באתר של הרטוב בניית אתרים:\nשם: ${formData.name}\nטלפון: ${formData.phone}${formData.businessType ? `\nתחום: ${formData.businessType}` : ''}\nאשמח שנדבר!`
+      : `Hi, I just submitted an inquiry on the Hartov Web Development site:\nName: ${formData.name}\nPhone: ${formData.phone}\nLooking forward to speaking!`
   )}`;
 
   return (
@@ -164,7 +164,7 @@ export default function ContactSection({ content, lang }) {
                 <div className="space-y-3 pt-2 text-xs text-slate-300">
                   <div className="flex items-center gap-2">
                     <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-                    <span>{isRtl ? 'מענה ישיר מצור' : 'Direct response from Tsoor'}</span>
+                    <span>{isRtl ? 'ליווי ומענה מקצועי ישיר' : 'Direct professional response'}</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />

@@ -34,19 +34,19 @@ export default function AboutSection({ content, lang }) {
 
                 <div>
                   <h3 className="text-2xl font-extrabold text-white">
-                    {lang === 'he' ? 'צור הרטוב' : 'Tsoor Hartov'}
+                    {lang === 'he' ? 'הרטוב פיתוח אתרים' : 'Hartov Web Development'}
                   </h3>
                   <p className="text-xs font-semibold text-teal-400">
-                    {lang === 'he' ? 'מומחה מערכות מידע • ארכיטקט ומפתח Full-Stack' : 'Information Systems Expert • Web & Systems Architect'}
+                    {lang === 'he' ? 'מערכות מידע • ארכיטקטורה ופיתוח Full-Stack' : 'Information Systems • Web & Systems Architecture'}
                   </p>
                   <div className="inline-flex items-center gap-1 mt-1 text-[11px] text-slate-400">
                     <span className="w-2 h-2 rounded-full bg-emerald-400 inline-block"></span>
-                    <span>{lang === 'he' ? 'זמין לפרויקטים חדשים' : 'Accepting new projects'}</span>
+                    <span>{lang === 'he' ? 'זמינות לפרויקטים חדשים' : 'Accepting new projects'}</span>
                   </div>
                 </div>
               </div>
 
-              {/* 4 Core Pillars of Tsoor's Expertise */}
+              {/* 4 Core Pillars of Expertise */}
               <div className="space-y-3 pt-2">
                 {about.badgesList.map((badge, idx) => {
                   const Icon = badgeIcons[idx] || Sparkles;

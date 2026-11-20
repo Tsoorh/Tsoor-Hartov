@@ -56,7 +56,7 @@ export const siteContent = {
         },
         {
           title: 'ליווי שוטף וכתובת מקצועית אחת',
-          desc: 'שרתי ענן מנוהלים, גיבויים יומיים, תעודת SSL מאובטחת, ומענה ישיר מצור לעדכוני תוכן והעלאת מוצרים חדשים לקטלוג.'
+          desc: 'שרתי ענן מנוהלים, גיבויים יומיים, תעודת SSL מאובטחת, ומענה טכנולוגי ישיר לעדכוני תוכן והעלאת מוצרים חדשים לקטלוג.'
         }
       ]
     },
@@ -256,22 +256,22 @@ export const siteContent = {
       ],
       previewTitle: 'תצוגה מקדימה: איך הקישור שלכם נראה כשמשתפים אותו ברשתות',
       demoUrl: 'tsoorhartov.com',
-      demoCardTitle: 'צור הרטוב | אתרים מותאמים אישית ומערכות דיגיטליות לעסקים',
+      demoCardTitle: 'הרטוב פיתוח אתרים | אתרים מותאמים אישית ומערכות דיגיטליות לעסקים',
       demoCardDesc: 'האתר שמשדרג את העסק שלך: מהיר, מותאם אישית מאפס ומחובר ישירות למערכות הניהול.'
     },
     about: {
-      title: 'נעים להכיר, אני צור הרטוב',
+      title: 'הרטוב פיתוח אתרים • הנדסת מערכות ופיתוח תוכנה מתקדם',
       tagline: 'שילוב ייחודי בין הנדסת מערכות, חשיבה עסקית ופיתוח תוכנה מתקדם ברמה הגבוהה ביותר.',
       badgesList: [
-        { title: 'תואר ראשון במדעים (B.Sc)', subtitle: 'חשיבה אנליטית, ארכיטקטורת מערכות ופתרון בעיות מורכבות' },
+        { title: 'תואר ראשון מדעי (B.Sc)', subtitle: 'חשיבה אנליטית, ארכיטקטורת מערכות ופתרון בעיות מורכבות' },
         { title: 'בוגר Coding Academy', subtitle: 'הסמכת פיתוח Full-Stack מתקדמת בסטנדרטים התעשייתיים הגבוהים' },
         { title: 'ניהול פרויקטים ומערכות מידע', subtitle: 'אפיון דרישות עסקיות, עמידה קפדנית בזמנים ובקרת תקציב' },
         { title: 'מומחיות בלוגיסטיקה ושרשרת אספקה', subtitle: 'הבנה עמוקה של זרימת מוצרים, ספקים, מלאי ואינטגרציות' }
       ],
       story: [
-        'בניית אתר או מערכת לעסק היא לא רק עניין של עיצוב, אלא קודם כל הבנה מעמיקה של תהליכים עסקיים, יעילות ותשתיות אמינות. הרקע ההנדסי שלי במערכות מידע (B.Sc) יחד עם הניסיון בהובלת תהליכים מורכבים בלוגיסטיקה ובשרשרת אספקה, מאפשר לי לתכנן עבורכם אתר יציב, מהיר ומדויק – כזה שמשרת את המטרות העסקיות מהיום הראשון.',
-        'במקום להסתפק בתבניות מוכנות ומערכות כבולות, אני מפתח בקוד עצמאי נקי ב-React ו-Node.js (מוסמך Coding Academy). המשמעות עבורכם היא חופש פעולה מוחלט, ביצועים ללא פשרות ויכולת להרחיב את האתר לכל כלי, קטלוג או מערכת שהעסק יצטרך בהמשך הדרך.',
-        'השירות איתי הוא יסודי ומקצועי לכל אורך הדרך: משלב האפיון והעיצוב, דרך הפיתוח ועד ליווי שוטף לאחר העלייה לאוויר – עם כתובת מקצועית ברורה, שקיפות מלאה ואחריות אמיתית על התוצאה.'
+        'בניית אתר או מערכת לעסק היא לא רק עניין של עיצוב, אלא קודם כל הבנה מעמיקה של תהליכים עסקיים, יעילות ותשתיות אמינות. בהרטוב פיתוח אתרים, השילוב בין רקע הנדסי במערכות מידע לבין ניסיון מעשי בהובלת תהליכים מורכבים בלוגיסטיקה ובשרשרת אספקה, מתורגם לתכנון אתרים ומערכות יציבים, מהירים ומדויקים – המשרתים את המטרות העסקיות מהיום הראשון.',
+        'במקום להסתפק בתבניות מוכנות ומערכות כבולות, הפיתוח מתבצע בקוד עצמאי נקי ב-React ו-Node.js (בוגר Coding Academy). המשמעות עבור העסק שלכם היא חופש פעולה מוחלט, ביצועים ללא פשרות ויכולת להרחיב את האתר לכל כלי, קטלוג או מערכת שיידרשו בהמשך הדרך.',
+        'תהליך העבודה הינו יסודי ומקצועי לכל אורך הדרך: משלב האפיון והעיצוב, דרך הפיתוח ועד ליווי שוטף לאחר העלייה לאוויר – עם כתובת מקצועית ברורה, שקיפות מלאה ואחריות אמיתית על התוצאה.'
       ],
       values: [
         { label: 'שירות יסודי ומקצועי', desc: 'אפיון מעמיק, ירידה לפרטים ובקרת איכות קפדנית בכל שורת קוד.' },
@@ -302,12 +302,12 @@ export const siteContent = {
         'מסלול ריטיינר וניהול מלא בראש שקט'
       ],
       messageLabel: 'ספר בקצרה על הפרויקט או הדרישות המיוחדות',
-      messagePlaceholder: 'אשמח לשמוע על היעדים והחזון שלך לעסק...',
-      submitBtn: 'שליחת פרטים לתיאום שיחה עם צור',
+      messagePlaceholder: 'נשמח לשמוע על היעדים והחזון שלך לעסק...',
+      submitBtn: 'שליחת פרטים לתיאום שיחת אפיון',
       submittingBtn: 'שולח פרטים...',
-      successMsg: 'תודה רבה! הפנייה שלך התקבלה בהצלחה. צור יחזור אליך בהקדם.',
+      successMsg: 'תודה רבה! הפנייה שלך התקבלה בהצלחה. נחזור אליך בהקדם.',
       directWhatsappTitle: 'רוצים תשובה מיידית?',
-      directWhatsappDesc: 'לחצו כאן למעבר ישיר לשיחת WhatsApp עם צור הרטוב',
+      directWhatsappDesc: 'לחצו כאן למעבר ישיר לשיחת WhatsApp עם הרטוב פיתוח אתרים',
       directWhatsappBtn: 'פתיחת שיחה בוואטסאפ עכשיו'
     },
     footer: {
@@ -373,7 +373,7 @@ export const siteContent = {
         },
         {
           title: 'Complete Peace of Mind & WhatsApp Updates',
-          desc: 'High-speed cloud servers, daily automated backups, SSL security, and direct WhatsApp support from Tsoor for hassle-free content and catalog updates.'
+          desc: 'High-speed cloud servers, daily automated backups, SSL security, and direct technical support via WhatsApp for hassle-free content and catalog updates.'
         }
       ]
     },
@@ -573,11 +573,11 @@ export const siteContent = {
       ],
       previewTitle: 'Live Preview: How Your Link Looks When Shared on Social Media',
       demoUrl: 'tsoorhartov.com',
-      demoCardTitle: 'Tsoor Hartov | Custom Bespoke Websites & Systems for Growing SMBs',
+      demoCardTitle: 'Hartov Web Development | Custom Bespoke Websites & Systems for Growing SMBs',
       demoCardDesc: 'Custom engineered platform built to scale your business and streamline client acquisition.'
     },
     about: {
-      title: 'Nice to meet you, I’m Tsoor Hartov',
+      title: 'Hartov Web Development • Systems Engineering & Custom Software',
       tagline: 'A unique synergy between systems architecture, operational business insight, and custom Full-Stack development.',
       badgesList: [
         { title: 'Bachelor of Science (B.Sc)', subtitle: 'Analytical rigor, systems architecture, and complex problem solving' },
@@ -586,9 +586,9 @@ export const siteContent = {
         { title: 'Logistics & Supply Chain Specialist', subtitle: 'Deep operational insight into inventory, vendor flows, and process automation' }
       ],
       story: [
-        'Building a website or business system is never just visual design—it requires deep operational insight into business processes, efficiency, and robust infrastructure. My engineering background in Information Systems (B.Sc), combined with hands-on experience directing complex logistics and supply chain workflows, enables me to architect resilient, high-performance systems that serve your business goals from day one.',
-        'Instead of relying on rigid, closed website builders, I develop 100% custom code using modern React & Node.js (certified by Coding Academy). For you, this means complete architectural freedom, uncompromising performance, and the flexibility to scale with any future tool, catalog, or internal portal without ever rebuilding.',
-        'Our collaboration is thorough and professional at every milestone: from scoping and design to deployment and ongoing support—providing a clear technical anchor, complete transparency, and genuine accountability.'
+        'Building a website or business system is never just visual design—it requires deep operational insight into business processes, efficiency, and robust infrastructure. At Hartov Web Development, the combination of an engineering background in Information Systems (B.Sc) and hands-on experience directing complex logistics and supply chain workflows translates into resilient, high-performance systems that serve your business goals from day one.',
+        'Instead of relying on rigid, closed website builders, development is executed in 100% custom code using modern React & Node.js (certified by Coding Academy). For your business, this means complete architectural freedom, uncompromising performance, and the flexibility to scale with any future tool, catalog, or internal portal without ever rebuilding.',
+        'The working process is thorough and professional at every milestone: from scoping and design to deployment and ongoing support—providing a clear technical anchor, complete transparency, and genuine accountability.'
       ],
       values: [
         { label: 'Thorough & Professional Engineering', desc: 'In-depth scoping, obsessive attention to detail, and strict quality control on every line of code.' },
@@ -618,13 +618,13 @@ export const siteContent = {
         'Lead Automations, WhatsApp & CRM Synchronization',
         'All-Inclusive Managed Retainer & Peace of Mind'
       ],
-      messageLabel: 'Tell me briefly about your project and goals',
+      messageLabel: 'Tell us briefly about your project and goals',
       messagePlaceholder: 'Share what you are looking to achieve...',
-      submitBtn: 'Send Details for Discovery Call with Tsoor',
+      submitBtn: 'Send Details for Discovery Call',
       submittingBtn: 'Sending...',
-      successMsg: 'Thank you! Your inquiry was received. Tsoor will get back to you shortly.',
+      successMsg: 'Thank you! Your inquiry was received. We will get back to you shortly.',
       directWhatsappTitle: 'Need an immediate answer?',
-      directWhatsappDesc: 'Click below to start a direct WhatsApp chat with Tsoor Hartov',
+      directWhatsappDesc: 'Click below to start a direct WhatsApp chat with Hartov Web Development',
       directWhatsappBtn: 'Open WhatsApp Chat Now'
     },
     footer: {

@@ -39,8 +39,8 @@ export default function Navbar({
 
   const whatsappUrl = `https://wa.me/972505935609?text=${encodeURIComponent(
     isRtl
-      ? 'היי צור, ראיתי את האתר שלך ואשמח לשמוע פרטים על בניית אתר/אוטומציות לעסק שלי.'
-      : 'Hi Tsoor, I saw your website and would like to hear more about web development and automations for my business.'
+      ? 'היי, ראיתי את האתר של הרטוב בניית אתרים ואשמח לשמוע פרטים על בניית אתר/אוטומציות לעסק שלי.'
+      : 'Hi, I saw the Hartov Web Development website and would like to hear more about web development and automations for my business.'
   )}`;
 
   return (
@@ -115,7 +115,7 @@ export default function Navbar({
               href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label={isRtl ? 'פנייה ישירה לוואטסאפ של צור הרטוב' : 'Chat with Tsoor on WhatsApp'}
+              aria-label={isRtl ? 'פנייה ישירה לוואטסאפ של הרטוב פיתוח אתרים' : 'Chat with Hartov Web Development on WhatsApp'}
               className="h-9 px-3 sm:px-3.5 rounded-xl bg-[#25D366]/15 hover:bg-[#25D366]/25 border border-[#25D366]/40 text-[#25D366] text-xs font-bold transition-all hover:scale-105 flex items-center justify-center gap-1.5 shrink-0 shadow-sm shadow-[#25D366]/10 focus-visible:ring-2 focus-visible:ring-[#25D366] focus-visible:outline-none"
             >
               <svg className="w-4 h-4 shrink-0" viewBox="0 0 64 64" style={{ display: 'block' }}>

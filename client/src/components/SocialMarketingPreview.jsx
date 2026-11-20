@@ -129,7 +129,7 @@ export default function SocialMarketingPreview({ content, lang }) {
                       </div>
                     </div>
                     <div>
-                      <div className="text-xs font-bold leading-tight">tsoor.hartov</div>
+                      <div className="text-xs font-bold leading-tight">hartov.web</div>
                       <div className="text-[10px] text-slate-400">Sponsored • Sponsored Ads</div>
                     </div>
                   </div>
@@ -176,7 +176,7 @@ export default function SocialMarketingPreview({ content, lang }) {
                   <div className="p-3.5">
                     <div dir="ltr" className="text-[11px] text-teal-400 font-mono text-left">tsoorhartov.com</div>
                     <div className={`text-sm font-bold text-white mt-0.5 ${isRtl ? 'text-right' : 'text-left'}`}>
-                      צור הרטוב | אתרי פרימיום ואוטומציות לעסקים
+                      הרטוב פיתוח אתרים | אתרי פרימיום ומערכות לעסקים
                     </div>
                     <p className={`text-xs text-slate-300 mt-1 line-clamp-2 ${isRtl ? 'text-right' : 'text-left'}`}>
                       בניית אתרים מותאמים אישית לעסקים, כלים דיגיטליים, וחיבור ישיר לוואטסאפ ולמערכות ניהול.

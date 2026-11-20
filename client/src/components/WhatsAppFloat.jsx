@@ -6,8 +6,8 @@ export default function WhatsAppFloat({ lang }) {
 
   const message = encodeURIComponent(
     isRtl
-      ? 'היי צור, ראיתי את האתר שלך ואשמח לשמוע פרטים על בניית אתר/אוטומציות לעסק שלי.'
-      : 'Hi Tsoor, I saw your website and would like to hear more about web development and automations for my business.'
+      ? 'היי, ראיתי את האתר של הרטוב בניית אתרים ואשמח לשמוע פרטים על בניית אתר/אוטומציות לעסק שלי.'
+      : 'Hi, I saw the Hartov Web Development website and would like to hear more about web development and automations for my business.'
   );
 
   const url = `https://wa.me/972505935609?text=${message}`;
@@ -29,7 +29,7 @@ export default function WhatsAppFloat({ lang }) {
         <div className="w-2.5 h-2.5 rounded-full bg-[#25D366] animate-pulse"></div>
         <div>
           <div className="text-xs font-bold leading-tight">
-            {isRtl ? 'צור הרטוב - זמין בוואטסאפ' : 'Tsoor is available on WhatsApp'}
+            {isRtl ? 'הרטוב פיתוח אתרים - זמינים בוואטסאפ' : 'Hartov Web Dev - Available on WhatsApp'}
           </div>
           <div className="text-[11px] text-teal-400 font-mono mt-0.5">050-593-5609</div>
         </div>
@@ -40,7 +40,7 @@ export default function WhatsAppFloat({ lang }) {
         href={url}
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="Chat with Tsoor Hartov on WhatsApp (050-593-5609)"
+        aria-label="Chat with Hartov Web Development on WhatsApp (050-593-5609)"
         className="group relative flex items-center gap-2 p-1 sm:px-3 sm:py-2 bg-slate-900/90 hover:bg-slate-850 border border-slate-700/80 hover:border-[#25D366]/60 rounded-full shadow-2xl shadow-black/80 hover:scale-105 active:scale-95 transition-all duration-300 backdrop-blur-md focus-visible:ring-2 focus-visible:ring-[#25D366] focus-visible:outline-none"
       >
         <div className="relative shrink-0 flex items-center justify-center">
